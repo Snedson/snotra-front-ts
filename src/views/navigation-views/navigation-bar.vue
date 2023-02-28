@@ -57,6 +57,7 @@ import { Pages } from '@/views/pages/usePages';
         flex-direction: column;
         gap: 20px;
         align-items: end;
+        z-index: 999;
     }
 
     &__fab {

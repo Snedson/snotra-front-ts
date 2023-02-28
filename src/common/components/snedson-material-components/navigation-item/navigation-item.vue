@@ -5,7 +5,7 @@
                 <div class="nav-item__icon-wrapper">
                     <google-material-icon 
                         :icon-name="props.iconName"
-                        color="var(--snotra--sys--on-secondary-container)"
+                        :color="props.selected ? 'var(--snotra--sys--on-secondary-container)' : 'var(--snotra--sys--on-surface-variant)'"
                         :selected="props.selected"
                         class="nav-item__icon"/>
                 </div>
