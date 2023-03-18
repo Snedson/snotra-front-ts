@@ -2,7 +2,7 @@
     <main-header/>
     <side-menu/>
 
-    <main class="full-content">
+    <main class="full-content" lang="ru">
         <content-header />
         <div class="page-content full-content__page">
             <router-view/>
@@ -29,6 +29,10 @@ import contentHeader from './common/components/snedson-material-components/conte
 
 body {
     background-color: var(--snotra--sys--content-background);
+}
+
+ul {
+    list-style-type: none;
 }
 
 #app {
