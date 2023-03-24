@@ -13,6 +13,8 @@ interface IIconOnlySizeButtonProps {
     iconName: string;
 }
 
+export type TButtonSize = TFullSize | TIconOnlySize;
+
 export type TFullSize = 'full';
 
 export type TIconOnlySize = 'icon-only-large' | 'icon-only-small';
@@ -20,6 +22,6 @@ export type TIconOnlySize = 'icon-only-large' | 'icon-only-small';
 type TButtonType =
     | 'filled'
     | 'tonal'
-    | 'outlined-transperent'
+    | 'outlined-transparent'
     | 'outlined'
     | 'text';
