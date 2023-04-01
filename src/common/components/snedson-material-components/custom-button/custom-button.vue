@@ -1,17 +1,21 @@
 <template>
     <button
-        class="custom-button"
         :class="[
+            'custom-button',
             'custom-button_size_' + props.size,
             'custom-button_type_' + props.type,
         ]"
     >
         <state-layer
-            class="custom-button__state-layer"
-            :class="'custom-button__state-layer_size_' + props.size"
+            :class="[
+                'custom-button__state-layer', 
+                'custom-button__state-layer_size_' + props.size
+            ]"
         >
             <google-material-icon
-                :icon-name="props.iconName"
+                :props="{
+                    iconName: props.iconName
+                }"
             ></google-material-icon>
             <span v-if="props.size === 'full'" class="custom-button__title">
                 {{ props.innerText }}

@@ -4,12 +4,12 @@
             <li
                 v-for="tabItem in props.tabs"
                 :key="tabItem.id"
-                class="tab-menu__item tab-item"
-                :class="
-                tabItem.id === props.selectedTabItemId ? 'tab-item_selected' : ''
-                "
+                :class="[
+                    'tab-menu__item tab-item',
+                    tabItem.id === props.selectedTabItemId ? 'tab-item_selected' : ''
+                ]"
                 @click="
-                selectTabItemFunction ? selectTabItemFunction(tabItem.id) : () => {}
+                props.selectTabItemFunction ? props.selectTabItemFunction(tabItem.id) : () => {}
                 "
             >
                 <p>
@@ -21,14 +21,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType } from 'vue';
-import { ITab } from './ITabMenu';
+import { defineProps } from 'vue';
+import { ITabMenuProps } from './tab-menu.types';
 
-const props = defineProps({
-    tabs: Array as PropType<ITab[]>,
-    selectedTabItemId: Number,
-    selectTabItemFunction: Function as PropType<(tadId: number) => void>,
-});
+defineProps<{
+    props: ITabMenuProps;
+}>();
+
 </script>
 
 <style lang="scss">

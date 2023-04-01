@@ -1,16 +1,17 @@
+import { TGoogleMaterialIcons } from "@/common/types/TGoogleMaterialIcons";
 export type IButtonProps = IFullSizeButtonProps | IIconOnlySizeButtonProps;
 
 interface IFullSizeButtonProps {
     size: TFullSize;
     type: TButtonType;
     innerText: string;
-    iconName: string;
+    iconName: TGoogleMaterialIcons;
 }
 
 interface IIconOnlySizeButtonProps {
     size: TIconOnlySize;
     type: TButtonType;
-    iconName: string;
+    iconName: TGoogleMaterialIcons;
 }
 
 export type TButtonSize = TFullSize | TIconOnlySize;

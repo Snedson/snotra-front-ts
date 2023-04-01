@@ -1,12 +1,12 @@
 <template>
     <div class="data-tag-wrapper">
-        <div class="data-tag" :style="`background: ${color}`">
+        <div class="data-tag" :style="`background: ${props.color}`">
         <img
-            v-if="iconLocal"
+            v-if="props.iconLocal"
             class="data-tag__icon"
-            :src="require(`@/assets/icons/emojis/${iconLocal}`)"
+            :src="require(`@/assets/icons/emojis/${props.iconLocal}`)"
         />
-        <img v-else-if="iconCompleteUrl" :src="iconCompleteUrl" />
+        <img v-else-if="props.iconCompleteUrl" :src="props.iconCompleteUrl" />
         <p class="data-tag__title">{{ props.title }}</p>
         </div>
     </div>
@@ -14,13 +14,12 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { IDataTagProps } from './data-tag.types';
 
-const props = defineProps({
-    iconLocal: String,
-    iconCompleteUrl: String,
-    title: String,
-    color: String,
-});
+defineProps<{
+    props: IDataTagProps;
+}>();
+
 </script>
 
 <style lang="scss" scoped>
