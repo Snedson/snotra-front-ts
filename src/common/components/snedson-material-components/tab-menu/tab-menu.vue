@@ -12,9 +12,9 @@
                 props.selectTabItemFunction ? props.selectTabItemFunction(tabItem.id) : () => {}
                 "
             >
-                <p>
+                <a href="#">
                     {{ tabItem.title }}
-                </p>
+                </a>
             </li>
         </ul>
     </div>
@@ -35,6 +35,11 @@ defineProps<{
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+
+    & a, a:hover, a:visited, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
 
     &-wrapper {
         background-color: var(--snotra--sys--on-primary);
