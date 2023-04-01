@@ -37,12 +37,13 @@ defineProps<{
     background: none;
     border-radius: 1000px;
     width: fit-content;
+    cursor: pointer;
 
     &__state-layer {
         border-radius: inherit;
+        display: flex;
         &_size {
             &_full {
-                display: flex;
                 gap: 8px;
                 padding: 10px 24px;
             }
