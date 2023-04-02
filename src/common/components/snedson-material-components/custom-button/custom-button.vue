@@ -42,6 +42,7 @@ defineProps<{
     background: none;
     border-radius: 1000px;
     width: fit-content;
+    height: fit-content;
     cursor: pointer;
 
     &__state-layer {
@@ -89,10 +90,6 @@ defineProps<{
             font-weight: 700;
             font-size: 20px;
             line-height: 24px;
-        }
-        &_icon-only-large {
-        }
-        &_icon-only-small {
         }
     }
 }
