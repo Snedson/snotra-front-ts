@@ -20,6 +20,7 @@ import contentHeader from './common/components/snedson-material-components/conte
 
 <style lang="scss">
 @use "@/assets/styles/colors.scss";
+@use "@/assets/styles/snotra-color-schemes.scss";
 
 * {
     margin: 0;
