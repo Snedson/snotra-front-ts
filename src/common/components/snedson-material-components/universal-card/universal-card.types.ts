@@ -3,9 +3,10 @@ import { IButtonProps } from '../custom-button/custom-button.types';
 
 export interface IUniversalCardProps {
     title?: string;
-    icon?: unknown;
+    icon?: string;
     content?: string;
+    isOnAir?: boolean;
     contentEmoji?: unknown[];
-    dataTags: IDataTagProps[];
-    buttons: IButtonProps[];
+    dataTags?: IDataTagProps[];
+    buttons?: IButtonProps[];
 }

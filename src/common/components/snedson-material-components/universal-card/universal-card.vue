@@ -1,51 +1,52 @@
 <template>
     <div class="universal-card">
         <div class="universal-card__inner-wrapper">
-            <div class="universal-card__title-container">
-                <div>
-                    <img src="" class="universal-card__title-icon" />
-                    <h2 class="universal-card__title">Обществознание</h2>
+            <div class="universal-card__header">
+                <div class="universal-card__title-container">
+                    <img
+                        v-if="props.icon"
+                        :src="props.icon"
+                        class="universal-card__title-icon"
+                    />
+                    <h2 class="universal-card__title">{{ props.title }}</h2>
                 </div>
                 <div class="universal-card__on-air">
-                    <on-air></on-air>
+                    <on-air v-if="props.isOnAir" />
                 </div>
             </div>
-            <div class="universal-card__content"></div>
+            <div class="universal-card__content">
+                {{ props.content }}
+            </div>
             <div class="universal-card__data-tags">
                 <data-tag
+                    v-for="(dataTag, index) in props.dataTags"
+                    :key="index"
                     :props="{
-                        color: 'var(--snotra--sys--surface)',
-                        iconCompleteUrl: icon,
-                        title: 'Перемена',
+                        ...dataTag,
                     }"
-                ></data-tag>
-                <data-tag
-                    :props="{
-                        color: 'var(--snotra--sys--surface)',
-                        iconCompleteUrl: icon,
-                        title: 'Перемена',
-                    }"
-                ></data-tag>
-                <data-tag
-                    :props="{
-                        color: 'var(--snotra--sys--surface)',
-                        iconCompleteUrl: icon,
-                        title: 'Перемена',
-                    }"
-                ></data-tag>
+                />
             </div>
-            <div class="universal-card__action-buttons"></div>
+            <div class="universal-card__action-buttons">
+                <custom-button
+                    v-for="(button, index) in props.buttons"
+                    :key="index"
+                    :props="{
+                        ...button,
+                    }"
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { defineComponent, defineProps } from 'vue';
+import { defineProps } from 'vue';
 import onAir from '../on-air/on-air.vue';
 import dataTag from '../data-tag/data-tag.vue';
-import icon from '@/assets/icons/emojis/teacher.png';
+import customButton from '../custom-button/custom-button.vue';
+import { IUniversalCardProps } from './universal-card.types';
 
-defineProps<{ props: string }>();
+defineProps<{ props: IUniversalCardProps }>();
 </script>
 
 <style lang="scss">
@@ -56,24 +57,31 @@ defineProps<{ props: string }>();
     min-width: fit-content;
 
     &__inner-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    &__title-container {
+    &__header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
     }
 
+    &__title-container {
+        display: flex;
+        align-items: center;
+    }
+
     &__title-icon {
+        width: 70px;
+        height: 70px;
     }
 
     &__title {
         font-size: 35px;
         line-height: 42px;
         color: var(--snotra--sys--on-surface-variant);
-    }
-
-    &__on-air {
     }
 
     &__content {
@@ -83,9 +91,18 @@ defineProps<{ props: string }>();
     &__data-tags {
         display: flex;
         flex-wrap: wrap;
+        column-gap: 15px;
+        row-gap: 10px;
+        max-width: 480px;
     }
 
     &__action-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 0px 0px;
+        gap: 10px;
     }
 }
 </style>
