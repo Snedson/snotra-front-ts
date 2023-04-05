@@ -1,13 +1,17 @@
 <template>
     <div class="data-tag-wrapper">
         <div class="data-tag" :style="`background: ${props.color}`">
-        <img
-            v-if="props.iconLocal"
-            class="data-tag__icon"
-            :src="require(`@/assets/icons/emojis/${props.iconLocal}`)"
-        />
-        <img v-else-if="props.iconCompleteUrl" :src="props.iconCompleteUrl" />
-        <p class="data-tag__title">{{ props.title }}</p>
+            <img
+                v-if="props.iconLocal"
+                class="data-tag__icon"
+                :src="require(`@/assets/icons/emojis/${props.iconLocal}`)"
+            />
+            <img
+                v-else-if="props.iconCompleteUrl"
+                :src="props.iconCompleteUrl"
+                class="data-tag__icon"
+            />
+            <p class="data-tag__title">{{ props.title }}</p>
         </div>
     </div>
 </template>
@@ -19,7 +23,6 @@ import { IDataTagProps } from './data-tag.types';
 defineProps<{
     props: IDataTagProps;
 }>();
-
 </script>
 
 <style lang="scss" scoped>
@@ -42,8 +45,8 @@ defineProps<{
     }
 
     &__icon {
-        width: 23px;
-        height: 23px;
+        max-width: 25px;
+        max-height: 25px;
     }
 
     &__title {
