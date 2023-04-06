@@ -1,5 +1,14 @@
 <template>
-    <div class="universal-card">
+    <div
+        class="universal-card"
+        :class="{
+            'universal-card_type_elevated': props.type === 'elevated',
+            'universal-card_type_elevated-secondary':
+                props.type === 'elevated-secondary',
+            'universal-card_type_outlined': props.type === 'outlined',
+            'universal-card_type_filled': props.type === 'filled',
+        }"
+    >
         <div class="universal-card__inner-wrapper">
             <div class="universal-card__header">
                 <div class="universal-card__title-container">
@@ -52,9 +61,31 @@ defineProps<{ props: IUniversalCardProps }>();
 <style lang="scss">
 .universal-card {
     padding: 25px 20px;
-    background: var(--snotra--sys--surface);
     border-radius: 15px;
     min-width: fit-content;
+
+    &_type {
+        &_elevated {
+            background: var(--snotra--surfaces--surface1);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+                0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        &_elevated-secondary {
+            background: var(--snotra--sys--secondary-container);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+                0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        &_outlined {
+            background: var(--snotra--sys--surface);
+            border: 1px solid var(--snotra--sys--outline);
+        }
+
+        &_filled {
+            background: var(--snotra--sys--surface-variant);
+        }
+    }
 
     &__inner-wrapper {
         display: flex;

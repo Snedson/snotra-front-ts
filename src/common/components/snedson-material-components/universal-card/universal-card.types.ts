@@ -9,4 +9,5 @@ export interface IUniversalCardProps {
     contentEmoji?: unknown[];
     dataTags?: IDataTagProps[];
     buttons?: IButtonProps[];
+    type: 'elevated' | 'elevated-secondary' | 'outlined' | 'filled';
 }
