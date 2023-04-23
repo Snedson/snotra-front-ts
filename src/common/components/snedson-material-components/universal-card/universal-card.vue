@@ -12,11 +12,15 @@
         <div class="universal-card__inner-wrapper">
             <div class="universal-card__header">
                 <div class="universal-card__title-container">
-                    <img
+                    <material-shaped-icon
                         v-if="props.icon"
-                        :src="props.icon"
                         class="universal-card__title-icon"
-                    />
+                        :props="{
+                            color: '',
+                            shape: 'eight-pointed-shape',
+                            iconCompleteUrl: props.icon,
+                        }"
+                    ></material-shaped-icon>
                     <h2 class="universal-card__title">{{ props.title }}</h2>
                 </div>
                 <div class="universal-card__on-air">
@@ -54,6 +58,7 @@ import onAir from '../on-air/on-air.vue';
 import dataTag from '../data-tag/data-tag.vue';
 import customButton from '../custom-button/custom-button.vue';
 import { IUniversalCardProps } from './universal-card.types';
+import MaterialShapedIcon from '../../helper-components/material-shaped-icon/material-shaped-icon.vue';
 
 defineProps<{ props: IUniversalCardProps }>();
 </script>
@@ -102,6 +107,7 @@ defineProps<{ props: IUniversalCardProps }>();
     &__title-container {
         display: flex;
         align-items: center;
+        gap: 15px;
     }
 
     &__title-icon {
@@ -110,6 +116,8 @@ defineProps<{ props: IUniversalCardProps }>();
     }
 
     &__title {
+        word-break: break-all;
+        white-space: pre-wrap;
         font-size: 35px;
         line-height: 42px;
         color: var(--snotra--sys--on-surface-variant);
@@ -124,7 +132,6 @@ defineProps<{ props: IUniversalCardProps }>();
         flex-wrap: wrap;
         column-gap: 15px;
         row-gap: 10px;
-        max-width: 480px;
     }
 
     &__action-buttons {
