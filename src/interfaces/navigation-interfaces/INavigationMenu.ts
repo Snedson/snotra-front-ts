@@ -1,3 +1,5 @@
+import { TGoogleMaterialIcons } from "@/common/types/TGoogleMaterialIcons";
+
 export interface INavigationMenu {
     [index: string]: {
         mainNavigationElements: Array<INavigationItem>;
@@ -7,7 +9,7 @@ export interface INavigationMenu {
 
 interface INavigationItem {
     id: number;
-    iconName: string;
+    iconName: TGoogleMaterialIcons;
     title: string;
     routeName: string;
 }

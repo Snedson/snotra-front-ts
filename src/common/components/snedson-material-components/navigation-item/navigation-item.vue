@@ -1,12 +1,22 @@
 <template>
     <li class="nav-item-wrapper">
-        <a class="nav-item" :class="props.selected ? 'nav-item_selected' : ''" href="#" :title="props.title">
+        <a 
+            :class="[
+                'nav-item', 
+                props.selected ? 'nav-item_selected' : ''
+            ]" 
+            href="#" 
+            :title="props.title"
+        >
             <state-layer class="nav-item__state-layer">
                 <div class="nav-item__icon-wrapper">
                     <google-material-icon 
+                        :props="{
+                            iconName: props.iconName,
+                            color: props.selected ? 'var(--snotra--sys--on-secondary-container)' : 'var(--snotra--sys--on-surface-variant)',
+                            selected: props.selected
+                        }"
                         :icon-name="props.iconName"
-                        :color="props.selected ? 'var(--snotra--sys--on-secondary-container)' : 'var(--snotra--sys--on-surface-variant)'"
-                        :selected="props.selected"
                         class="nav-item__icon"/>
                 </div>
             </state-layer>
@@ -18,12 +28,12 @@
 import { defineProps } from 'vue';
 import stateLayer from '@/common/components/helper-components/state-layer/state-layer.vue';
 import googleMaterialIcon from '@/common/components/helper-components/google-material-icon/google-material-icon.vue';
+import { INavItemProps } from './navigation-item.types';
 
-const props = defineProps({
-    selected: Boolean,
-    iconName: String,
-    title: String,
-});
+defineProps<{
+    props: INavItemProps;
+}>();
+
 </script>
 
 <style lang="scss" scoped>

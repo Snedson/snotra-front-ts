@@ -1,3 +1,5 @@
+import { TGoogleMaterialIcons } from "@/common/types/TGoogleMaterialIcons";
+
 export interface IPages {
     [index: string]: {
         fabData: IFab | null;
@@ -12,6 +14,6 @@ export interface IPages {
 }
 
 interface IFab {
-    iconName: string;
+    iconName: TGoogleMaterialIcons;
     callback: Function;
 }

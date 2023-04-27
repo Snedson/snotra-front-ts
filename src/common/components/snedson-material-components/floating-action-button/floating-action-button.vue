@@ -1,39 +1,50 @@
 <template>
-    <button class="fab" :class="('fab_' + props.size) + ' ' + (props.shadowed ? 'fab_shadowed' : '')" :style="'background-color: ' + props.containerColor">
-        <state-layer class="fab__state-layer" :class="('fab__state-layer_' + props.size)">
+    <button 
+        :class="[
+            'fab',
+            'fab_size_' + props.size, 
+            'fab_type_' + props.type,
+            props.shadowed ? 'fab_shadowed' : ''
+        ]" 
+    >
+        <state-layer 
+            :class="[
+                'fab__state-layer', 
+                'fab__state-layer_' + props.size
+            ]"
+        >
             <google-material-icon 
-                :icon-name="props.iconName"
-                :color="props.iconColor"
-                :selected="true"
-                class="fab__icon"
-                :class="('fab__icon_' + props.size)"/>
+                :props="{
+                    iconName: props.iconName,
+                    selected: true
+                }"
+                :class="[
+                    'fab__icon', 
+                    'fab__icon_' + props.size
+                ]"
+            />
         </state-layer>
     </button>
 </template>
 
 <script lang="ts" setup>
 import { defineProps } from 'vue';
-import type { PropType } from 'vue';
 import stateLayer from '@/common/components/helper-components/state-layer/state-layer.vue';
 import googleMaterialIcon from '@/common/components/helper-components/google-material-icon/google-material-icon.vue';
+import { IFabProps } from './floating-action-button.types';
 
-type fabSizes = "default" | "small" | "large";
+defineProps<{
+    props: IFabProps;
+}>();
 
-const props = defineProps({
-    size: String as PropType<fabSizes>,
-    containerColor: String,
-    iconColor: String,
-    iconName: String,
-    shadowed: Boolean
-});
 </script>;
 
 
 <style lang="scss" scoped>
 .fab {
-    background-color: var(--snotra--sys--tertiary-container);
     display: flex;
     border: none;
+    cursor: pointer;
 
     &_shadowed {
         box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
@@ -43,47 +54,71 @@ const props = defineProps({
         display: flex;
         align-items: center;
         justify-content: center;
+        
+        &_small {
+            border-radius: inherit;
+        }
+
+        &_medium {
+            border-radius: inherit;
+            padding: 10px;
+        }
+
+        &_large {
+            border-radius: inherit;
+            padding: 10px;
+        }
     }
 
-    &_default {
-        width: 35px;
-        height: 35px;
-        border-radius: 10px;
+    &_size {
+        &_small {
+            width: 25px;
+            height: 25px;
+            border-radius: 7.5px;
+        }
+
+        &_medium {
+            width: 35px;
+            height: 35px;
+            border-radius: 10px;
+        }
+
+        &_large {
+            width: 60px;
+            height: 60px;
+            border-radius: 17.5px;
+        }
     }
 
-    &__state-layer_default {
-        border-radius: inherit;
-        padding: 10px;
-    }
+    &_type {
+        &_primary {
+            background-color: var(--snotra--sys--primary-container);
+            color: var(--snotra--sys--on-primary-container);
+        }
 
-    &_small {
-        width: 25px;
-        height: 25px;
-        border-radius: 7.5px;
-    }
+        &_surface {
+            background-color: var(--snotra--sys--surface);
+            color: var(--snotra--sys--primary);
+        }
 
-    &__state-layer_small {
-        border-radius: inherit;
-    }
+        &_secondary {
+            background-color: var(--snotra--sys--secondary-container);
+            color: var(--snotra--sys--on-secondary-container);
+        }
 
-    &_large {
-        width: 60px;
-        height: 60px;
-        border-radius: 17.5px;
-    }
-
-    &__state-layer_large {
-        border-radius: inherit;
-        padding: 10px;
+        &_tertiary {
+            background-color: var(--snotra--sys--tertiary-container);
+            color: var(--snotra--sys--on-tertiary-container);
+        }
     }
 
     &__icon {
-        &_default {
-            font-size: 16.25px;
-        }
-
         &_small {
             font-size: 15px;
+        }
+        
+        &_medium {
+            font-size: 16.25px;
         }
 
         &_large {
