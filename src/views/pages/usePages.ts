@@ -131,6 +131,36 @@ export const Pages:IPages = {
             h3: "Используйте Ctrl + F для навигации",
         }
     },
+    "sn.teacher.debug.1": {
+        fabData: {
+            iconName: "question_mark",
+            callback: function() {
+                console.log("FAB Callback");
+            }
+        },
+        contentHeaderData: {
+            backgroundImageUrl: require("@/assets/img/content-header-backgrounds/pink/2-light.png"),
+            backgroundImageShift: 19,
+            h1: "Отладка компонентов",
+            h2: "Подстраница 1 ",
+            h3: "Используйте Ctrl + F для навигации",
+        }
+    },
+    "sn.teacher.debug.2": {
+        fabData: {
+            iconName: "free_breakfast",
+            callback: function() {
+                console.log("FAB Callback");
+            }
+        },
+        contentHeaderData: {
+            backgroundImageUrl: require("@/assets/img/content-header-backgrounds/pink/4-light.png"),
+            backgroundImageShift: 35,
+            h1: "Отладка компонентов 2",
+            h2: "Подстраница 2 ",
+            h3: "Используйте Ctrl + F для навигации",
+        }
+    },
     "sn.teacher.user": {
         fabData: null,
         contentHeaderData: {

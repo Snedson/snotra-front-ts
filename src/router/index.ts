@@ -5,6 +5,7 @@ import TeacherModifyScheduleElementPage from "@/views/pages/TeacherPages/ModifyS
 import TeacherClassesListPage from "@/views/pages/TeacherPages/ClassesPages/ClassesListPage/ClassesListPage.vue";
 import TeacherClassPage from "@/views/pages/TeacherPages/ClassesPages/ClassPage/ClassPage.vue";
 import TeacherNotificationPage from "@/views/pages/TeacherPages/NotificationPage/NotificationPage.vue";
+import TeacherDebugPage from "@/views/pages/TeacherPages/DebugPage/DebugPage.vue";
 import TeacherUserPage from "@/views/pages/TeacherPages/UserPage/UserPage.vue";
 
 import StudentHomePage from "@/views/pages/StudentPages/HomePage/HomePage.vue";
@@ -23,8 +24,8 @@ const routes: Array<RouteRecordRaw> = [
     children: [
         {
             path: 'home',
-            component: TeacherHomePage,
             name: 'sn.teacher.home',
+            component: TeacherHomePage,
         },
         {
             path: 'schedule',
@@ -64,9 +65,19 @@ const routes: Array<RouteRecordRaw> = [
             ]
         },
         {
+            path: 'debug',
+            name: 'sn.teacher.debug',
+            redirect: '/teacher/debug/1',
+            children: [
+                { path:'1', component: TeacherDebugPage, name: 'sn.teacher.debug.1' },
+                { path:'2', component: TeacherDebugPage, name: 'sn.teacher.debug.2' },
+                
+            ]
+        },
+        {
             path: 'user',
-            component: TeacherUserPage,
             name: 'sn.teacher.user',
+            component: TeacherUserPage,
         },
     ]
   },
@@ -77,13 +88,13 @@ const routes: Array<RouteRecordRaw> = [
     children: [
         {
             path: 'home',
-            component: StudentHomePage,
             name: 'sn.student.home',
+            component: StudentHomePage,
         },
         {
             path: 'schedule',
-            redirect: '/student/schedule/modified',
             name: 'sn.student.schedule',
+            redirect: '/student/schedule/modified',
             children: [
                 { path:'modified', /* Временно: */ component: StudentSchedulePage , name: 'sn.student.schedule.mse' },
             ]

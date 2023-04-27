@@ -27,10 +27,16 @@ export const NavigationItems : INavigationMenu = {
                 title: 'Уведомления',
                 routeName: 'sn.teacher.notifications',
             },
+            {
+                id: 5,
+                iconName: 'design_services',
+                title: 'Отладка компонентов',
+                routeName: 'sn.teacher.debug',
+            },
         ],
         additionalNavigationElements: [
             {
-                id: 5,
+                id: 6,
                 iconName: 'account_circle',
                 title: 'Профиль',
                 routeName: 'sn.teacher.user',
