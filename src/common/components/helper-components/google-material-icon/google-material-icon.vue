@@ -1,19 +1,23 @@
 <template>
-    <span :class="props.selected ? 'material-icons' : 'material-icons-outlined'" 
-    class="material-icon"
-    :style="`color: ${props.color}`">
+    <span 
+        :class="[
+            'material-icon',
+            props.selected ? 'material-icons' : 'material-icons-outlined'
+        ]" 
+        :style="`color: ${props.color}`"
+    >
         {{props.iconName}}
     </span>
 </template>
 
 <script lang="ts" setup>
 import { defineProps } from 'vue';
+import { IGoogleMaterialIconProps } from './google-material-icon.types';
 
-const props = defineProps({
-    selected: Boolean,
-    iconName: String,
-    color: String,
-});
+defineProps<{
+    props: IGoogleMaterialIconProps
+}>();
+
 </script>
 
 <style lang="scss" scoped>

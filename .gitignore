@@ -22,4 +22,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+# Prettier config
 .prettierrc.json

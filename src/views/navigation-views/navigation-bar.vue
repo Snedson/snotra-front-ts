@@ -4,13 +4,14 @@
             <Transition name="nav-bar__fab-transition">
                 <FloatingActionButton 
                     v-if="Pages[$route.name.toString()].fabData"
-                    size="large" 
+                    :props="{
+                        size: 'large',
+                        type: 'primary',
+                        iconName: Pages[$route.name.toString()].fabData!.iconName,
+                        shadowed: true
+                    }"
                     class="nav-bar__fab" 
-                    shadowed 
-                    container-color="var(--snotra--sys--primary-container)" 
-                    :icon-name="Pages[$route.name.toString()].fabData!.iconName" 
                     @click="Pages[$route.name.toString()].fabData!.callback"
-                    icon-color="var(--snotra--sys--on-primary-container)"
                 />
             </Transition>
         </div>
@@ -19,18 +20,22 @@
                 <ul class="nav-bar-content__main-navigation" v-if="$route.name">
                     <navigation-item 
                         v-for="item in NavigationItems[currentRole].mainNavigationElements"
+                        :props="{
+                            iconName: item.iconName,
+                            title: item.title,
+                            selected: $route.name.toString().startsWith(item.routeName)
+                        }"
                         :key="item.id"
-                        :icon-name="item.iconName"
-                        :title="item.title"
-                        :selected="$route.name.toString().startsWith(item.routeName)"
                         @click="$router.push({name: item.routeName})"
                     />
                     <navigation-item 
                         v-for="item in NavigationItems[currentRole].additionalNavigationElements"
+                        :props="{
+                            iconName: item.iconName,
+                            title: item.title,
+                            selected: $route.name.toString().startsWith(item.routeName),
+                        }"
                         :key="item.id"
-                        :icon-name="item.iconName"
-                        :title="item.title"
-                        :selected="$route.name.toString().startsWith(item.routeName)"
                         @click="$router.push({name: item.routeName})"
                     />
                 </ul>

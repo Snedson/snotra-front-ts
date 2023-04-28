@@ -1,0 +1,15 @@
+:root .ruthenian-blue {
+    --snotra--sys--primary: #564EC0;
+    --snotra--sys--on-primary: #FFFFFF;
+    --snotra--sys--secondary-container: #E3DFFF;
+    --snotra--sys--on-secondary-container: #120068;
+    --snotra--sys--surface: #FFFBFF;
+}
+
+:root.dark-theme .ruthenian-blue {
+    --snotra--sys--primary: #C4C0FF;
+    --snotra--sys--on-primary: #251591;
+    --snotra--sys--secondary-container: #3D34A7;
+    --snotra--sys--on-secondary-container: #E3DFFF;
+    --snotra--sys--surface: #120068;
+}
