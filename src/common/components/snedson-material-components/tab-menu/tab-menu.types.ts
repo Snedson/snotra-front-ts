@@ -1,7 +1,6 @@
 export interface ITabMenuProps {
     tabs: ITab[];
-    selectedTabItemId: number,
-    selectTabItemFunction: (tabId: number) => void,
+    selectedTabItemId: number;
 }
 
 interface ITab {
