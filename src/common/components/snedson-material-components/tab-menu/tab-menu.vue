@@ -6,7 +6,7 @@
                 :key="tabItem.id"
                 :class="[
                     'tab-menu__item tab-item',
-                    tabItem.id === props.selectedTabItemId
+                    tabItem.id === state.selectedTabId
                         ? 'tab-item_selected'
                         : '',
                 ]"
@@ -21,12 +21,16 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, reactive } from 'vue';
 import { ITabMenuProps } from './tab-menu.types';
 
-defineProps<{
+const prop = defineProps<{
     props: ITabMenuProps;
 }>();
+
+const state = reactive<{ selectedTabId: number }>({
+    selectedTabId: prop.props.selectedTabItemId,
+});
 
 type ITabMenuEmits = {
     (event: 'change', tabId: number): void;
@@ -35,6 +39,7 @@ type ITabMenuEmits = {
 const emit = defineEmits<ITabMenuEmits>();
 
 function selectTab(tabId: number) {
+    state.selectedTabId = tabId;
     emit('change', tabId);
 }
 </script>
