@@ -6,11 +6,11 @@
                 :key="tabItem.id"
                 :class="[
                     'tab-menu__item tab-item',
-                    tabItem.id === props.selectedTabItemId ? 'tab-item_selected' : ''
+                    tabItem.id === state.selectedTabId
+                        ? 'tab-item_selected'
+                        : '',
                 ]"
-                @click="
-                props.selectTabItemFunction ? props.selectTabItemFunction(tabItem.id) : () => {}
-                "
+                @click="selectTab(tabItem.id)"
             >
                 <a href="#">
                     {{ tabItem.title }}
@@ -21,13 +21,27 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, defineEmits, reactive } from 'vue';
 import { ITabMenuProps } from './tab-menu.types';
 
-defineProps<{
+const prop = defineProps<{
     props: ITabMenuProps;
 }>();
 
+const state = reactive<{ selectedTabId: number }>({
+    selectedTabId: prop.props.selectedTabItemId,
+});
+
+type ITabMenuEmits = {
+    (event: 'change', tabId: number): void;
+};
+
+const emit = defineEmits<ITabMenuEmits>();
+
+function selectTab(tabId: number) {
+    state.selectedTabId = tabId;
+    emit('change', tabId);
+}
 </script>
 
 <style lang="scss">
@@ -36,7 +50,10 @@ defineProps<{
     flex-wrap: wrap;
     gap: 15px;
 
-    & a, a:hover, a:visited, a:active {
+    & a,
+    a:hover,
+    a:visited,
+    a:active {
         text-decoration: none;
         color: inherit;
     }
@@ -48,7 +65,6 @@ defineProps<{
         border-radius: 10px;
         padding: 20px 25px;
     }
-
 }
 .tab-item {
     font-size: 20px;
