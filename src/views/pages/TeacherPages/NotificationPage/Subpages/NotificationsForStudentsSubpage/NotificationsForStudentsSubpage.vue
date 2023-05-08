@@ -2,10 +2,6 @@
     <p>Teacher's Notifications For Students Subpage</p>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup></script>
 
-</script>
-
-<style lang="sccs" scoped>
-
-</style>
+<style lang="scss" scoped></style>
