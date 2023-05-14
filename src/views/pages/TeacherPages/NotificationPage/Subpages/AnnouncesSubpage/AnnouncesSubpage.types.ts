@@ -1,3 +1,11 @@
 export interface IAnnouncesPageResponseModel {
-    a: string;
+    announcements: IAnnouncement[];
+    version: string;
+}
+
+export interface IAnnouncement {
+    date: string;
+    notificationAuthorSurenameAndInitials: string;
+    notificationId: number;
+    notificationText: string;
 }

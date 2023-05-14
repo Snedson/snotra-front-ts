@@ -1,48 +1,51 @@
 <template>
-    <tab-menu :props="tabs" @change="selectTab"></tab-menu>
-    <announces-subpage
-        v-if="NotificationSubpage.Announcements"
-    ></announces-subpage>
-    <notification-subpage
-        v-else-if="NotificationSubpage.NotificationsForStudent"
-    ></notification-subpage>
-    <div v-else>error</div>
+    <div>
+        <tab-menu :props="state" @change="selectTab"></tab-menu>
+        <div class="subpage">
+            <announces-subpage
+                v-if="
+                    state.selectedTabItemId ===
+                    NotificationSubpage.Announcements
+                "
+            ></announces-subpage>
+            <notifications-for-students-subpage
+                v-else-if="
+                    state.selectedTabItemId ===
+                    NotificationSubpage.NotificationsForStudent
+                "
+            ></notifications-for-students-subpage>
+            <div v-else>error</div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts" setup>
 import TabMenu from '@/common/components/snedson-material-components/tab-menu/tab-menu.vue';
 import { ITabMenuProps } from '@/common/components/snedson-material-components/tab-menu/tab-menu.types';
 import axios from 'axios';
-import { reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
+import NotificationsForStudentsSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/NotificationsForStudentsSubpage/NotificationsForStudentsSubpage.vue';
 import { NotificationSubpage } from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.types';
 import AnnouncesSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/AnnouncesSubpage/AnnouncesSubpage.vue';
 
-const tabs: ITabMenuProps = {
+const state = reactive<ITabMenuProps>({
     tabs: [
-        { id: 0, title: 'Школьные анонсы' },
-        { id: 1, title: 'Уведомления для учащихся' },
+        { id: NotificationSubpage.Announcements, title: 'Школьные анонсы' },
+        {
+            id: NotificationSubpage.NotificationsForStudent,
+            title: 'Уведомления для учащихся',
+        },
     ],
     selectedTabItemId: NotificationSubpage.Announcements,
-};
-
-const state = reactive<{ selectedTabId: number }>({
-    selectedTabId: tabs.selectedTabItemId,
 });
 
-const selectTab = (tabId: number) => {
-    state.selectedTabId = tabId;
-};
-
-const getNotificationPage = () => {
-    axios
-        .post(
-            'https://mbousosh1.snotra.site/api/Teacher/NotificationPage?notificationVersion=1'
-        )
-        .then((response) => {
-            console.log(response);
-        });
-    return;
+const selectTab = (tabId: NotificationSubpage) => {
+    state.selectedTabItemId = tabId;
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.subpage {
+    padding-top: 30px;
+}
+</style>
