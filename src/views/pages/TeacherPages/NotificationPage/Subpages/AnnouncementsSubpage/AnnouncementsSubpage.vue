@@ -20,40 +20,21 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
-import { IAnnouncesPageResponseModel } from '@/views/pages/TeacherPages/NotificationPage/Subpages/AnnouncesSubpage/AnnouncesSubpage.types';
-import $api from '@/http/api';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import teacherIcon from '@/assets/icons/emojis/teacher.png';
+import getAnnouncementsSubpage from '@/http/services/TeacherServices/NotificationPageServices/AnnouncesSubpageService';
+import { IAnnouncementsSubPageResponseModel } from '@/http/models/responseModels/teacherResponseModels/notificationPage/AnnouncementsSubpageResponseModel';
 
-const state = reactive<{ data: IAnnouncesPageResponseModel }>({
-    data: {} as IAnnouncesPageResponseModel,
+const state = reactive<{ data: IAnnouncementsSubPageResponseModel }>({
+    data: {} as IAnnouncementsSubPageResponseModel,
 });
-const getAnnouncementPage = (version: string | null) => {
-    $api.post<IAnnouncesPageResponseModel>(
-        `https://sixtyfour.snotra.site/api/Teacher/AnnouncementsPage?notificationVersion=${version}`
-    ).then((response) => {
-        if (response.data.announcements) {
-            state.data = response.data;
-            localStorage.setItem('announcementsVersion', response.data.version);
-            localStorage.setItem(
-                'announcements',
-                JSON.stringify(response.data.announcements)
-            );
-        } else {
-            const localAnnouncements = localStorage.getItem('announcements');
-            state.data.announcements = JSON.parse(
-                localAnnouncements ? localAnnouncements : '[]'
-            );
-        }
-    });
-};
 
 onMounted(() => {
     const version = localStorage.getItem('announcementsVersion');
     const announcements = localStorage.getItem('announcements');
     announcements && version
-        ? getAnnouncementPage(version)
-        : getAnnouncementPage(null);
+        ? getAnnouncementsSubpage(version, state)
+        : getAnnouncementsSubpage(null, state);
 });
 </script>
 
