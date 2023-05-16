@@ -30,7 +30,7 @@ export const authURL = 'https://auth.snotra.site';
 //     }
 // );
 
-function getBaseUrl(): string | null {
+export function getBaseUrl(): string | null {
     return localStorage.getItem('schoolSnotraDomain');
 }
 
