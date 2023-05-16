@@ -1,8 +1,6 @@
-import { NotificationSubpage } from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.types';
-
 export interface ITabMenuProps {
     tabs: ITab[];
-    selectedTabItemId: NotificationSubpage;
+    selectedTabItemId: number;
 }
 
 interface ITab {
