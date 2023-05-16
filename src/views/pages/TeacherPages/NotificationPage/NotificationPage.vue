@@ -2,12 +2,12 @@
     <div>
         <tab-menu :props="state" @change="selectTab"></tab-menu>
         <div class="subpage">
-            <announces-subpage
+            <announcements-subpage
                 v-if="
                     state.selectedTabItemId ===
                     NotificationSubpage.Announcements
                 "
-            ></announces-subpage>
+            ></announcements-subpage>
             <notifications-for-students-subpage
                 v-else-if="
                     state.selectedTabItemId ===
@@ -26,7 +26,8 @@ import axios from 'axios';
 import { onMounted, reactive } from 'vue';
 import NotificationsForStudentsSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/NotificationsForStudentsSubpage/NotificationsForStudentsSubpage.vue';
 import { NotificationSubpage } from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.types';
-import AnnouncesSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/AnnouncesSubpage/AnnouncesSubpage.vue';
+import AnnouncementsSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/AnnouncementsSubpage/AnnouncementsSubpage.vue';
+import router from '@/router';
 
 const state = reactive<ITabMenuProps>({
     tabs: [
@@ -41,6 +42,12 @@ const state = reactive<ITabMenuProps>({
 
 const selectTab = (tabId: NotificationSubpage) => {
     state.selectedTabItemId = tabId;
+
+    if (tabId == NotificationSubpage.Announcements) {
+        router.push({ name: 'sn.teacher.notifications.announces' });
+    } else {
+        router.push({ name: 'sn.teacher.notifications.forStudents' });
+    }
 };
 </script>
 
