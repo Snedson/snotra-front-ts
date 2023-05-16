@@ -26,47 +26,21 @@
 <script lang="ts" setup>
 import axios from 'axios';
 import { onMounted, reactive } from 'vue';
-import { INotificationsForStudentsResponseModel } from '@/views/pages/TeacherPages/NotificationPage/Subpages/NotificationsForStudentsSubpage/NotificationsForStudents.types';
 import teacherIcon from '@/assets/icons/emojis/teacher.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
+import { INotificationsForStudentsResponseModel } from '@/http/models/responseModels/teacherResponseModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
+import getNotificationPage from '@/http/services/TeacherServices/NotificationPageServices/NotificationsForStudentsSubpageService';
 
 const state = reactive<{ data: INotificationsForStudentsResponseModel }>({
     data: {} as INotificationsForStudentsResponseModel,
 });
 
-const getNotificationPage = (version: string | null) => {
-    axios
-        .post<INotificationsForStudentsResponseModel>(
-            `https://sixtyfour.snotra.site/api/Teacher/NotificationPage?notificationVersion=${version}`
-        )
-        .then((response) => {
-            if (response.data.notifications) {
-                state.data = response.data;
-                localStorage.setItem(
-                    'notificationsVersion',
-                    response.data.version
-                );
-                localStorage.setItem(
-                    'notifications',
-                    JSON.stringify(response.data.notifications)
-                );
-            } else {
-                const localNotifications =
-                    localStorage.getItem('notifications');
-                state.data.notifications = JSON.parse(
-                    localNotifications ? localNotifications : '[]'
-                );
-            }
-        });
-    return;
-};
-
 onMounted(() => {
     const version = localStorage.getItem('notificationsVersion');
     const notifications = localStorage.getItem('notifications');
     notifications && version
-        ? getNotificationPage(version)
-        : getNotificationPage(null);
+        ? getNotificationPage(version, state)
+        : getNotificationPage(null, state);
 });
 </script>
 
