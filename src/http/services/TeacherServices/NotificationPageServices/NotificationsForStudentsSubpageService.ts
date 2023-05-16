@@ -1,10 +1,10 @@
-import $api, { getBaseUrl } from "@/http/api";
+import $api from "@/http/api";
 import { INotificationsForStudentsResponseModel } from "@/http/models/responseModels/teacherResponseModels/notificationPage/NotificationsForStudentsSubpageResponseModel";
 
 const getNotificationPage = (version: string | null, state: { data: INotificationsForStudentsResponseModel }) => {
     $api
         .post<INotificationsForStudentsResponseModel>(
-            `https://${getBaseUrl()}/api/Teacher/NotificationPage?notificationVersion=${version}`
+            `/api/Teacher/NotificationPage?notificationVersion=${version}`
         )
         .then((response) => {
             if (response.data.notifications) {

@@ -1,9 +1,9 @@
-import $api, { getBaseUrl } from "@/http/api";
+import $api from "@/http/api";
 import { IAnnouncementsSubPageResponseModel } from "@/http/models/responseModels/teacherResponseModels/notificationPage/AnnouncementsSubpageResponseModel";
 
 const getAnnouncementsSubpage = (version: string | null, state: { data: IAnnouncementsSubPageResponseModel }) => {
     $api.post<IAnnouncementsSubPageResponseModel>(
-        `https://${getBaseUrl()}/api/Teacher/AnnouncementsPage?notificationVersion=${version}`
+        `/api/Teacher/AnnouncementsPage?notificationVersion=${version}`
     ).then((response) => {
         if (response.data.announcements) {
             state.data = response.data;
