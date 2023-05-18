@@ -1,16 +1,18 @@
 <template>
-    <main-header/>
-    <side-menu/>
+    <main-header />
+    <side-menu />
 
     <main class="full-content" lang="ru">
         <content-header />
         <div class="page-content full-content__page">
-            <router-view/>
+            <router-view />
         </div>
+        <main-footer />
     </main>
 </template>
 
 <script lang="ts" setup>
+import MainFooter from '@/views/MainFooter.vue';
 import MainHeader from '@/views/MainHeader.vue';
 import SideMenu from '@/views/SideMenu.vue';
 import contentHeader from './common/components/snedson-material-components/content-header/content-header.vue';
@@ -19,8 +21,8 @@ import contentHeader from './common/components/snedson-material-components/conte
 </script>
 
 <style lang="scss">
-@use "@/assets/styles/colors.scss";
-@use "@/assets/styles/snotra-color-schemes.scss";
+@use '@/assets/styles/colors.scss';
+@use '@/assets/styles/snotra-color-schemes.scss';
 
 * {
     margin: 0;
@@ -67,10 +69,9 @@ ul {
     }
 }
 
-@media (max-width: 1120px) { 
+@media (max-width: 1120px) {
     .page-content {
         padding: 0 15px;
     }
 }
-
 </style>
