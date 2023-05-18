@@ -60,12 +60,12 @@ import schoolIcon from '@/assets/icons/emojis/school.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import bellIcon from '@/assets/icons/emojis/bell.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import { ModifiedScheduleSubpageResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleSubpageResponseModel';
-import getModifiedScheduleSubpage from '@/http/services/TeacherServices/SchedulePageServices/ModifiedScheduleSubpageService';
+import { ModifiedScheduleResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleResponseModel';
+import getModifiedSchedule from '@/http/services/TeacherServices/SchedulePageServices/ModifiedScheduleService';
 import { onMounted, reactive } from 'vue';
 
-const state = reactive<{ data: ModifiedScheduleSubpageResponseModel }>({
-    data: {} as ModifiedScheduleSubpageResponseModel,
+const state = reactive<{ data: ModifiedScheduleResponseModel }>({
+    data: {} as ModifiedScheduleResponseModel,
 });
 
 onMounted(() => {
@@ -77,7 +77,7 @@ onMounted(() => {
 
     console.log('getModifiedScheduleSubpage');
 
-    getModifiedScheduleSubpage(
+    getModifiedSchedule(
         {
             mseVer: mseVersion && teacherMse ? mseVersion : 'null',
             mspVer: mspVersion && msps ? mspVersion : 'null',

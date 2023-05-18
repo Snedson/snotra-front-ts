@@ -1,10 +1,11 @@
 import $api from "@/http/api";
-import { ModifiedScheduleSubpageRequestModel } from "@/http/models/requestModels/teacherRequestModels/schedulePage/ModifiedScheduleSubpageRequestModel";
-import { ModifiedScheduleSubpageResponseModel } from "@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleSubpageResponseModel";
+import { ModifiedScheduleRequestModel } from "@/http/models/requestModels/teacherRequestModels/schedulePage/ModifiedScheduleRequestModel";
+import { ModifiedScheduleResponseModel } from "@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleResponseModel";
+import { AxiosResponse } from "axios";
 
 
-const getModifiedScheduleSubpage = (requestModel: ModifiedScheduleSubpageRequestModel, state: { data: ModifiedScheduleSubpageResponseModel }) => {
-    $api.post<ModifiedScheduleSubpageResponseModel>(
+const getModifiedSchedule = (requestModel: ModifiedScheduleRequestModel, state: { data: ModifiedScheduleResponseModel }) => {
+    $api.post<ModifiedScheduleResponseModel>(
         `/api/Teacher/SchedulePageModified`, requestModel
     ).then((response) => {
         console.log(response);
@@ -13,7 +14,7 @@ const getModifiedScheduleSubpage = (requestModel: ModifiedScheduleSubpageRequest
     });
 };
 
-const handleScheduleElements = (response, state) => {
+const handleScheduleElements = (response: AxiosResponse<ModifiedScheduleResponseModel>, state: { data: ModifiedScheduleResponseModel }) => {
     if(response.data.todayClasses) {
         state.data.todayClasses = response.data.todayClasses;
         localStorage.setItem('mseVersion', response.data.todayClasses.version);
@@ -32,7 +33,7 @@ const handleScheduleElements = (response, state) => {
     }
 }
 
-const handleScheduleParams = (response, state) => {
+const handleScheduleParams = (response: AxiosResponse<ModifiedScheduleResponseModel>, state: { data: ModifiedScheduleResponseModel }) => {
     if(response.data.msPsForToday) {
         state.data.msPsForToday = response.data.msPsForToday;
         localStorage.setItem('mspVersion', response.data.msPsForToday.version);
@@ -50,4 +51,4 @@ const handleScheduleParams = (response, state) => {
     }
 }
 
-export default getModifiedScheduleSubpage;
+export default getModifiedSchedule;

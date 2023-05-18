@@ -1,4 +1,4 @@
-export interface ModifiedScheduleSubpageRequestModel {
+export interface ModifiedScheduleRequestModel {
     mseVer: string,
     mspVer: string,
     useVer: string,
