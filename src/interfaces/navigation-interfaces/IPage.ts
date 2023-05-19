@@ -5,6 +5,7 @@ export interface IPages {
         fabData: IFab | null;
         contentHeaderData: {
             backgroundImageUrl: NodeRequire;
+            backgroundImageDarkUrl?: NodeRequire;
             backgroundImageShift: number;
             h1: string;
             h2: string;
