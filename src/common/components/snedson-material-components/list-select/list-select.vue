@@ -5,7 +5,7 @@
                 class="notched-outline__leading notched-outline--endings"
             ></span>
             <span class="notched-outline__notch">
-                <p class="notched-outline__label">Label</p>
+                <p class="notched-outline__label">{{ props.title }}</p>
             </span>
             <span
                 class="notched-outline__trailing notched-outline--endings"
@@ -14,10 +14,14 @@
         <div class="list-select__menu-container">
             <ul class="list-select__menu">
                 <list-select-menu-item
-                    :props="{ title: 'Hey!', id: 0, isSelected: false }"
-                ></list-select-menu-item>
-                <list-select-menu-item
-                    :props="{ title: 'Hej!', id: 1, isSelected: true }"
+                    v-for="item in props.menuItems"
+                    :key="item.id"
+                    :props="{
+                        id: item.id,
+                        title: item.title,
+                        isSelected: item.id == props.selectedTabItemId,
+                    }"
+                    @click="emit('selected', item.id)"
                 ></list-select-menu-item>
             </ul>
         </div>
@@ -26,6 +30,18 @@
 
 <script lang="ts" setup>
 import ListSelectMenuItem from './list-select-menu-item.vue';
+import { IListSelectProps } from './list-select.types';
+import { defineProps, defineEmits } from 'vue';
+
+defineProps<{
+    props: IListSelectProps;
+}>();
+
+type IListSelectEmits = {
+    (event: 'selected', itemId: number): void;
+};
+
+const emit = defineEmits<IListSelectEmits>();
 </script>
 
 <style lang="scss" scoped>
