@@ -1,6 +1,6 @@
 <template>
     <div class="list-select">
-        <div class="list-select__box-container box">
+        <div class="list-select__box-container box" @click="emit('clicked')">
             <div class="box__content">
                 <p class="box__selected-item-title">
                     {{
@@ -11,7 +11,9 @@
                 </p>
                 <google-material-icon
                     :props="{
-                        iconName: 'arrow_drop_down',
+                        iconName: props.isExpanded
+                            ? 'arrow_drop_up'
+                            : 'arrow_drop_down',
                     }"
                 />
             </div>
@@ -27,7 +29,7 @@
                 ></span>
             </span>
         </div>
-        <div class="list-select__menu-container">
+        <div class="list-select__menu-container" v-if="props.isExpanded">
             <ul class="list-select__menu">
                 <list-select-menu-item
                     v-for="item in props.menuItems"
@@ -56,6 +58,7 @@ defineProps<{
 
 type IListSelectEmits = {
     (event: 'selected', itemId: number): void;
+    (event: 'clicked'): void;
 };
 
 const emit = defineEmits<IListSelectEmits>();
