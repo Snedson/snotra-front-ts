@@ -1,15 +1,31 @@
 <template>
     <div class="list-select">
-        <div class="list-select__notched notched-outline">
-            <span
-                class="notched-outline__leading notched-outline--endings"
-            ></span>
-            <span class="notched-outline__notch">
-                <p class="notched-outline__label">{{ props.title }}</p>
+        <div class="list-select__box-container box">
+            <div class="box__content">
+                <p class="box__selected-item-title">
+                    {{
+                        props.menuItems.find(
+                            (i) => i.id == props.selectedTabItemId
+                        )?.title
+                    }}
+                </p>
+                <google-material-icon
+                    :props="{
+                        iconName: 'arrow_drop_down',
+                    }"
+                />
+            </div>
+            <span class="box__notched notched-outline">
+                <span
+                    class="notched-outline__leading notched-outline--endings"
+                ></span>
+                <span class="notched-outline__notch">
+                    <p class="notched-outline__label">{{ props.title }}</p>
+                </span>
+                <span
+                    class="notched-outline__trailing notched-outline--endings"
+                ></span>
             </span>
-            <span
-                class="notched-outline__trailing notched-outline--endings"
-            ></span>
         </div>
         <div class="list-select__menu-container">
             <ul class="list-select__menu">
@@ -32,6 +48,7 @@
 import ListSelectMenuItem from './list-select-menu-item.vue';
 import { IListSelectProps } from './list-select.types';
 import { defineProps, defineEmits } from 'vue';
+import GoogleMaterialIcon from '../../helper-components/google-material-icon/google-material-icon.vue';
 
 defineProps<{
     props: IListSelectProps;
@@ -52,11 +69,8 @@ const emit = defineEmits<IListSelectEmits>();
     margin-top: 10px;
     gap: 10px;
 
-    &__notched {
-        height: 56px;
-        min-height: 56px;
-        display: flex;
-        flex-direction: row;
+    &__box-container {
+        cursor: pointer;
     }
 
     &__menu {
@@ -74,6 +88,35 @@ const emit = defineEmits<IListSelectEmits>();
         }
     }
 }
+
+.box {
+    display: grid;
+    &__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 calc(16px + 5px);
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    &__selected-item-title {
+        font-size: 16px;
+    }
+
+    &__notched {
+        grid-column: 1;
+        grid-row: 1;
+        height: 56px;
+        min-height: 56px;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
 .notched-outline {
     width: 100%;
     border-color: var(--snotra--sys--outline);
@@ -114,10 +157,11 @@ const emit = defineEmits<IListSelectEmits>();
     }
 
     &__label {
-        margin-top: -10px;
+        margin-top: -7.5px;
         padding: 0 5px;
         color: var(--snotra--sys--on-background);
         font-family: 'Roboto', sans-serif;
+        font-size: 13px;
     }
 }
 
