@@ -1,5 +1,5 @@
 <template>
-    <div
+    <li
         :class="[
             'list-menu-item',
             props.isSelected ? 'list-menu-item_selected' : '',
@@ -8,7 +8,7 @@
         <state-layer class="list-menu-item__state-layer">
             <p class="list-menu-item__title">{{ props.title }}</p>
         </state-layer>
-    </div>
+    </li>
 </template>
 
 <script lang="ts" setup>
@@ -25,6 +25,8 @@ defineProps<{
 .list-menu-item {
     width: 100%;
     height: 56px;
+    list-style: none;
+    margin: 0;
     background-color: var(--snotra--sys--surface);
 
     &_selected {
