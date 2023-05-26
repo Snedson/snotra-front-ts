@@ -28,6 +28,8 @@ defineProps<{
     list-style: none;
     margin: 0;
     background-color: var(--snotra--sys--surface);
+    cursor: pointer;
+    transition: all 200ms;
 
     &_selected {
         background-color: var(--snotra--sys--surface-variant);
@@ -41,6 +43,7 @@ defineProps<{
 
     &__title {
         color: var(--snotra--sys--on-surface-variant);
+        user-select: none;
     }
 }
 </style>
