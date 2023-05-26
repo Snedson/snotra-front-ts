@@ -11,22 +11,51 @@
                 class="notched-outline__trailing notched-outline--endings"
             ></span>
         </div>
-        <div></div>
+        <div class="list-select__menu-container">
+            <ul class="list-select__menu">
+                <list-select-menu-item
+                    :props="{ title: 'Hey!', id: 0, isSelected: false }"
+                ></list-select-menu-item>
+                <list-select-menu-item
+                    :props="{ title: 'Hej!', id: 1, isSelected: true }"
+                ></list-select-menu-item>
+            </ul>
+        </div>
     </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import ListSelectMenuItem from './list-select-menu-item.vue';
+</script>
 
 <style lang="scss" scoped>
 .list-select {
     width: 100%;
-    height: 56px;
     display: flex;
+    flex-direction: column;
     margin-top: 10px;
+    gap: 10px;
 
     &__notched {
+        height: 56px;
+        min-height: 56px;
         display: flex;
         flex-direction: row;
+    }
+
+    &__menu {
+        overflow-y: auto;
+        width: 100%;
+        max-height: calc(56px * 4);
+
+        &-container {
+            background-color: var(--snotra--sys--surface);
+            min-height: calc(56px * 1);
+            max-height: calc(56px * 4 + 14px);
+            border-radius: 4px;
+            width: auto;
+            padding: 7px 0px;
+        }
     }
 }
 .notched-outline {
