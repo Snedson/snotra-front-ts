@@ -1,9 +1,8 @@
 export interface IListSelectProps {
     menuItems: IListSelectMenuItem[];
-    selectedTabItemId: number;
+    selectedItemId: number;
     isEmptySelectionAvaliable: boolean;
     title: string;
-    isExpanded: boolean;
 }
 
 export type IListSelectMenuItemProps = IListSelectMenuItem & {

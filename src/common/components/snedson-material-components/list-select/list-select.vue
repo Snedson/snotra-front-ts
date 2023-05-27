@@ -1,17 +1,17 @@
 <template>
     <div class="list-select">
-        <div class="list-select__box-container box" @click="emit('clicked')">
+        <div class="list-select__box-container box" @click="onBoxClicked">
             <div class="box__content">
                 <p class="box__selected-item-title">
                     {{
                         props.menuItems.find(
-                            (i) => i.id == props.selectedTabItemId
+                            (i) => i.id == props.selectedItemId
                         )?.title
                     }}
                 </p>
                 <google-material-icon
                     :props="{
-                        iconName: props.isExpanded
+                        iconName: state.isExpanded
                             ? 'arrow_drop_up'
                             : 'arrow_drop_down',
                     }"
@@ -29,7 +29,7 @@
                 ></span>
             </span>
         </div>
-        <div class="list-select__menu-container" v-if="props.isExpanded">
+        <div class="list-select__menu-container" v-if="state.isExpanded">
             <ul class="list-select__menu">
                 <list-select-menu-item
                     v-for="item in props.menuItems"
@@ -37,9 +37,9 @@
                     :props="{
                         id: item.id,
                         title: item.title,
-                        isSelected: item.id == props.selectedTabItemId,
+                        isSelected: item.id == props.selectedItemId,
                     }"
-                    @click="emit('selected', item.id)"
+                    @click="onSelection(item.id)"
                 ></list-select-menu-item>
             </ul>
         </div>
@@ -49,7 +49,7 @@
 <script lang="ts" setup>
 import ListSelectMenuItem from './list-select-menu-item.vue';
 import { IListSelectProps } from './list-select.types';
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, reactive } from 'vue';
 import GoogleMaterialIcon from '../../helper-components/google-material-icon/google-material-icon.vue';
 
 defineProps<{
@@ -58,10 +58,21 @@ defineProps<{
 
 type IListSelectEmits = {
     (event: 'selected', itemId: number): void;
-    (event: 'clicked'): void;
+};
+const emit = defineEmits<IListSelectEmits>();
+
+const state = reactive({
+    isExpanded: false,
+});
+
+let onBoxClicked = () => {
+    state.isExpanded = !state.isExpanded;
 };
 
-const emit = defineEmits<IListSelectEmits>();
+let onSelection = (itemId: number) => {
+    emit('selected', itemId);
+    onBoxClicked();
+};
 </script>
 
 <style lang="scss" scoped>
