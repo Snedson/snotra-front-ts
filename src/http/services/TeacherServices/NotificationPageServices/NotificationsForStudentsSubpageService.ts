@@ -1,30 +1,27 @@
-import $api from "@/http/api";
-import { INotificationsForStudentsResponseModel } from "@/http/models/responseModels/teacherResponseModels/notificationPage/NotificationsForStudentsSubpageResponseModel";
+import $api from '@/http/api';
+import { INotificationsForStudentsResponseModel } from '@/http/pageModels/teacherModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
 
-const getNotificationPage = (version: string | null, state: { data: INotificationsForStudentsResponseModel }) => {
-    $api
-        .post<INotificationsForStudentsResponseModel>(
-            `/api/Teacher/NotificationPage?notificationVersion=${version}`
-        )
-        .then((response) => {
-            if (response.data.notifications) {
-                state.data = response.data;
-                localStorage.setItem(
-                    'notificationsVersion',
-                    response.data.version
-                );
-                localStorage.setItem(
-                    'notifications',
-                    JSON.stringify(response.data.notifications)
-                );
-            } else {
-                const localNotifications =
-                    localStorage.getItem('notifications');
-                state.data.notifications = JSON.parse(
-                    localNotifications ? localNotifications : '[]'
-                );
-            }
-        });
+const getNotificationPage = (
+    version: string | null,
+    state: { data: INotificationsForStudentsResponseModel }
+) => {
+    $api.post<INotificationsForStudentsResponseModel>(
+        `/api/Teacher/NotificationPage?notificationVersion=${version}`
+    ).then((response) => {
+        if (response.data.notifications) {
+            state.data = response.data;
+            localStorage.setItem('notificationsVersion', response.data.version);
+            localStorage.setItem(
+                'notifications',
+                JSON.stringify(response.data.notifications)
+            );
+        } else {
+            const localNotifications = localStorage.getItem('notifications');
+            state.data.notifications = JSON.parse(
+                localNotifications ? localNotifications : '[]'
+            );
+        }
+    });
     return;
 };
 

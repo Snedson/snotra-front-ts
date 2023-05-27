@@ -8,7 +8,7 @@
                 title: `${mse.num}. ${mse.schoolClass.className}`,
                 dataTags: [
                     {
-                        iconCompleteUrl: mse.iconURL, 
+                        iconCompleteUrl: 'https://sixtyfour.snotra.site/' + mse.iconURL, 
                         color: 'var(--snotra--surfaces--surface1)', 
                         title: mse.subjectFullName,
                     },
@@ -60,7 +60,7 @@ import schoolIcon from '@/assets/icons/emojis/school.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import bellIcon from '@/assets/icons/emojis/bell.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import { ModifiedScheduleResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleResponseModel';
+import { ModifiedScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleResponseModel';
 import getModifiedSchedule from '@/http/services/TeacherServices/SchedulePageServices/ModifiedScheduleService';
 import { onMounted, reactive } from 'vue';
 

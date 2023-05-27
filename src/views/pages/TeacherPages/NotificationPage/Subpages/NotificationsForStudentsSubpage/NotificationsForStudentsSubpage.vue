@@ -28,7 +28,7 @@ import axios from 'axios';
 import { onMounted, reactive } from 'vue';
 import teacherIcon from '@/assets/icons/emojis/teacher.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import { INotificationsForStudentsResponseModel } from '@/http/models/responseModels/teacherResponseModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
+import { INotificationsForStudentsResponseModel } from '@/http/pageModels/teacherModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
 import getNotificationPage from '@/http/services/TeacherServices/NotificationPageServices/NotificationsForStudentsSubpageService';
 
 const state = reactive<{ data: INotificationsForStudentsResponseModel }>({

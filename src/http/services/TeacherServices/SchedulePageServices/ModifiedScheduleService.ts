@@ -1,21 +1,30 @@
-import $api from "@/http/api";
-import { ModifiedScheduleRequestModel } from "@/http/models/requestModels/teacherRequestModels/schedulePage/ModifiedScheduleRequestModel";
-import { ModifiedScheduleResponseModel } from "@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleResponseModel";
-import { AxiosResponse } from "axios";
+import $api from '@/http/api';
+import { ModifiedScheduleRequestModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleRequestModel';
+import { ModifiedScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleResponseModel';
+import { AxiosResponse } from 'axios';
+import handleScheduleParams from '../../ResponseHandlers/HandleScheduleParams';
 
-
-const getModifiedSchedule = (requestModel: ModifiedScheduleRequestModel, state: { data: ModifiedScheduleResponseModel }) => {
+const getModifiedSchedule = (
+    requestModel: ModifiedScheduleRequestModel,
+    state: { data: ModifiedScheduleResponseModel }
+) => {
     $api.post<ModifiedScheduleResponseModel>(
-        `/api/Teacher/SchedulePageModified`, requestModel
+        `/api/Teacher/SchedulePageModified`,
+        requestModel
     ).then((response) => {
         console.log(response);
         handleScheduleElements(response, state);
-        handleScheduleParams(response, state);
+        state.data.msPsForToday = handleScheduleParams(
+            response.data.msPsForToday
+        );
     });
 };
 
-const handleScheduleElements = (response: AxiosResponse<ModifiedScheduleResponseModel>, state: { data: ModifiedScheduleResponseModel }) => {
-    if(response.data.todayClasses) {
+const handleScheduleElements = (
+    response: AxiosResponse<ModifiedScheduleResponseModel>,
+    state: { data: ModifiedScheduleResponseModel }
+) => {
+    if (response.data.todayClasses) {
         state.data.todayClasses = response.data.todayClasses;
         localStorage.setItem('mseVersion', response.data.todayClasses.version);
         localStorage.setItem(
@@ -24,31 +33,12 @@ const handleScheduleElements = (response: AxiosResponse<ModifiedScheduleResponse
         );
     } else {
         const localMseList = localStorage.getItem('teachersMse');
-        console.log(state.data); 
+        console.log(state.data);
         state.data.todayClasses = {
-            mseList: JSON.parse(
-                localMseList ? localMseList : '[]'
-            ), version: '',
-        }
+            mseList: JSON.parse(localMseList ? localMseList : '[]'),
+            version: '',
+        };
     }
-}
-
-const handleScheduleParams = (response: AxiosResponse<ModifiedScheduleResponseModel>, state: { data: ModifiedScheduleResponseModel }) => {
-    if(response.data.msPsForToday) {
-        state.data.msPsForToday = response.data.msPsForToday;
-        localStorage.setItem('mspVersion', response.data.msPsForToday.version);
-        localStorage.setItem(
-            'modifiedScheduleParams',
-            JSON.stringify(response.data.msPsForToday.todayScheduleParams)
-        );
-    } else {
-        const localMspList = localStorage.getItem('modifiedScheduleParams');
-        state.data.msPsForToday = {
-            todayScheduleParams: JSON.parse(
-                localMspList ? localMspList : '[]'
-            ), version: ''
-        }
-    }
-}
+};
 
 export default getModifiedSchedule;

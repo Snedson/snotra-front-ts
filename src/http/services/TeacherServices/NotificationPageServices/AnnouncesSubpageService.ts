@@ -1,7 +1,10 @@
-import $api from "@/http/api";
-import { IAnnouncementsSubPageResponseModel } from "@/http/models/responseModels/teacherResponseModels/notificationPage/AnnouncementsSubpageResponseModel";
+import $api from '@/http/api';
+import { IAnnouncementsSubPageResponseModel } from '@/http/pageModels/teacherModels/notificationPage/AnnouncementsSubpageResponseModel';
 
-const getAnnouncementsSubpage = (version: string | null, state: { data: IAnnouncementsSubPageResponseModel }) => {
+const getAnnouncementsSubpage = (
+    version: string | null,
+    state: { data: IAnnouncementsSubPageResponseModel }
+) => {
     $api.post<IAnnouncementsSubPageResponseModel>(
         `/api/Teacher/AnnouncementsPage?notificationVersion=${version}`
     ).then((response) => {
