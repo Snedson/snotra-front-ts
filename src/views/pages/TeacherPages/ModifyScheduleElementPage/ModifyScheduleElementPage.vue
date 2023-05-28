@@ -97,6 +97,7 @@
                     size: 'full',
                     type: 'filled',
                 }"
+                @click="saveChanges"
             />
         </div>
     </div>
@@ -115,6 +116,7 @@ import UniversalCard from '@/common/components/snedson-material-components/unive
 import ListSelect from '@/common/components/snedson-material-components/list-select/list-select.vue';
 import { ModifySePageStateModel } from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageStateModel';
 import customButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
+import patchModifyingSeService from '@/http/services/TeacherServices/ModifyScheduleElementPage/ModifyingSeService';
 
 const state = reactive<{
     data: ModifySePageStateModel;
@@ -139,6 +141,29 @@ onMounted(() => {
 
 const onLocationSelection = (locationId: number) => {
     state.data.modifiedState.locationId = locationId;
+};
+
+const saveChanges = () => {
+    if (
+        state.data.modifiedState.comments ===
+            state.data.originalState.actualMse.comments &&
+        state.data.modifiedState.locationId ===
+            state.data.originalState.actualMse.locationId
+    ) {
+        alert('Вы не изменили данные. ');
+        return;
+    }
+
+    const returnTo = router.currentRoute.value.query.returnTo;
+    patchModifyingSeService(
+        {
+            locationId: state.data.modifiedState.locationId,
+            comment: state.data.modifiedState.comments as string,
+            mseGuid: state.data.originalState.actualMse.mseUuid,
+            mseVersion: state.data.originalState.actualMse.thisMseVersion,
+        },
+        returnTo?.toString() as string | null
+    );
 };
 </script>
 
