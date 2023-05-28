@@ -1,7 +1,13 @@
 <template>
-    <div class="schedule-list" v-if="state.data.todayClasses">
+    <div v-if="state.data.isDayOff">
+        <p>Сегодня нерабочий день</p>
+    </div>
+    <div
+        class="schedule-list"
+        v-else-if="state.data.response && !state.data.isDayOff"
+    >
         <universal-card
-            v-for="mse in state.data.todayClasses?.mseList"
+            v-for="mse in state.data.response.todayClasses?.mseList"
             :props="{
                 content:  mse.comments as string | undefined,
                 type: 'elevated-secondary',
@@ -15,7 +21,7 @@
                     {
                         iconCompleteUrl: timerIcon,
                         color: 'var(--snotra--surfaces--surface1)',
-                        title: `${state.data.msPsForToday.todayScheduleParams[mse.num-1].begin} - ${state.data.msPsForToday.todayScheduleParams[mse.num-1].end} (${state.data.msPsForToday.todayScheduleParams[mse.num-1].durationInMins} мин.)`,
+                        title: `${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].begin} - ${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].end} (${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].durationInMins} мин.)`,
                     },
                     {
                         iconCompleteUrl: schoolIcon,
@@ -30,7 +36,7 @@
                     {
                         iconCompleteUrl: bellIcon,
                         color: 'var(--snotra--surfaces--surface1)',
-                        title: `Перемера после: ${state.data.msPsForToday.todayScheduleParams[mse.num-1].breakDurationInMins} мин.`,
+                        title: `Перемера после: ${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].breakDurationInMins} мин.`,
                     },
                 ], 
                 buttons: [
@@ -60,12 +66,12 @@ import schoolIcon from '@/assets/icons/emojis/school.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import bellIcon from '@/assets/icons/emojis/bell.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import { ModifiedScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleResponseModel';
 import getModifiedSchedule from '@/http/services/TeacherServices/SchedulePageServices/ModifiedScheduleService';
 import { onMounted, reactive } from 'vue';
+import { ModifiedScheduleStateModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleStateModel';
 
-const state = reactive<{ data: ModifiedScheduleResponseModel }>({
-    data: {} as ModifiedScheduleResponseModel,
+const state = reactive<{ data: ModifiedScheduleStateModel }>({
+    data: {} as ModifiedScheduleStateModel,
 });
 
 onMounted(() => {
