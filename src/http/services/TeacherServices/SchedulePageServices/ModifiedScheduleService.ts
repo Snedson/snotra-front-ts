@@ -21,8 +21,6 @@ const getModifiedSchedule = (
             return;
         }
 
-        
-
         handleScheduleElements(response, state);
         state.data.response.msPsForToday = handleScheduleParams(
             response.data.msPsForToday
@@ -36,7 +34,6 @@ const handleScheduleElements = (
     state: { data: ModifiedScheduleStateModel }
 ) => {
     if (response.data.todayClasses) {
-        debugger; // eslint-disable-line no-debugger
         state.data.response.todayClasses = response.data.todayClasses;
         localStorage.setItem('mseVersion', response.data.todayClasses.version);
         localStorage.setItem(
