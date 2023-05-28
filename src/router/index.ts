@@ -52,8 +52,15 @@ const routes: Array<RouteRecordRaw> = [
                     },
                     {
                         path: 'modify',
-                        component: TeacherModifyScheduleElementPage,
+                        redirect: '/teacher/schedule/modified',
                         name: 'sn.teacher.schedule.modify',
+                        children: [
+                            {
+                                path: ':mseId',
+                                component: TeacherModifyScheduleElementPage,
+                                name: 'sn.teacher.schedule.modify',
+                            }
+                        ]
                     },
                 ],
             },
