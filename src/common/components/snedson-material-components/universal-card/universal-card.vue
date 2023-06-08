@@ -32,10 +32,10 @@
             </div>
             <div class="universal-card__data-tags">
                 <data-tag
-                    v-for="(dataTag, index) in props.dataTags"
+                    v-for="(tagProps, index) in props.dataTags"
                     :key="index"
                     :props="{
-                        ...dataTag,
+                        ...tagProps,
                     }"
                 />
             </div>
