@@ -43,7 +43,7 @@
                     {
                         iconName: 'supervised_user_circle',
                         innerText: 'Страница класса',
-                        size: 'full',
+                        size: 'full-resizable-to-icon-large',
                         type: 'outlined-transparent',
                     },
                     {
