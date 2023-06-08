@@ -51,6 +51,7 @@
                         innerText: 'Изменить',
                         size: 'full',
                         type: 'filled',
+                        redirectToOnClick: `/teacher/schedule/modify/${mse.mseUuid}?version=${mse.thisMseVersion}&returnTo=sn.teacher.schedule.mse`
                     }
                 ]
             }"
