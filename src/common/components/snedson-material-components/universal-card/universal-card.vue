@@ -46,6 +46,11 @@
                     :props="{
                         ...button,
                     }"
+                    @click="
+                        button.redirectToOnClick
+                            ? NavigateToAddress(button.redirectToOnClick)
+                            : ''
+                    "
                 />
             </div>
         </div>
@@ -59,8 +64,13 @@ import dataTag from '../data-tag/data-tag.vue';
 import customButton from '../custom-button/custom-button.vue';
 import { IUniversalCardProps } from './universal-card.types';
 import MaterialShapedIcon from '../../helper-components/material-shaped-icon/material-shaped-icon.vue';
+import router from '@/router';
 
 defineProps<{ props: IUniversalCardProps }>();
+
+const NavigateToAddress = (address: string) => {
+    router.push(address);
+};
 </script>
 
 <style lang="scss">
