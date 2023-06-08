@@ -32,3 +32,11 @@ type TButtonType =
     | 'outlined-transparent'
     | 'outlined'
     | 'text';
+
+export function isTFullSize(buttonSize: TButtonSize): buttonSize is TFullSize {
+    return (
+        buttonSize === 'full' ||
+        buttonSize === 'full-resizable-to-icon-large' ||
+        buttonSize === 'full-resizable-to-icon-small'
+    );
+}
