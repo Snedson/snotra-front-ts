@@ -12,13 +12,13 @@ import StudentSchedulePage from '@/views/pages/StudentPages/SchedulePage/Schedul
 import AuthComponent from '@/common/components/helper-components/auth-component/auth-component.vue';
 
 const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        redirect: () => {
-            window.location.href = 'https://auth.snotra.site/';
-            return '';
-        },
-    },
+    // {
+    //     path: '/',
+    //     redirect: () => {
+    //         window.location.href = 'https://auth.snotra.site/';
+    //         return '';
+    //     },
+    // },
     {
         path: '/post-auth',
         component: AuthComponent,

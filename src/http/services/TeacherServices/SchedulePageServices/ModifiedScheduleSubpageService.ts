@@ -1,11 +1,14 @@
-import $api from "@/http/api";
-import { ModifiedScheduleSubpageRequestModel } from "@/http/models/requestModels/teacherRequestModels/schedulePage/ModifiedScheduleSubpageRequestModel";
-import { ModifiedScheduleSubpageResponseModel } from "@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleSubpageResponseModel";
+import $api from '@/http/api';
+import { ModifiedScheduleSubpageRequestModel } from '@/http/models/requestModels/teacherRequestModels/schedulePage/ModifiedScheduleSubpageRequestModel';
+import { ModifiedScheduleSubpageResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleSubpageResponseModel';
 
-
-const getModifiedScheduleSubpage = (requestModel: ModifiedScheduleSubpageRequestModel, state: { data: ModifiedScheduleSubpageResponseModel }) => {
+const getModifiedScheduleSubpage = (
+    requestModel: ModifiedScheduleSubpageRequestModel,
+    state: { data: ModifiedScheduleSubpageResponseModel }
+) => {
     $api.post<ModifiedScheduleSubpageResponseModel>(
-        `/api/Teacher/SchedulePageModified`, requestModel
+        `https://sixtyfour.snotra.site/api/Teacher/SchedulePageModified`,
+        requestModel
     ).then((response) => {
         console.log(response);
         handleScheduleElements(response, state);
@@ -14,7 +17,7 @@ const getModifiedScheduleSubpage = (requestModel: ModifiedScheduleSubpageRequest
 };
 
 const handleScheduleElements = (response, state) => {
-    if(response.data.todayClasses) {
+    if (response.data.todayClasses) {
         state.data.todayClasses = response.data.todayClasses;
         localStorage.setItem('mseVersion', response.data.todayClasses.version);
         localStorage.setItem(
@@ -23,17 +26,16 @@ const handleScheduleElements = (response, state) => {
         );
     } else {
         const localMseList = localStorage.getItem('teachersMse');
-        console.log(state.data); 
+        console.log(state.data);
         state.data.todayClasses = {
-            mseList: JSON.parse(
-                localMseList ? localMseList : '[]'
-            ), version: '',
-        }
+            mseList: JSON.parse(localMseList ? localMseList : '[]'),
+            version: '',
+        };
     }
-}
+};
 
 const handleScheduleParams = (response, state) => {
-    if(response.data.msPsForToday) {
+    if (response.data.msPsForToday) {
         state.data.msPsForToday = response.data.msPsForToday;
         localStorage.setItem('mspVersion', response.data.msPsForToday.version);
         localStorage.setItem(
@@ -43,11 +45,10 @@ const handleScheduleParams = (response, state) => {
     } else {
         const localMspList = localStorage.getItem('modifiedScheduleParams');
         state.data.msPsForToday = {
-            todayScheduleParams: JSON.parse(
-                localMspList ? localMspList : '[]'
-            ), version: ''
-        }
+            todayScheduleParams: JSON.parse(localMspList ? localMspList : '[]'),
+            version: '',
+        };
     }
-}
+};
 
 export default getModifiedScheduleSubpage;
