@@ -8,6 +8,10 @@ export interface IUniversalCardProps {
     isOnAir?: boolean;
     contentEmoji?: unknown[];
     dataTags?: IDataTagProps[];
-    buttons?: IButtonProps[];
+    buttons?: CardButtonProps[];
     type: 'elevated' | 'elevated-secondary' | 'outlined' | 'filled';
 }
+
+type CardButtonProps = IButtonProps & {
+    redirectToOnClick?: string;
+};

@@ -1,18 +1,60 @@
 <template>
     <div class="content-header-wrapper" v-if="$route.name">
         <Transition name="content-header-transition" mode="out-in">
-            <header :key="Pages[$route.name.toString()].contentHeaderData.h1" class="content-header">
-                <h1 class="content-header__h1">{{ Pages[$route.name.toString()].contentHeaderData.h1 }}</h1>
-                <h2 class="content-header__h2">{{ Pages[$route.name.toString()].contentHeaderData.h2 }}</h2>
-                <h3 class="content-header__h3">{{ Pages[$route.name.toString()].contentHeaderData.h3 }}</h3>
+            <header
+                :key="Pages[$route.name.toString()].contentHeaderData.h1"
+                class="content-header"
+            >
+                <h1 class="content-header__h1">
+                    {{ Pages[$route.name.toString()].contentHeaderData.h1 }}
+                </h1>
+                <h2 class="content-header__h2">
+                    {{ Pages[$route.name.toString()].contentHeaderData.h2 }}
+                </h2>
+                <h3 class="content-header__h3">
+                    {{ Pages[$route.name.toString()].contentHeaderData.h3 }}
+                </h3>
             </header>
         </Transition>
         <Transition name="content-header-background-transition">
-            <div class="content-header-background" :key="Pages[$route.name.toString()].contentHeaderData.backgroundImageUrl.toString()">
-                <img 
-                    class="content-header-background__img" 
-                    :src="Pages[$route.name.toString()].contentHeaderData.backgroundImageUrl.toString()" 
-                    :style="`object-position: center ${Pages[$route.name.toString()].contentHeaderData.backgroundImageShift}%;`"/>
+            <div
+                class="content-header-background"
+                :key="
+                    Pages[
+                        $route.name.toString()
+                    ].contentHeaderData.backgroundImageUrl.toString()
+                "
+            >
+                <img
+                    class="content-header-background__img"
+                    :src="
+                        Pages[
+                            $route.name.toString()
+                        ].contentHeaderData.backgroundImageUrl.toString()
+                    "
+                    :style="`object-position: center ${
+                        Pages[$route.name.toString()].contentHeaderData
+                            .backgroundImageShift
+                    }%;`"
+                />
+
+                <img
+                    class="content-header-background__img content-header-background__img--dark"
+                    :src="
+                        Pages[$route.name.toString()].contentHeaderData
+                            .backgroundImageDarkUrl
+                            ? Pages[
+                                  $route.name.toString()
+                              ].contentHeaderData.backgroundImageDarkUrl?.toString()
+                            : Pages[
+                                  $route.name.toString()
+                              ].contentHeaderData.backgroundImageUrl.toString()
+                    "
+                    :style="`object-position: center ${
+                        Pages[$route.name.toString()].contentHeaderData
+                            .backgroundImageShift
+                    }%;`"
+                />
             </div>
         </Transition>
     </div>
@@ -21,17 +63,15 @@
 
 <script lang="ts" setup>
 import { Pages } from '@/views/pages/usePages';
-
 </script>
 
 <style lang="scss" scoped>
-
 .content-header-background-transition-enter-active,
 .content-header-background-transition-leave-active {
     transition: opacity 0.5s ease;
 }
 
-.content-header-background-transition-enter-from, 
+.content-header-background-transition-enter-from,
 .content-header-background-transition-leave-to {
     opacity: 0;
 }
@@ -50,7 +90,6 @@ import { Pages } from '@/views/pages/usePages';
     opacity: 0;
 }
 
-
 .content-header {
     grid-column: 1;
     grid-row: 1;
@@ -64,7 +103,9 @@ import { Pages } from '@/views/pages/usePages';
         display: grid;
         width: 100%;
         height: 256px;
-        background-color: var(--snotra--surfaces---nav-rail-amp--header-background);
+        background-color: var(
+            --snotra--surfaces---nav-rail-amp--header-background
+        );
     }
 
     &-background {
@@ -107,7 +148,6 @@ import { Pages } from '@/views/pages/usePages';
     z-index: 1;
 }
 
-
 @media (max-width: 800px) {
     .pseudo-borders {
         display: none;
@@ -125,14 +165,24 @@ import { Pages } from '@/views/pages/usePages';
             width: calc(100% - 30px);
             height: auto;
         }
-
-    } 
+    }
 }
 
-@media (max-width: 1120px) { 
+@media (max-width: 1120px) {
     .content-header {
         padding: 0 15px;
     }
 }
 
+.content-header-background__img--dark {
+    display: none;
+}
+
+:root.dark-theme .content-header-background__img {
+    display: none;
+}
+
+:root.dark-theme .content-header-background__img--dark {
+    display: flex;
+}
 </style>

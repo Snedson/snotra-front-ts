@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
 import { UsualScheduleSubpageService } from '@/http/services/TeacherServices/SchedulePageServices/UsualScheduleSubpageService';
-import { UsualTeacherScheduleResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/UsualTeacherScheduleResponseModel';
+import { UsualTeacherScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 
 const state = reactive<{ data: UsualTeacherScheduleResponseModel | null }>({

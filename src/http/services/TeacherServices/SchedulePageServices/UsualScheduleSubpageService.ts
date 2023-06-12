@@ -1,6 +1,6 @@
 import $api from '@/http/api';
-import { UsualTeacherScheduleRequestModel } from '@/http/models/requestModels/teacherRequestModels/schedulePage/UsualTeacherScheduleRequestModel';
-import { UsualTeacherScheduleResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/UsualTeacherScheduleResponseModel';
+import { UsualTeacherScheduleRequestModel } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleRequestModel';
+import { UsualTeacherScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 import { AxiosResponse } from 'axios';
 
 export class UsualScheduleSubpageService {
@@ -8,7 +8,7 @@ export class UsualScheduleSubpageService {
         requestModel: UsualTeacherScheduleRequestModel
     ) {
         return $api.post<
-            UsualTeacherScheduleResponseModel,
+            UsualTeacherScheduleRequestModel,
             AxiosResponse<UsualTeacherScheduleResponseModel>,
             UsualTeacherScheduleRequestModel
         >(

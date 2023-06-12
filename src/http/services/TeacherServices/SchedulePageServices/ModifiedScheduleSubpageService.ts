@@ -1,12 +1,12 @@
 import $api from '@/http/api';
-import { ModifiedScheduleSubpageRequestModel } from '@/http/models/requestModels/teacherRequestModels/schedulePage/ModifiedScheduleSubpageRequestModel';
-import { ModifiedScheduleSubpageResponseModel } from '@/http/models/responseModels/teacherResponseModels/schedulePage/ModifiedScheduleSubpageResponseModel';
+import { ModifiedScheduleRequestModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleRequestModel';
+import { ModifiedScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleResponseModel';
 
 const getModifiedScheduleSubpage = (
-    requestModel: ModifiedScheduleSubpageRequestModel,
-    state: { data: ModifiedScheduleSubpageResponseModel }
+    requestModel: ModifiedScheduleRequestModel,
+    state: { data: ModifiedScheduleResponseModel }
 ) => {
-    $api.post<ModifiedScheduleSubpageResponseModel>(
+    $api.post<ModifiedScheduleResponseModel>(
         `https://sixtyfour.snotra.site/api/Teacher/SchedulePageModified`,
         requestModel
     ).then((response) => {
