@@ -13,7 +13,7 @@ interface AbstractScheduleElementModel {
     isSkipped: boolean;
     groupName: string | null;
     groupId: number | null;
-    alternativeGroupsLessons: {} | null;
+    alternativeGroupsLessons: object | null;
     gradientColor1: string;
     gradientColor2: string;
 }
