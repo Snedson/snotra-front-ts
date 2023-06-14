@@ -14,7 +14,9 @@
                     },
                     {
                         iconCompleteUrl: calendarIcon,
-                        title: `Статус установлен: ${studentStatus.dateOfAppend}`,
+                        title: `Статус установлен: ${moment(
+                            studentStatus.dateOfAppend
+                        ).format('DD.MM.YYYY')}`,
                         color: 'var(--snotra--surfaces--surface1)',
                     },
                     {
@@ -38,6 +40,7 @@ import { StudentsStatus } from '@/http/pageModels/teacherModels/classPage/Absent
 import { AbsentStudentsService } from '@/http/services/TeacherServices/ClassPageServices/AbsentStudentsService';
 import router from '@/router';
 import { onMounted, reactive } from 'vue';
+import moment from 'moment';
 
 const state = reactive<{ data: StudentsStatus[] }>({
     data: [],
