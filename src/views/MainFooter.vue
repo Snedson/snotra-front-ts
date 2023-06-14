@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import snotraIcon from '@/assets/img/snotraIconSmall.png';
+// import snotraIcon from '@/assets/img/snotraIconSmall.png';
 import SquiggleDivider from '@/common/components/snedson-material-components/squiggle-divider/squiggle-divider.vue';
 </script>
 

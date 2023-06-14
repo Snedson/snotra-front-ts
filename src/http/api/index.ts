@@ -12,7 +12,7 @@ $api.interceptors.request.use(
         const baseURL = getBaseUrl();
         const role = getRole();
         if (!baseURL || !role) {
-            AuthService.logout();
+            // AuthService.logout();
             return config;
         }
         config.baseURL = baseURL;
@@ -26,12 +26,12 @@ $api.interceptors.response.use(
         return response;
     },
     () => {
-        AuthService.logout();
+        // AuthService.logout();
     }
 );
 
 function getBaseUrl(): string | null {
-    return `https://${localStorage.getItem('schoolSnotraDomain')}/` ;
+    return `https://${localStorage.getItem('schoolSnotraDomain')}/`;
 }
 
 function getRole(): string | null {

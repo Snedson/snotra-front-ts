@@ -96,7 +96,7 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .schedule-list {
     display: flex;
     flex-direction: column;
