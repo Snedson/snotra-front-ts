@@ -3,16 +3,15 @@
         <expansion-panel
             v-for="day in Object.entries(state.data.uses.usEsForClass)"
             :key="day[0]"
-            :props="{ title: getWeekdayTitle(day[0]) }"
+            :props="{ title: getWeekdayTitle(day[0] as WeekDays) }"
         >
             <div class="schedule-list">
                 <universal-card
                     v-for="use in day[1]"
                     :key="use.num"
                     :props="{
-                        type: 'elevated-secondary',
+                        type: 'filled',
                         title: `${use.num}. ${use.schoolClass.className}`,
-                        icon: `https://sixtyfour.snotra.site/${use.iconURL}`,
                         dataTags: [
                             {
                                 iconCompleteUrl:
