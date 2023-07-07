@@ -34,10 +34,12 @@
 import NavigationItem from '@/common/components/snedson-material-components/navigation-item/navigation-item.vue';
 
 const switchToDarkTheme = () => {
+    localStorage.setItem('theme', 'dark');
     document.documentElement.className = 'dark-theme';
 };
 
 const switchToLightTheme = () => {
+    localStorage.removeItem('theme');
     document.documentElement.className = '';
 };
 </script>
