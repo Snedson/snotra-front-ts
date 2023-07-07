@@ -14,7 +14,7 @@
                 title: `${mse.num}. ${mse.schoolClass.className}`,
                 dataTags: [
                     {
-                        iconCompleteUrl: 'https://sixtyfour.snotra.site/' + mse.iconURL, 
+                        iconCompleteUrl: 'https://mbousosh1.snotra.site/' + mse.iconURL, 
                         color: 'var(--snotra--surfaces--surface1)', 
                         title: mse.subjectFullName,
                     },
@@ -44,6 +44,7 @@
                         iconName: 'supervised_user_circle',
                         innerText: 'Страница класса',
                         size: 'full-resizable-to-icon-large',
+                        redirectToOnClick: `/teacher/classes/${mse.schoolClass.classId}/allStudents`,
                         type: 'outlined-transparent',
                     },
                     {

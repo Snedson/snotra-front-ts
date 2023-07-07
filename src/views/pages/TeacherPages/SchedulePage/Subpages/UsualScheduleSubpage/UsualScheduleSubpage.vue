@@ -15,7 +15,7 @@
                         dataTags: [
                             {
                                 iconCompleteUrl:
-                                    'https://sixtyfour.snotra.site/' +
+                                    'https://mbousosh1.snotra.site/' +
                                     use.iconURL,
                                 color: 'var(--snotra--surfaces--surface1)',
                                 title: use.subjectFullName,
@@ -52,6 +52,7 @@
                                 iconName: 'supervised_user_circle',
                                 innerText: 'Страница класса',
                                 size: 'full-resizable-to-icon-large',
+                                redirectToOnClick: `/teacher/classes/${use.schoolClass.classId}/allStudents`,
                                 type: 'outlined-transparent',
                             },
                         ],

@@ -11,9 +11,6 @@ export class UsualScheduleSubpageService {
             UsualTeacherScheduleRequestModel,
             AxiosResponse<UsualTeacherScheduleResponseModel>,
             UsualTeacherScheduleRequestModel
-        >(
-            'https://sixtyfour.snotra.site/api/Teacher/SchedulePageUsual',
-            requestModel
-        );
+        >('/api/Teacher/SchedulePageUsual', requestModel);
     }
 }

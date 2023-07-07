@@ -10,7 +10,7 @@
             dataTags: [
                 {
                     iconCompleteUrl:
-                        'https://sixtyfour.snotra.site/' +
+                        'https://mbousosh1.snotra.site/' +
                         state.data.originalState.actualMse.iconURL,
                     color: 'var(--snotra--surfaces--surface1)',
                     title: state.data.originalState.actualMse.subjectFullName,

@@ -18,12 +18,18 @@
                 </div>
                 <div class="left-content__links">
                     <p>
-                        <a href="#"
+                        <a
+                            href="https://mbousosh1.snotra.site/legal/EulaAndPrivacyPolicy.pdf"
+                            target="_blank"
                             >Пользовательское соглашение и политика
                             конфиденциальности</a
                         >
                     </p>
-                    <p><a href="#">Связь с владельцами проекта</a></p>
+                    <p>
+                        <a href="https://vk.com/lkchnv" target="_blank"
+                            >Связь с владельцами проекта</a
+                        >
+                    </p>
                 </div>
             </div>
             <div class="footer-content__right"></div>
@@ -32,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-// import snotraIcon from '@/assets/img/snotraIconSmall.png';
+import snotraIcon from '@/assets/img/snotraIconSmall.png';
 import SquiggleDivider from '@/common/components/snedson-material-components/squiggle-divider/squiggle-divider.vue';
 </script>
 
