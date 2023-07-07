@@ -45,6 +45,13 @@ body {
     background-color: var(--snotra--sys--content-background);
 }
 
+body,
+input,
+select,
+textarea {
+    color: var(--snotra--sys--on-background);
+}
+
 ul {
     list-style-type: none;
 }
@@ -67,8 +74,29 @@ ul {
 .page-content {
     width: 1000px;
     max-width: 100%;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 50px auto;
     min-height: 100vh;
+}
+
+*::-webkit-input-placeholder {
+    color: var(--snotra--sys--on-background-second-text);
+}
+*:-moz-placeholder {
+    color: var(--snotra--sys--on-background-second-text);
+    opacity: 1;
+}
+*::-moz-placeholder {
+    color: var(--snotra--sys--on-background-second-text);
+    opacity: 1;
+}
+*:-ms-input-placeholder {
+    color: var(--snotra--sys--on-background-second-text);
+}
+*::-ms-input-placeholder {
+    color: var(--snotra--sys--on-background-second-text);
+}
+*::placeholder {
+    color: var(--snotra--sys--on-background-second-text);
 }
 
 @media (max-width: 800px) {
