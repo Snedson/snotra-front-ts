@@ -219,4 +219,16 @@ export const Pages: IPages = {
             browserTitle: 'Измененное расписание уроков',
         },
     },
+    'sn.other.auth': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/blue/1-light.jpg'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/blue/1-dark.jpg'),
+            backgroundImageShift: 0,
+            h1: '',
+            h2: '',
+            h3: '',
+            browserTitle: 'Авторизация...',
+        },
+    },
 };
