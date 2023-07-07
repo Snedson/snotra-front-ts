@@ -1,4 +1,10 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import {
+    createRouter,
+    createWebHistory,
+    RouteLocationNormalized,
+    RouteRecordRaw,
+} from 'vue-router';
+import { Pages } from '@/views/pages/usePages';
 import TeacherHomePage from '@/views/pages/TeacherPages/HomePage/HomePage.vue';
 import TeacherSchedulePage from '@/views/pages/TeacherPages/SchedulePage/SchedulePage.vue';
 import TeacherModifyScheduleElementPage from '@/views/pages/TeacherPages/ModifyScheduleElementPage/ModifyScheduleElementPage.vue';
@@ -59,8 +65,8 @@ const routes: Array<RouteRecordRaw> = [
                                 path: ':mseId',
                                 component: TeacherModifyScheduleElementPage,
                                 name: 'sn.teacher.schedule.modify',
-                            }
-                        ]
+                            },
+                        ],
                     },
                 ],
             },
@@ -184,5 +190,14 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
 });
+
+router.beforeEach(
+    (to: RouteLocationNormalized, from: RouteLocationNormalized, next) => {
+        window.document.title =
+            Pages[to.name as string].contentHeaderData.browserTitle +
+            ' - Snotra ';
+        next();
+    }
+);
 
 export default router;
