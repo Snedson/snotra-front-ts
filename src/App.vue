@@ -16,6 +16,17 @@ import MainFooter from '@/views/MainFooter.vue';
 import MainHeader from '@/views/MainHeader.vue';
 import SideMenu from '@/views/SideMenu.vue';
 import contentHeader from './common/components/snedson-material-components/content-header/content-header.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    const theme = localStorage.getItem('theme');
+
+    if (theme === 'dark') {
+        document.documentElement.className = 'dark-theme';
+    } else {
+        document.documentElement.className = '';
+    }
+});
 
 //document.documentElement.className = "dark-theme" // uncomment for dark theme by default
 </script>
