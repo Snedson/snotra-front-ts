@@ -59,8 +59,8 @@ const routes: Array<RouteRecordRaw> = [
                                 path: ':mseId',
                                 component: TeacherModifyScheduleElementPage,
                                 name: 'sn.teacher.schedule.modify',
-                            }
-                        ]
+                            },
+                        ],
                     },
                 ],
             },
