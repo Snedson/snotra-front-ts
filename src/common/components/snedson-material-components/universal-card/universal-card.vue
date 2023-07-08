@@ -121,8 +121,8 @@ const NavigateToAddress = (address: string) => {
     }
 
     &__title-icon {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
     }
 
     &__title {
