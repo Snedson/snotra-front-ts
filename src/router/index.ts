@@ -27,6 +27,7 @@ const routes: Array<RouteRecordRaw> = [
     // },
     {
         path: '/post-auth',
+        meta: { role: 'none' },
         name: 'sn.other.auth',
         component: AuthComponent,
     },
