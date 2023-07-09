@@ -112,7 +112,7 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .weekdays-list {
     display: flex;
     flex-direction: column;
