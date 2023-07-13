@@ -3,6 +3,7 @@
         <div class="modify-se__section section">
             <h2 class="section__title">Текущие данные урока:</h2>
             <universal-card
+                :class="state.data.originalState.actualMse.colorSchemeName"
                 :props="{
             type: 'elevated',
             title: `${state.data.originalState.actualMse.num}. ${state.data.originalState.actualMse.schoolClass.className}`,
@@ -12,12 +13,12 @@
                     iconCompleteUrl:
                         'https://mbousosh1.snotra.site/' +
                         state.data.originalState.actualMse.iconURL,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.subjectFullName,
                 },
                 {
                     iconCompleteUrl: timerIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: `${
                         state.data.originalState.todayScheduleParams
                             .todayScheduleParams[
@@ -37,19 +38,19 @@
                 },
                 {
                     iconCompleteUrl: schoolIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.location,
                 },
                 {
                     iconCompleteUrl: studentIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.groupName
                         ? state.data.originalState.actualMse.groupName
                         : 'Весь класс ',
                 },
                 {
                     iconCompleteUrl: bellIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: `Перемера после: ${
                         state.data.originalState.todayScheduleParams
                             .todayScheduleParams[
@@ -63,7 +64,12 @@
         </div>
         <div class="modify-se__section section">
             <h2 class="section__title">Новые данные урока:</h2>
-            <div class="modified-data">
+            <div
+                :class="[
+                    'modified-data',
+                    state.data.originalState.actualMse.colorSchemeName,
+                ]"
+            >
                 <div class="modified-data__field field">
                     <img :src="schoolIcon" class="field__icon" />
                     <list-select
@@ -191,7 +197,7 @@ const saveChanges = () => {
 }
 
 .modified-data {
-    background-color: var(--snotra--surfaces--surface1);
+    background-color: var(--snotra--sys--surface-variant);
     border-radius: 15px;
     padding: 25px 20px;
     display: flex;

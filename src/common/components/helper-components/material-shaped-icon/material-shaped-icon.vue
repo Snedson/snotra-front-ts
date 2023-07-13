@@ -73,7 +73,7 @@ defineProps<{
 <style lang="scss" scoped>
 .shape {
     &__body {
-        fill: var(--snotra--surfaces--surface1);
+        fill: var(--snotra--sys--surface-variant);
     }
 
     &__outline {
