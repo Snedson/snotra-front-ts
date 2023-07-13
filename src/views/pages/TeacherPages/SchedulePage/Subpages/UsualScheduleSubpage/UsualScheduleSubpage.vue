@@ -57,6 +57,7 @@
                             },
                         ],
                     }"
+                    :class="use.schoolClass.colorSchemeName"
                 />
             </div>
         </expansion-panel>

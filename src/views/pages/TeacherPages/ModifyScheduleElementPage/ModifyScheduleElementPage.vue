@@ -3,6 +3,7 @@
         <div class="modify-se__section section">
             <h2 class="section__title">Текущие данные урока:</h2>
             <universal-card
+                :class="state.data.originalState.actualMse.colorSchemeName"
                 :props="{
             type: 'elevated',
             title: `${state.data.originalState.actualMse.num}. ${state.data.originalState.actualMse.schoolClass.className}`,
@@ -63,7 +64,12 @@
         </div>
         <div class="modify-se__section section">
             <h2 class="section__title">Новые данные урока:</h2>
-            <div class="modified-data">
+            <div
+                :class="[
+                    'modified-data',
+                    state.data.originalState.actualMse.colorSchemeName,
+                ]"
+            >
                 <div class="modified-data__field field">
                     <img :src="schoolIcon" class="field__icon" />
                     <list-select

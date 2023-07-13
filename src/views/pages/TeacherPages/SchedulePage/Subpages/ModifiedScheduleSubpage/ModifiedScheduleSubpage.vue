@@ -57,6 +57,7 @@
                 ]
             }"
             :key="mse.num"
+            :class="mse.schoolClass.colorSchemeName"
         >
         </universal-card>
     </div>
