@@ -15,27 +15,27 @@
                 dataTags: [
                     {
                         iconCompleteUrl: 'https://mbousosh1.snotra.site/' + mse.iconURL, 
-                        color: 'var(--snotra--surfaces--surface1)', 
+                        color: 'var(--snotra--sys--surface)', 
                         title: mse.subjectFullName,
                     },
                     {
                         iconCompleteUrl: timerIcon,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface)', 
                         title: `${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].begin} - ${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].end} (${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].durationInMins} мин.)`,
                     },
                     {
                         iconCompleteUrl: schoolIcon,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface)', 
                         title: mse.location,
                     },
                     {
                         iconCompleteUrl: studentIcon,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface)',
                         title: mse.groupName ? mse.groupName : 'Весь класс ',
                     },
                     {
                         iconCompleteUrl: bellIcon,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface)',
                         title: `Перемера после: ${state.data.response.msPsForToday.todayScheduleParams[mse.num-1].breakDurationInMins} мин.`,
                     },
                 ], 

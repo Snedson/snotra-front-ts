@@ -12,12 +12,12 @@
                     iconCompleteUrl:
                         'https://mbousosh1.snotra.site/' +
                         state.data.originalState.actualMse.iconURL,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.subjectFullName,
                 },
                 {
                     iconCompleteUrl: timerIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: `${
                         state.data.originalState.todayScheduleParams
                             .todayScheduleParams[
@@ -37,19 +37,19 @@
                 },
                 {
                     iconCompleteUrl: schoolIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.location,
                 },
                 {
                     iconCompleteUrl: studentIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.groupName
                         ? state.data.originalState.actualMse.groupName
                         : 'Весь класс ',
                 },
                 {
                     iconCompleteUrl: bellIcon,
-                    color: 'var(--snotra--surfaces--surface1)',
+                    color: 'var(--snotra--sys--surface-variant)',
                     title: `Перемера после: ${
                         state.data.originalState.todayScheduleParams
                             .todayScheduleParams[
@@ -191,7 +191,7 @@ const saveChanges = () => {
 }
 
 .modified-data {
-    background-color: var(--snotra--surfaces--surface1);
+    background-color: var(--snotra--sys--surface-variant);
     border-radius: 15px;
     padding: 25px 20px;
     display: flex;
