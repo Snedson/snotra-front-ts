@@ -79,4 +79,8 @@ export const NavigationItems: INavigationMenu = {
             },
         ],
     },
+    none: {
+        mainNavigationElements: [],
+        additionalNavigationElements: [],
+    },
 };
