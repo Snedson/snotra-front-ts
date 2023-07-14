@@ -1,4 +1,5 @@
-import { TGoogleMaterialIcons } from '@/common/types/TGoogleMaterialIcons';
+import { TGoogleMaterialIcons } from '@/common/components/helper-components/google-material-icon/google-material-icon.types';
+
 export type IButtonProps = IFullSizeButtonProps | IIconOnlySizeButtonProps;
 
 interface IFullSizeButtonProps {
