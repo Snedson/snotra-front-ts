@@ -56,6 +56,7 @@ import { onMounted, reactive } from 'vue';
 import { GetHomeworkListResponseModel } from './HomeworkSubpage.types';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import router from '@/router';
+import { getTeacherClassPageHomeworkSubpage } from './apiMethods';
 
 const state = reactive<{ data: GetHomeworkListResponseModel }>({
     data: { homeworks: {} },
@@ -63,9 +64,7 @@ const state = reactive<{ data: GetHomeworkListResponseModel }>({
 
 onMounted(() => {
     const classId = router.currentRoute.value.params.classId;
-    $api.get<GetHomeworkListResponseModel>(
-        `/api/Teacher/HomeworkListForClassPage?classId=${classId}`
-    ).then((res) => {
+    getTeacherClassPageHomeworkSubpage(classId).then((res) => {
         state.data = res.data;
     });
 });
