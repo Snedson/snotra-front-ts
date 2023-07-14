@@ -38,6 +38,7 @@
                                 size: 'full-resizable-to-icon-small',
                                 type: 'text',
                             }"
+                            :onclick="onChangeStatusButtonClick"
                         ></CustomButton>
                     </div>
                 </div>
@@ -95,10 +96,17 @@ import schoolIcon from '@/assets/icons/school.svg';
 import logoutIcon from '@/assets/icons/logout.svg';
 import CustomButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 import { StudentStatus } from '@/http/pageModels/teacherModels/classPage/AbsentStudentsResponseModel';
+import { useRouter } from 'vue-router';
 
 const state = reactive<{ data: GetStudentMenuPageResponseModel | null }>({
     data: null,
 });
+
+const router = useRouter();
+
+const onChangeStatusButtonClick = () => {
+    router.push({ name: 'sn.student.user.setStatus' });
+};
 
 const currentStatus = computed((): StudentStatus | null => {
     if (!state.data) {
@@ -120,6 +128,17 @@ onMounted(() => {
 });
 </script>
 <style lang="scss">
+.user-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    & > * {
+        width: 100%;
+    }
+}
+
 .user-page-header {
     padding: 25px 10px;
     display: flex;
@@ -162,7 +181,6 @@ onMounted(() => {
     background: var(--snotra--sys--surface);
     border: 1px solid var(--snotra--sys--outline);
     border-radius: 10px;
-    margin-top: 30px;
 }
 
 .user-data-item {
