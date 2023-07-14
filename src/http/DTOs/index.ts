@@ -1,4 +1,4 @@
-import SchoolRoles from '@/interfaces/school-roles';
+import SchoolRoles from '@/common/types/school-roles';
 
 export interface AuthRefreshResponse {
     role: SchoolRoles;

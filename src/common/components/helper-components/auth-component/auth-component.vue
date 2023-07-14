@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
-import SchoolRoles from '@/interfaces/school-roles';
+import SchoolRoles from '@/common/types/school-roles';
 import AuthService from '@/services/AuthService';
 
 const router = useRouter();
