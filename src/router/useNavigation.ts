@@ -1,4 +1,4 @@
-import { INavigationMenu } from '@/interfaces/navigation-interfaces/INavigationMenu';
+import { INavigationMenu } from '@/common/types/navigation-interfaces/INavigationMenu';
 
 export const NavigationItems: INavigationMenu = {
     teacher: {
@@ -78,9 +78,5 @@ export const NavigationItems: INavigationMenu = {
                 routeName: 'sn.student.user',
             },
         ],
-    },
-    none: {
-        mainNavigationElements: [],
-        additionalNavigationElements: [],
     },
 };

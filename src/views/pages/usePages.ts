@@ -1,4 +1,4 @@
-import { IPages } from '@/interfaces/navigation-interfaces/IPage';
+import { IPages } from '@/common/types/navigation-interfaces/IPage';
 
 export const Pages: IPages = {
     'sn.teacher.home': {
