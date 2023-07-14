@@ -16,6 +16,7 @@ import TeacherUserPage from '@/views/pages/TeacherPages/UserPage/UserPage.vue';
 import StudentHomePage from '@/views/pages/StudentPages/HomePage/HomePage.vue';
 import StudentSchedulePage from '@/views/pages/StudentPages/SchedulePage/SchedulePage.vue';
 import AuthComponent from '@/common/components/helper-components/auth-component/auth-component.vue';
+import StudentUserPage from '@/views/pages/StudentPages/UserPage/UserPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
     // {
@@ -224,7 +225,7 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'user',
                 name: 'sn.student.user',
                 meta: { id: 5 },
-                component: StudentSchedulePage, // Change to StudentUserPage when created
+                component: StudentUserPage, // Change to StudentUserPage when created
                 children: [
                     {
                         path: 'setStatus',
