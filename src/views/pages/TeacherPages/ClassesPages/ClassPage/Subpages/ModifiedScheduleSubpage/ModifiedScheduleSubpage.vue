@@ -3,13 +3,31 @@
         <UniversalCard
             :props="{
                 type: 'elevated',
-                icon: `${getBaseUrl()}${day.iconURL}`,
-                title: `${day.num}. ${day.schoolClass.className}`,
+                icon: `${'https://mbousosh1.snotra.site'}/${day.iconURL}`,
+                title: `${day.num}. ${day.subjectFullName}`,
                 dataTags: [
                     {
                         color: 'white',
-                        title: day.subjectFullName,
-                        iconCompleteUrl: `${getBaseUrl}${day.iconURL}`,
+                        title: `${
+                            findScheduleParam(
+                                state.data.todayScheduleParams
+                                    .todayScheduleParams,
+                                day.num
+                            ).begin
+                        } - ${
+                            findScheduleParam(
+                                state.data.todayScheduleParams
+                                    .todayScheduleParams,
+                                day.num
+                            ).end
+                        } (${
+                            findScheduleParam(
+                                state.data.todayScheduleParams
+                                    .todayScheduleParams,
+                                day.num
+                            ).durationInMins
+                        } мин.)`,
+                        iconLocal: 'time.png',
                     },
                     {
                         color: 'white',
@@ -21,6 +39,17 @@
                         title: day.groupName ? day.groupName : 'Весь класс',
                         iconLocal: 'student.png',
                     },
+                    {
+                        color: 'white',
+                        title: `Перемена после: ${
+                            findScheduleParam(
+                                state.data.todayScheduleParams
+                                    .todayScheduleParams,
+                                day.num
+                            ).breakDurationInMins
+                        } минут`,
+                        iconLocal: 'bell.png',
+                    },
                 ],
             }"
             v-for="day in state.data.todayMSEForClass.mseList"
@@ -30,29 +59,28 @@
 </template>
 
 <script lang="ts" setup>
-import $api, { getBaseUrl, getRole } from '@/http/api';
+import $api from '@/http/api';
 import router from '@/router';
-import { onMounted, reactive } from 'vue';
+import { computed, onMounted, reactive } from 'vue';
 import { GetModifiedScheduleSubpageResponseModel } from './ModifiedScheduleSubpage.types';
-import ExpansionPanel from '@/common/components/snedson-material-components/expansion-panel/expansion-panel.vue';
-import { WeekDays } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
+import { getModifiedTeacherClassScheduleSubpageByClassId } from './apiMethods';
+import { findScheduleParam } from '@/helpers/findScheduleParam';
 
 const state = reactive<{ data: GetModifiedScheduleSubpageResponseModel }>({
     data: {
         todayMSEForClass: { mseList: [], version: '' },
-        todayScheduleParams: null,
+        todayScheduleParams: {
+            todayScheduleParams: [],
+        },
     },
 });
 
 onMounted(() => {
     const classId = router.currentRoute.value.params.classId;
 
-    $api.get<GetModifiedScheduleSubpageResponseModel>(
-        `/api/Teacher/MSEForClassPage?classId=${classId}`
-    ).then((res) => {
+    getModifiedTeacherClassScheduleSubpageByClassId(classId).then((res) => {
         state.data = res.data;
-        console.log(res);
     });
 });
 </script>

@@ -11,19 +11,21 @@
                     :key="index"
                     :props="{
                         type: 'filled',
-                        title: `${use.num}. ${use.schoolClass.className}`,
+                        title: `${use.num}. ${use.subjectFullName}`,
+                        icon: 'https://mbousosh1.snotra.site/' + use.iconURL,
                         dataTags: [
                             {
-                                iconCompleteUrl:
-                                    'https://sixtyfour.snotra.site/' +
-                                    use.iconURL,
-                                color: 'var(--snotra--surfaces--surface1)',
-                                title: use.subjectFullName,
-                            },
-                            {
                                 iconLocal: 'time.png',
-                                title: state.data.usPs.usPs[day[0]][use.num - 1]
-                                    .begin,
+                                title: `${
+                                    state.data.usPs.usPs[day[0]][use.num - 1]
+                                        .begin
+                                } - ${
+                                    state.data.usPs.usPs[day[0]][use.num - 1]
+                                        .end
+                                } (${
+                                    state.data.usPs.usPs[day[0]][use.num - 1]
+                                        .durationInMins
+                                } мин.)`,
                                 color: 'var(--snotra--surfaces--surface1)',
                             },
                             {
@@ -45,14 +47,6 @@
                                     state.data.usPs.usPs[day[0]][use.num - 1]
                                         .breakDurationInMins
                                 } мин.`,
-                            },
-                        ],
-                        buttons: [
-                            {
-                                iconName: 'supervised_user_circle',
-                                innerText: 'Страница класса',
-                                size: 'full-resizable-to-icon-large',
-                                type: 'outlined-transparent',
                             },
                         ],
                     }"
