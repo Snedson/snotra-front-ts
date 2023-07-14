@@ -81,7 +81,7 @@ const NavigateToAddress = (address: string) => {
 
     &_type {
         &_elevated {
-            background: var(--snotra--surfaces--surface1);
+            background: var(--snotra--sys--surface-variant);
             box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
                 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
         }
@@ -121,8 +121,8 @@ const NavigateToAddress = (address: string) => {
     }
 
     &__title-icon {
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
     }
 
     &__title {

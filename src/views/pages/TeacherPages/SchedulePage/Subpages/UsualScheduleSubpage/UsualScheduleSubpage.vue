@@ -15,32 +15,32 @@
                         dataTags: [
                             {
                                 iconCompleteUrl:
-                                    'https://sixtyfour.snotra.site/' +
+                                    'https://mbousosh1.snotra.site/' +
                                     use.iconURL,
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: use.subjectFullName,
                             },
                             {
                                 iconCompleteUrl: timerIcon,
                                 title: state.data.usPs.usPs[day[0]][use.num - 1]
                                     .begin,
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                             },
                             {
                                 iconCompleteUrl: schoolIcon,
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: use.location,
                             },
                             {
                                 iconCompleteUrl: studentIcon,
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: use.groupName
                                     ? use.groupName
                                     : 'Весь класс ',
                             },
                             {
                                 iconCompleteUrl: bellIcon,
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: `Перемера после: ${
                                     state.data.usPs.usPs[day[0]][use.num - 1]
                                         .breakDurationInMins
@@ -52,10 +52,12 @@
                                 iconName: 'supervised_user_circle',
                                 innerText: 'Страница класса',
                                 size: 'full-resizable-to-icon-large',
+                                redirectToOnClick: `/teacher/classes/${use.schoolClass.classId}/allStudents`,
                                 type: 'outlined-transparent',
                             },
                         ],
                     }"
+                    :class="use.schoolClass.colorSchemeName"
                 />
             </div>
         </expansion-panel>

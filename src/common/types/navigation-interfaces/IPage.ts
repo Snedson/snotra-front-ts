@@ -1,4 +1,4 @@
-import { TGoogleMaterialIcons } from "@/common/types/TGoogleMaterialIcons";
+import { TGoogleMaterialIcons } from '@/common/components/helper-components/google-material-icon/google-material-icon.types';
 
 export interface IPages {
     [index: string]: {
@@ -10,6 +10,7 @@ export interface IPages {
             h1: string;
             h2: string;
             h3: string;
+            browserTitle: string;
         };
     };
 }

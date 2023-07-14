@@ -1,18 +1,25 @@
-export type IMaterialShapedIconProps = IMaterialShapedIconPropsWithLocalUrl | IMaterialShapedIconPropsWithCompleteUrl;
+export type IMaterialShapedIconProps =
+    | IMaterialShapedIconPropsWithLocalUrl
+    | IMaterialShapedIconPropsWithCompleteUrl;
 
 interface IMaterialShapedIconPropsBase {
-    color: string, 
-    shape: MaterialShape,
+    color: string;
+    shape: MaterialShape;
 }
 
-interface IMaterialShapedIconPropsWithLocalUrl extends IMaterialShapedIconPropsBase {
-    iconLocal: string,
-    iconCompleteUrl?: never,
+interface IMaterialShapedIconPropsWithLocalUrl
+    extends IMaterialShapedIconPropsBase {
+    iconLocal: string;
+    iconCompleteUrl?: never;
 }
 
-interface IMaterialShapedIconPropsWithCompleteUrl extends IMaterialShapedIconPropsBase {
-    iconLocal?: never,
-    iconCompleteUrl: string,
+interface IMaterialShapedIconPropsWithCompleteUrl
+    extends IMaterialShapedIconPropsBase {
+    iconLocal?: never;
+    iconCompleteUrl: string;
 }
 
-type MaterialShape = 'eight-pointed-shape' | 'ten-pointed-shape'
+type MaterialShape =
+    | 'eight-pointed-shape'
+    | 'ten-pointed-shape'
+    | 'ten-pointed-smooth-shape';

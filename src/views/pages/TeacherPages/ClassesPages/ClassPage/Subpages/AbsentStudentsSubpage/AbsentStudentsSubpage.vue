@@ -10,19 +10,19 @@
                     {
                         iconCompleteUrl: lateIcon,
                         title: studentStatus.statusName,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface-variant)',
                     },
                     {
                         iconCompleteUrl: calendarIcon,
                         title: `Статус установлен: ${moment(
                             studentStatus.dateOfAppend
                         ).format('DD.MM.YYYY')}`,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface-variant)',
                     },
                     {
                         iconCompleteUrl: messageCalloutIcon,
                         title: `Сообщение: ${studentStatus.comment}`,
-                        color: 'var(--snotra--surfaces--surface1)',
+                        color: 'var(--snotra--sys--surface-variant)',
                     },
                 ],
             }"

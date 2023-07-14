@@ -1,1 +1,0 @@
-export type TAnimationFlows = 'left-to-right' | 'right-to-left' | 'top-to-down' | 'down-to-top'

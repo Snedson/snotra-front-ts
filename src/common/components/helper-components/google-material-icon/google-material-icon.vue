@@ -1,12 +1,12 @@
 <template>
-    <span 
+    <span
         :class="[
             'material-icon',
-            props.selected ? 'material-icons' : 'material-icons-outlined'
-        ]" 
-        :style="`color: ${props.color}`"
+            props.selected ? 'material-icons' : 'material-icons-outlined',
+        ]"
+        :style="{ color: props.color }"
     >
-        {{props.iconName}}
+        {{ props.iconName }}
     </span>
 </template>
 
@@ -15,9 +15,8 @@ import { defineProps } from 'vue';
 import { IGoogleMaterialIconProps } from './google-material-icon.types';
 
 defineProps<{
-    props: IGoogleMaterialIconProps
+    props: IGoogleMaterialIconProps;
 }>();
-
 </script>
 
 <style lang="scss" scoped>
