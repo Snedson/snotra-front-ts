@@ -1,8 +1,11 @@
 import $api from '@/http/api';
 import { ModifySeRequestModel } from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageRequestModel';
 import { ModifySePageResponseModel } from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageResponseModel';
-import { ModifiedState, ModifySePageStateModel } from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageStateModel';
-import handleScheduleParams from '../../ResponseHandlers/HandleScheduleParams';
+import {
+    ModifiedState,
+    ModifySePageStateModel,
+} from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageStateModel';
+import handleScheduleParams from '@/services/caching-managers/schedule-params';
 
 const getModifyScheduleElementPage = (
     requestModel: ModifySeRequestModel,
@@ -22,22 +25,24 @@ const getModifyScheduleElementPage = (
     });
 };
 
-const handleOriginalState = (response:ModifySePageResponseModel) : ModifySePageResponseModel => {
+const handleOriginalState = (
+    response: ModifySePageResponseModel
+): ModifySePageResponseModel => {
     return {
         actualMse: response.actualMse,
         isClientMSEGuidDiffers: response.isClientMSEGuidDiffers,
         locationsList: response.locationsList,
-        todayScheduleParams: handleScheduleParams(
-            response.todayScheduleParams
-        )
-    }
-}
+        todayScheduleParams: handleScheduleParams(response.todayScheduleParams),
+    };
+};
 
-const handleModifiedState = (response:ModifySePageResponseModel) : ModifiedState => {
+const handleModifiedState = (
+    response: ModifySePageResponseModel
+): ModifiedState => {
     return {
         locationId: response.actualMse.locationId,
-        comments: response.actualMse.comments
-    }
-}
+        comments: response.actualMse.comments,
+    };
+};
 
 export default getModifyScheduleElementPage;
