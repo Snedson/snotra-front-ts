@@ -1,7 +1,7 @@
 import { IPages } from '@/common/types/navigation-interfaces/IPage';
 
 export const Pages: IPages = {
-    'sn.teacher.home': {
+    'sn.teacher.main': {
         fabData: null,
         contentHeaderData: {
             backgroundImageUrl: require('@/assets/img/content-header-backgrounds/upi.png'),
@@ -196,7 +196,7 @@ export const Pages: IPages = {
         },
     },
 
-    'sn.student.home': {
+    'sn.student.main': {
         fabData: null,
         contentHeaderData: {
             backgroundImageUrl: require('@/assets/img/content-header-backgrounds/upi.png'),
@@ -219,6 +219,91 @@ export const Pages: IPages = {
             browserTitle: 'Измененное расписание уроков',
         },
     },
+    'sn.student.schedule.use': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/blue/3-light.jpg'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/blue/3-dark.jpg'),
+            backgroundImageShift: 0,
+            h1: 'Стандартное расписание уроков',
+            h2: 'Здесь представлено стандартное расписание уроков по дням недели',
+            h3: 'Используйте Ctrl + F для навигации',
+            browserTitle: 'Стандартное расписание уроков',
+        },
+    },
+    'sn.student.homeworks': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
+            backgroundImageShift: 0,
+            h1: 'Домашние задания',
+            h2: 'Здесь представлен список домашних заданий на две недели',
+            h3: 'Используйте Ctrl + F для навигации',
+            browserTitle: 'Домашние задания',
+        },
+    },
+    'sn.student.homeworks.add': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
+            backgroundImageShift: 0,
+            h1: 'Добавить домашнее задание',
+            h2: 'Будьте предельно внимательны при записи домашнего задания под диктовку учителя',
+            h3: '',
+            browserTitle: 'Добавление домашнего задания',
+        },
+    },
+    'sn.student.notifications.announces': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
+            backgroundImageShift: 0,
+            h1: 'Анонсы',
+            h2: 'Здесь представлен список общешкольных анонсов. ',
+            h3: '',
+            browserTitle: 'Анонсы',
+        },
+    },
+    'sn.student.notifications.fromTeachers': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
+            backgroundImageShift: 0,
+            h1: 'Уведомления от учителей',
+            h2: 'Здесь представлены увдомления, которые были отправлены учителями',
+            h3: '',
+            browserTitle: 'Уведомления от учителей',
+        },
+    },
+    'sn.student.user': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
+            backgroundImageShift: 0,
+            h1: 'Профиль',
+            h2: 'Это ваш профиль',
+            h3: '',
+            browserTitle: 'Ваш профиль',
+        },
+    },
+    'sn.student.user.setStatus': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
+            backgroundImageShift: 0,
+            h1: 'Установка статуса посещения',
+            h2: 'Установите соответствующий статус, если вы опаздываете или перестали посещать школу',
+            h3: '',
+            browserTitle: 'Установка статуса посещения',
+        },
+    },
+
     'sn.other.auth': {
         fabData: null,
         contentHeaderData: {

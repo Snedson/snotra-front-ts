@@ -7,7 +7,7 @@ export const NavigationItems: INavigationMenu = {
                 id: 1,
                 iconName: 'home',
                 title: 'Главная страница',
-                routeName: 'sn.teacher.home',
+                routeName: 'sn.teacher.main',
             },
             {
                 id: 2,
@@ -49,7 +49,7 @@ export const NavigationItems: INavigationMenu = {
                 id: 1,
                 iconName: 'home',
                 title: 'Главная страница',
-                routeName: 'sn.student.home',
+                routeName: 'sn.student.main',
             },
             {
                 id: 2,
@@ -78,5 +78,9 @@ export const NavigationItems: INavigationMenu = {
                 routeName: 'sn.student.user',
             },
         ],
+    },
+    none: {
+        mainNavigationElements: [],
+        additionalNavigationElements: [],
     },
 };
