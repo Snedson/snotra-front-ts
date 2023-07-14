@@ -133,12 +133,12 @@ import whatever from '@/assets/icons/emojis/teacher.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import MaterialShapedIcon from '@/common/components/helper-components/material-shaped-icon/material-shaped-icon.vue';
 import { defineEmits } from 'vue';
-import { TAnimationFlows } from '@/common/types/TAnimationFlows';
-import { HandleAnimation } from '@/services/useAnimations';
+// import { TAnimationFlows } from '@/common/types/TAnimationFlows';
+// import { HandleAnimation } from '@/services/useAnimations';
 
-const emit = defineEmits<{
-    (e: 'changeFlow', flow: TAnimationFlows): void;
-}>();
+// const emit = defineEmits<{
+//     (e: 'changeFlow', flow: TAnimationFlows): void;
+// }>();
 
 const tabs = reactive({
     tabs: [
@@ -156,17 +156,17 @@ const tabs = reactive({
     selected: 0,
 });
 
-const setSelectedTab = (selectedId) => {
-    var direction = HandleAnimation('horizontal', tabs.selected, selectedId);
-    tabs.selected = selectedId;
-    emit('changeFlow', direction);
+// const setSelectedTab = (selectedId) => {
+//     var direction = HandleAnimation('horizontal', tabs.selected, selectedId);
+//     tabs.selected = selectedId;
+//     emit('changeFlow', direction);
 
-    if (selectedId == 0) {
-        router.push({ name: 'sn.teacher.debug.1' });
-    } else {
-        router.push({ name: 'sn.teacher.debug.2' });
-    }
-};
+//     if (selectedId == 0) {
+//         router.push({ name: 'sn.teacher.debug.1' });
+//     } else {
+//         router.push({ name: 'sn.teacher.debug.2' });
+//     }
+// };
 </script>
 
 <style lang="sccs"></style>

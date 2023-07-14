@@ -59,28 +59,11 @@
 <script lang="ts" setup>
 import ExpansionPanel from '@/common/components/snedson-material-components/expansion-panel/expansion-panel.vue';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import $api, { getBaseUrl } from '@/http/api';
-import {
-    UsualTeacherScheduleResponseModel,
-    WeekDays,
-} from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
-import { UsualScheduleElementModel } from '@/models/ScheduleElelmentModel';
-import { ScheduleParamsModel } from '@/models/ScheduleParamsModel';
 import router from '@/router';
 import { onMounted, reactive } from 'vue';
 import { getWeekdayTitle } from '@/helpers/getWeekdayTitle';
-
-type UsualTeacherClassSubpageResponseModel = {
-    usEsForClass: {
-        [key in WeekDays]: UsualScheduleElementModel[];
-    };
-    usPs: {
-        usPs: {
-            [key in WeekDays]: ScheduleParamsModel[];
-        };
-        version: string;
-    };
-};
+import { getUsualTeacherScheduleSubpageByClassId } from './apiMethods';
+import { UsualTeacherClassSubpageResponseModel } from './UsualTeacherClassSubpageResponseModel';
 
 const state = reactive<{ data: UsualTeacherClassSubpageResponseModel | null }>({
     data: null,
@@ -88,11 +71,8 @@ const state = reactive<{ data: UsualTeacherClassSubpageResponseModel | null }>({
 
 onMounted(() => {
     const classId = router.currentRoute.value.params.classId;
-    $api.get<UsualTeacherClassSubpageResponseModel>(
-        `/api/Teacher/USEForClassPage?classId=${classId}`
-    ).then((res) => {
+    getUsualTeacherScheduleSubpageByClassId(classId).then((res) => {
         state.data = res.data;
-        console.log(res);
     });
 });
 </script>

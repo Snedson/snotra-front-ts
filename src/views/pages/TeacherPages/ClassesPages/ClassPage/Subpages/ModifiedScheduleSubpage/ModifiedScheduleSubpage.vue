@@ -59,9 +59,8 @@
 </template>
 
 <script lang="ts" setup>
-import $api from '@/http/api';
 import router from '@/router';
-import { computed, onMounted, reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { GetModifiedScheduleSubpageResponseModel } from './ModifiedScheduleSubpage.types';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import { getModifiedTeacherClassScheduleSubpageByClassId } from './apiMethods';
