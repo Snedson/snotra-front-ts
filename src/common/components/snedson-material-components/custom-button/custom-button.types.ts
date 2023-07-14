@@ -1,11 +1,9 @@
 import { TGoogleMaterialIcons } from '@/common/types/TGoogleMaterialIcons';
-import { TSnotraColorSchemes } from '@/common/types/TSnotraColorSchemes';
 export type IButtonProps = IFullSizeButtonProps | IIconOnlySizeButtonProps;
 
 interface IFullSizeButtonProps {
     size: TFullSize;
     type: TButtonType;
-    colorScheme?: TSnotraColorSchemes;
     innerText: string;
     iconName: TGoogleMaterialIcons;
 }
@@ -13,7 +11,6 @@ interface IFullSizeButtonProps {
 interface IIconOnlySizeButtonProps {
     size: TIconOnlySize;
     type: TButtonType;
-    colorScheme?: TSnotraColorSchemes;
     iconName: TGoogleMaterialIcons;
 }
 
