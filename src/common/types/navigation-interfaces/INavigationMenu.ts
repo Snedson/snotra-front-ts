@@ -1,10 +1,10 @@
-import { TGoogleMaterialIcons } from "@/common/types/TGoogleMaterialIcons";
+import { TGoogleMaterialIcons } from '@/common/components/helper-components/google-material-icon/google-material-icon.types';
 
 export interface INavigationMenu {
     [index: string]: {
         mainNavigationElements: Array<INavigationItem>;
         additionalNavigationElements: Array<INavigationItem>;
-    }
+    };
 }
 
 interface INavigationItem {

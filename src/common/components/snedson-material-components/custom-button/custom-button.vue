@@ -2,7 +2,6 @@
     <button
         :class="[
             'custom-button',
-            props.colorScheme,
             'custom-button_size_' + props.size,
             'custom-button_type_' + props.type,
         ]"

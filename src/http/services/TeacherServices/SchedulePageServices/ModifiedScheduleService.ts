@@ -3,7 +3,7 @@ import { ModifiedScheduleRequestModel } from '@/http/pageModels/teacherModels/sc
 import { ModifiedScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleResponseModel';
 import { ModifiedScheduleStateModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleStateModel';
 import { AxiosResponse } from 'axios';
-import handleScheduleParams from '../../ResponseHandlers/HandleScheduleParams';
+import handleScheduleParams from '@/services/caching-managers/schedule-params';
 
 const getModifiedSchedule = (
     requestModel: ModifiedScheduleRequestModel,
@@ -14,9 +14,9 @@ const getModifiedSchedule = (
         requestModel
     ).then((response) => {
         console.log(response);
-        
+
         state.data.response = {} as ModifiedScheduleResponseModel;
-        if(response.status === 204) {
+        if (response.status === 204) {
             state.data.isDayOff = true;
             return;
         }
