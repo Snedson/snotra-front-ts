@@ -34,11 +34,11 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/teacher',
         meta: { role: 'teacher' },
-        redirect: '/teacher/home',
+        redirect: '/teacher/main',
         children: [
             {
-                path: 'home',
-                name: 'sn.teacher.home',
+                path: 'main',
+                name: 'sn.teacher.main',
                 meta: { id: 1 },
                 component: TeacherHomePage,
             },
@@ -167,7 +167,7 @@ const routes: Array<RouteRecordRaw> = [
         children: [
             {
                 path: 'home',
-                name: 'sn.student.home',
+                name: 'sn.student.main',
                 meta: { id: 1 },
                 component: StudentHomePage,
             },
@@ -178,9 +178,58 @@ const routes: Array<RouteRecordRaw> = [
                 redirect: '/student/schedule/modified',
                 children: [
                     {
-                        path: 'modified' /* Временно: */,
+                        path: 'modified',
                         component: StudentSchedulePage,
                         name: 'sn.student.schedule.mse',
+                    },
+                    {
+                        path: 'usual',
+                        component: StudentSchedulePage,
+                        name: 'sn.student.schedule.use',
+                    },
+                ],
+            },
+            {
+                path: 'homeworks',
+                name: 'sn.student.homeworks',
+                meta: { id: 3 },
+                component: StudentSchedulePage, // Change to StudentHomeworksPage when created
+                children: [
+                    {
+                        path: 'add',
+                        name: 'sn.student.homeworks.add',
+                        component: StudentSchedulePage, // Change to StudentAddHomeworksPage when created
+                    },
+                ],
+            },
+            {
+                path: 'notifications',
+                name: 'sn.student.notifications',
+                meta: { id: 4 },
+                redirect: '/student/notifications/announces',
+                children: [
+                    {
+                        path: 'announces',
+                        component: StudentSchedulePage, // Change to StudentNotificationsPage when created
+                        name: 'sn.student.notifications.announces',
+                    },
+                    {
+                        path: 'fromTeachers',
+                        component: StudentSchedulePage, // Change to StudentNotificationsPage when created
+                        name: 'sn.student.notifications.fromTeachers',
+                    },
+                ],
+            },
+            {
+                path: 'user',
+                name: 'sn.student.user',
+                meta: { id: 5 },
+                component: StudentSchedulePage, // Change to StudentUserPage when created
+                children: [
+                    {
+                        path: 'setStatus',
+                        component: StudentSchedulePage, // Change to StudentSetStatusPage when created
+                        name: 'sn.student.user.setStatus',
                     },
                 ],
             },
