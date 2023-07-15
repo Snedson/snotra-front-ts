@@ -32,6 +32,13 @@
                                 title: use.location,
                             },
                             {
+                                iconCompleteUrl: studentIcon,
+                                color: 'var(--snotra--sys--surface-variant)',
+                                title: use.groupName
+                                    ? use.groupName
+                                    : 'Весь класс ',
+                            },
+                            {
                                 iconCompleteUrl: bellIcon,
                                 color: 'var(--snotra--sys--surface-variant)',
                                 title: `Перемера после: ${
