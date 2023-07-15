@@ -16,6 +16,7 @@ import TeacherUserPage from '@/views/pages/TeacherPages/UserPage/UserPage.vue';
 import StudentHomePage from '@/views/pages/StudentPages/HomePage/HomePage.vue';
 import StudentSchedulePage from '@/views/pages/StudentPages/SchedulePage/SchedulePage.vue';
 import AuthComponent from '@/common/components/helper-components/auth-component/auth-component.vue';
+import StudentAddingHomeworkPage from '@/views/pages/StudentPages/AddingHomeworkPage/AddingHomeworkPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
     // {
@@ -191,14 +192,17 @@ const routes: Array<RouteRecordRaw> = [
             },
             {
                 path: 'homeworks',
-                name: 'sn.student.homeworks',
                 meta: { id: 3 },
-                component: StudentSchedulePage, // Change to StudentHomeworksPage when created
                 children: [
+                    {
+                        path: '',
+                        name: 'sn.student.homeworks',
+                        component: StudentSchedulePage,
+                    },
                     {
                         path: 'add',
                         name: 'sn.student.homeworks.add',
-                        component: StudentSchedulePage, // Change to StudentAddHomeworksPage when created
+                        component: StudentAddingHomeworkPage, // Change to StudentAddHomeworksPage when created
                     },
                 ],
             },
