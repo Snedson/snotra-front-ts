@@ -1,5 +1,8 @@
 <template>
-    <div class="user-page" v-if="state.data !== null">
+    <div
+        class="user-page"
+        v-if="state.data !== null && state.selectedStatusId !== null"
+    >
         <div class="user-page-header">
             <div class="user-page-header__avatar"></div>
             <div class="user-page-header__data">
@@ -27,11 +30,13 @@
                 />
                 <ListSelect
                     :props="{
-                        menuItems: [],
-                        selectedItemId: 1,
-                        isEmptySelectionAvaliable: false,
+                        menuItems: statusesForListSelect
+                            ? statusesForListSelect
+                            : [],
+                        selectedItemId: state.selectedStatusId,
                         title: 'Статус',
                     }"
+                    :on-selected="onStatusSelect"
                 ></ListSelect>
             </div>
             <div class="status-setter-element">
@@ -58,9 +63,14 @@ import CustomButton from '@/common/components/snedson-material-components/custom
 import ListSelect from '@/common/components/snedson-material-components/list-select/list-select.vue';
 import checkMarkIcon from '@/assets/icons/check-mark.png';
 import speechBalloonIcon from '@/assets/icons/speech-balloon.png';
+import { IListSelectMenuItem } from '@/common/components/snedson-material-components/list-select/list-select.types';
 
-const state = reactive<{ data: GetStudentMenuPageResponseModel | null }>({
+const state = reactive<{
+    data: GetStudentMenuPageResponseModel | null;
+    selectedStatusId: number | null;
+}>({
     data: null,
+    selectedStatusId: null,
 });
 
 const currentStatus = computed((): StudentStatus | null => {
@@ -75,10 +85,22 @@ const currentStatus = computed((): StudentStatus | null => {
     ];
 });
 
+const onStatusSelect = (statusId: number) => {
+    state.selectedStatusId = statusId;
+};
+
+const statusesForListSelect = computed((): IListSelectMenuItem[] | null => {
+    return state.data !== null
+        ? state.data.allStatusesForStudents.map((value) => {
+              return { id: value.statusID, title: value.statusName };
+          })
+        : null;
+});
+
 onMounted(() => {
     getStudentMenuPage().then((res) => {
         state.data = res.data;
-        console.log(res);
+        state.selectedStatusId = res.data.currentStatusID;
     });
 });
 </script>
@@ -86,6 +108,7 @@ onMounted(() => {
 .status-setter {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     padding: 25px 20px;
     background: var(--snotra--sys--secondary-container);
     box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),

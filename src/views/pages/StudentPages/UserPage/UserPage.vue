@@ -21,7 +21,10 @@
         <ul class="user-data">
             <li class="user-data-item">
                 <div class="user-data-item__image-cont">
-                    <img :src="personPinCircleIcon" alt="" />
+                    <GoogleMaterialIcon
+                        :props="{ iconName: 'person_pin_circle' }"
+                        class="user-data-item__icon"
+                    ></GoogleMaterialIcon>
                 </div>
                 <div class="user-data-item__payload">
                     <div class="user-data-item__content">
@@ -45,7 +48,10 @@
             </li>
             <li class="user-data-item">
                 <div class="user-data-item__image-cont">
-                    <img :src="infoIcon" alt="" />
+                    <GoogleMaterialIcon
+                        :props="{ iconName: 'info' }"
+                        class="user-data-item__icon"
+                    ></GoogleMaterialIcon>
                 </div>
                 <div class="user-data-item__payload">
                     <div class="user-data-item__content">
@@ -55,7 +61,10 @@
             </li>
             <li class="user-data-item">
                 <div class="user-data-item__image-cont">
-                    <img :src="schoolIcon" alt="" />
+                    <GoogleMaterialIcon
+                        :props="{ iconName: 'school' }"
+                        class="user-data-item__icon"
+                    ></GoogleMaterialIcon>
                 </div>
                 <div class="user-data-item__payload">
                     <div class="user-data-item__content">
@@ -65,7 +74,10 @@
             </li>
             <li class="user-data-item">
                 <div class="user-data-item__image-cont">
-                    <img :src="logoutIcon" alt="" />
+                    <GoogleMaterialIcon
+                        :props="{ iconName: 'logout' }"
+                        class="user-data-item__icon"
+                    ></GoogleMaterialIcon>
                 </div>
                 <div class="user-data-item__payload">
                     <div class="user-data-item__content">
@@ -90,13 +102,10 @@
 import { computed, onMounted, reactive } from 'vue';
 import { GetStudentMenuPageResponseModel } from '@/http/pageModels/studentModels/menuPage/GetStudentMenuPageResponseModel';
 import { getStudentMenuPage } from './apiMethods';
-import personPinCircleIcon from '@/assets/icons/person_pin_circle.svg';
-import infoIcon from '@/assets/icons/info.svg';
-import schoolIcon from '@/assets/icons/school.svg';
-import logoutIcon from '@/assets/icons/logout.svg';
 import CustomButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 import { StudentStatus } from '@/http/pageModels/teacherModels/classPage/AbsentStudentsResponseModel';
 import { useRouter } from 'vue-router';
+import GoogleMaterialIcon from '@/common/components/helper-components/google-material-icon/google-material-icon.vue';
 
 const state = reactive<{ data: GetStudentMenuPageResponseModel | null }>({
     data: null,
@@ -221,6 +230,10 @@ onMounted(() => {
     &__info {
         margin-top: 8px;
         color: var(--snotra--sys--on-surface-second-text);
+    }
+
+    &__icon {
+        font-size: 35px;
     }
 }
 </style>
