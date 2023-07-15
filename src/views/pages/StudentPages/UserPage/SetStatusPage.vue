@@ -33,6 +33,7 @@
                         menuItems: statusesForListSelect
                             ? statusesForListSelect
                             : [],
+                        isEmptySelectionAvaliable: false,
                         selectedItemId: state.selectedStatusId,
                         title: 'Статус',
                     }"
