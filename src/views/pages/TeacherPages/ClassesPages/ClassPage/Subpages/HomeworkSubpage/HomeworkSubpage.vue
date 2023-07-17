@@ -11,13 +11,14 @@
                 <UniversalCard
                     v-for="(homeworkElement, index) in homework[1]"
                     :key="index"
+                    :class="homeworkElement.colorSchemeName"
                     :props="{
-                        type: 'elevated',
+                        type: 'filled',
                         content: homeworkElement.taskText,
                         dataTags: [
                             {
                                 title: homeworkElement.subjectName,
-                                color: 'white',
+                                color: 'var(--snotra--sys--surface)',
                                 iconCompleteUrl: `${'https://mbousosh1.snotra.site'}/${
                                     homeworkElement.iconURL
                                 }`,
@@ -26,19 +27,19 @@
                                 title: homeworkElement.groupName
                                     ? homeworkElement.groupName
                                     : 'Весь класс',
-                                color: 'white',
+                                color: 'var(--snotra--sys--surface)',
                                 iconLocal: 'student.png',
                             },
                             {
                                 title: `Было задано: ${new Date(
                                     homeworkElement.appendDate
                                 ).toLocaleDateString()}`,
-                                color: 'white',
+                                color: 'var(--snotra--sys--surface)',
                                 iconLocal: 'calendar.png',
                             },
                             {
                                 title: `Задание добавил: ${homeworkElement.authorName}`,
-                                color: 'white',
+                                color: 'var(--snotra--sys--surface)',
                                 iconLocal: 'student.png',
                             },
                         ],

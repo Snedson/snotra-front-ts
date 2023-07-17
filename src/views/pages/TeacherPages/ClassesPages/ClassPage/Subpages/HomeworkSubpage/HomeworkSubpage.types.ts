@@ -17,6 +17,7 @@ export type HomeworkModel = {
     scheduledDate: string;
     authorName: string;
     authorsDutyComment?: string;
+    colorSchemeName: string;
     gradientColor1: string;
     gradientColor2: string;
 };
