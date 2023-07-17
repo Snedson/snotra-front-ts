@@ -1,7 +1,7 @@
 <template>
     <div class="weekdays-list" v-if="state.data !== null">
         <ExpansionPanel
-            :props="{ title: getWeekdayTitle(day[0]) }"
+            :props="{ title: getWeekdayTitle(day[0] as WeekDays) }"
             v-for="day in Object.entries(state.data.usEsForClass)"
             :key="day[0]"
         >
@@ -9,6 +9,7 @@
                 <universal-card
                     v-for="(use, index) in day[1]"
                     :key="index"
+                    :class="use.colorSchemeName"
                     :props="{
                         type: 'filled',
                         title: `${use.num}. ${use.subjectFullName}`,
@@ -64,6 +65,7 @@ import { onMounted, reactive } from 'vue';
 import { getWeekdayTitle } from '@/helpers/getWeekdayTitle';
 import { getUsualTeacherScheduleSubpageByClassId } from './apiMethods';
 import { UsualTeacherClassSubpageResponseModel } from './UsualTeacherClassSubpageResponseModel';
+import { WeekDays } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 
 const state = reactive<{ data: UsualTeacherClassSubpageResponseModel | null }>({
     data: null,
