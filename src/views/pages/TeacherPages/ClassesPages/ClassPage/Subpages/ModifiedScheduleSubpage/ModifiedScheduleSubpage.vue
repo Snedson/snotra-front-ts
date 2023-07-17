@@ -1,13 +1,24 @@
 <template>
     <div class="weekdays-list">
         <UniversalCard
+            :class="day.colorSchemeName"
             :props="{
-                type: 'elevated',
+                type: 'elevated-secondary',
                 icon: `${'https://mbousosh1.snotra.site'}/${day.iconURL}`,
                 title: `${day.num}. ${day.subjectFullName}`,
+                content:  day.comments as string | undefined,
+                buttons: [
+                    {
+                        iconName: 'edit',
+                        innerText: 'Изменить',
+                        size: 'full',
+                        type: 'filled',
+                        redirectToOnClick: `/teacher/schedule/modify/${day.mseUuid}?version=${day.thisMseVersion}&returnTo=sn.teacher.class.modifiedSchedule`,
+                    },
+                ],
                 dataTags: [
                     {
-                        color: 'white',
+                        color: 'var(--snotra--sys--surface)', 
                         title: `${
                             findScheduleParam(
                                 state.data.todayScheduleParams
@@ -30,17 +41,17 @@
                         iconLocal: 'time.png',
                     },
                     {
-                        color: 'white',
+                        color: 'var(--snotra--sys--surface)', 
                         title: day.location,
                         iconLocal: 'school.png',
                     },
                     {
-                        color: 'white',
+                        color: 'var(--snotra--sys--surface)', 
                         title: day.groupName ? day.groupName : 'Весь класс',
                         iconLocal: 'student.png',
                     },
                     {
-                        color: 'white',
+                        color: 'var(--snotra--sys--surface)', 
                         title: `Перемена после: ${
                             findScheduleParam(
                                 state.data.todayScheduleParams
