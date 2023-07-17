@@ -8,31 +8,32 @@
             >
                 <div class="homework-list">
                     <UniversalCard
+                        :class="homework.colorSchemeName"
                         :props="{
-                            type: 'elevated',
+                            type: 'filled',
                             title: homework.taskText,
                             dataTags: [
                                 {
-                                    color: 'white',
+                                    color: 'var(--snotra--sys--surface)',
                                     title: homework.subjectName,
                                     iconCompleteUrl:
                                         'https://mbousosh1.snotra.site/' +
                                         homework.iconURL,
                                 },
                                 {
-                                    color: 'white',
+                                    color: 'var(--snotra--sys--surface)',
                                     title: homework.groupName,
                                     iconLocal: 'student.png',
                                 },
                                 {
-                                    color: 'white',
+                                    color: 'var(--snotra--sys--surface)',
                                     title: `Задание добавлено: ${new Date(
                                         homework.appendDate
                                     ).toLocaleDateString()}`,
                                     iconLocal: 'calendar.png',
                                 },
                                 {
-                                    color: 'white',
+                                    color: 'var(--snotra--sys--surface)',
                                     title: `Задание добавил: ${homework.authorName}`,
                                     iconLocal: 'student.png',
                                 },
