@@ -1,9 +1,9 @@
 export interface AbsentStudentsResponseModel {
-    studentsStatuses: StudentsStatus[] | null;
+    studentsStatuses: StudentStatus[] | null;
     version: string | null;
 }
 
-export interface StudentsStatus {
+export interface StudentStatus {
     studentId: string;
     studentFullName: string;
     studentClassName: string | null;
