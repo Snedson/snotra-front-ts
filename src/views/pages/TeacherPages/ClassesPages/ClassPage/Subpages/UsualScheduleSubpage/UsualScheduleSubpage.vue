@@ -27,23 +27,23 @@
                                     state.data.usPs.usPs[day[0]][use.num - 1]
                                         .durationInMins
                                 } мин.)`,
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                             },
                             {
                                 iconLocal: 'school.png',
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: use.location,
                             },
                             {
                                 iconLocal: 'student.png',
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: use.groupName
                                     ? use.groupName
                                     : 'Весь класс ',
                             },
                             {
                                 iconLocal: 'bell.png',
-                                color: 'var(--snotra--surfaces--surface1)',
+                                color: 'var(--snotra--sys--surface-variant)',
                                 title: `Перемера после: ${
                                     state.data.usPs.usPs[day[0]][use.num - 1]
                                         .breakDurationInMins
