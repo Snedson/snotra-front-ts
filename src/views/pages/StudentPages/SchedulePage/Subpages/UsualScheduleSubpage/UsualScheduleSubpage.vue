@@ -16,8 +16,13 @@
                         dataTags: [
                             {
                                 iconCompleteUrl: timerIcon,
-                                title: state.data.usps.usPs[day[0]][use.num - 1]
-                                    .begin,
+                                title: `${
+                                    state.data.usps.usPs[day[0]][use.num - 1]
+                                        .begin
+                                } - ${
+                                    state.data.usps.usPs[day[0]][use.num - 1]
+                                        .end
+                                }`,
                                 color: 'var(--snotra--sys--surface-variant)',
                             },
                             {
@@ -41,17 +46,8 @@
                                 } мин.`,
                             },
                         ],
-                        buttons: [
-                            {
-                                iconName: 'supervised_user_circle',
-                                innerText: 'Страница класса',
-                                size: 'full-resizable-to-icon-large',
-                                redirectToOnClick: `/teacher/classes/${use.schoolClass.classId}/allStudents`,
-                                type: 'outlined-transparent',
-                            },
-                        ],
                     }"
-                    :class="use.schoolClass.colorSchemeName"
+                    :class="use.colorSchemeName"
                 />
             </div>
         </expansion-panel>
