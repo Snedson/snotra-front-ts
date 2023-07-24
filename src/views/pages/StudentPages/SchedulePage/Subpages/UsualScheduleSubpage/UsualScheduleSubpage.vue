@@ -22,7 +22,10 @@
                                 } - ${
                                     state.data.usps.usPs[day[0]][use.num - 1]
                                         .end
-                                }`,
+                                } (${
+                                    state.data.usps.usPs[day[0]][use.num - 1]
+                                        .durationInMins
+                                } мин.)`,
                                 color: 'var(--snotra--sys--surface-variant)',
                             },
                             {
@@ -64,25 +67,7 @@ import timerIcon from '@/assets/icons/emojis/time.png';
 import schoolIcon from '@/assets/icons/emojis/school.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import bellIcon from '@/assets/icons/emojis/bell.png';
-
-const getWeekdayTitle = (weekday: WeekDays): string => {
-    switch (weekday) {
-        case WeekDays.Monday:
-            return 'Понедельник';
-        case WeekDays.Tuesday:
-            return 'Вторник';
-        case WeekDays.Wednesday:
-            return 'Среда';
-        case WeekDays.Thursday:
-            return 'Четверг';
-        case WeekDays.Friday:
-            return 'Пятница';
-        case WeekDays.Saturday:
-            return 'Суббота';
-        case WeekDays.Sunday:
-            return 'Воскресенье';
-    }
-};
+import { getWeekdayTitle } from '@/helpers/getWeekdayTitle';
 
 const state = reactive<{
     data: GetStudentUsualScheduleSubpageResponseModel | null;
