@@ -1,4 +1,4 @@
-import { WeekDays } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
+import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
 
 export function getWeekdayTitle(weekday: WeekDays): string {
     switch (weekday) {

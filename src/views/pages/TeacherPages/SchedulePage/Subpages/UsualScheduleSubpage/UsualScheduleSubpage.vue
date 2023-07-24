@@ -21,9 +21,17 @@
                                 title: use.subjectFullName,
                             },
                             {
-                                iconCompleteUrl: timerIcon,
-                                title: state.data.usPs.usPs[day[0]][use.num - 1]
-                                    .begin,
+                                iconLocal: 'time.png',
+                                title: `${
+                                    state.data.usPs.usPs[day[0]][use.num - 1]
+                                        .begin
+                                } - ${
+                                    state.data.usPs.usPs[day[0]][use.num - 1]
+                                        .end
+                                } (${
+                                    state.data.usPs.usPs[day[0]][use.num - 1]
+                                        .durationInMins
+                                } мин.)`,
                                 color: 'var(--snotra--sys--surface-variant)',
                             },
                             {
@@ -67,16 +75,14 @@
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
 import { UsualScheduleSubpageService } from '@/http/services/TeacherServices/SchedulePageServices/UsualScheduleSubpageService';
-import {
-    UsualTeacherScheduleResponseModel,
-    WeekDays,
-} from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
+import { UsualTeacherScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import ExpansionPanel from '@/common/components/snedson-material-components/expansion-panel/expansion-panel.vue';
 import timerIcon from '@/assets/icons/emojis/time.png';
 import schoolIcon from '@/assets/icons/emojis/school.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import bellIcon from '@/assets/icons/emojis/bell.png';
+import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
 
 const state = reactive<{ data: UsualTeacherScheduleResponseModel | null }>({
     data: null,

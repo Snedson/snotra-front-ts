@@ -56,8 +56,8 @@
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
 import { getUsualScheduleSubpage } from './apiMethods';
-import { WeekDays } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 import { GetStudentUsualScheduleSubpageResponseModel } from './UsualScheduleSubpage.types';
+import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
 import expansionPanel from '@/common/components/snedson-material-components/expansion-panel/expansion-panel.vue';
 import universalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import timerIcon from '@/assets/icons/emojis/time.png';

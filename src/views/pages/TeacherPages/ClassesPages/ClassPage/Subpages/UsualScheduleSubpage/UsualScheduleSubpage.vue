@@ -65,7 +65,7 @@ import { onMounted, reactive } from 'vue';
 import { getWeekdayTitle } from '@/helpers/getWeekdayTitle';
 import { getUsualTeacherScheduleSubpageByClassId } from './apiMethods';
 import { UsualTeacherClassSubpageResponseModel } from './UsualTeacherClassSubpageResponseModel';
-import { WeekDays } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
+import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
 
 const state = reactive<{ data: UsualTeacherClassSubpageResponseModel | null }>({
     data: null,

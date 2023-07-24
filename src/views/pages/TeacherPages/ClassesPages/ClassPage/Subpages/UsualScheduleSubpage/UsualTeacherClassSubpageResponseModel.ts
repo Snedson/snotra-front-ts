@@ -1,5 +1,5 @@
-import { WeekDays } from '@/http/pageModels/teacherModels/schedulePage/UsualTeacherScheduleResponseModel';
 import { UsualScheduleElementModel } from '@/models/ScheduleElelmentModel';
+import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
 import { ScheduleParamsModel } from '@/models/ScheduleParamsModel';
 
 export type UsualTeacherClassSubpageResponseModel = {
