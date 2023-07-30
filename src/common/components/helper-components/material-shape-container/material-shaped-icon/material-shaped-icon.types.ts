@@ -1,3 +1,5 @@
+import { MaterialShape } from '../material-shape-container.types';
+
 export type IMaterialShapedIconProps =
     | IMaterialShapedIconPropsWithLocalUrl
     | IMaterialShapedIconPropsWithCompleteUrl;
@@ -18,8 +20,3 @@ interface IMaterialShapedIconPropsWithCompleteUrl
     iconLocal?: never;
     iconCompleteUrl: string;
 }
-
-type MaterialShape =
-    | 'eight-pointed-shape'
-    | 'ten-pointed-shape'
-    | 'ten-pointed-smooth-shape';

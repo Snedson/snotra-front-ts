@@ -14,7 +14,7 @@
                 <div class="universal-card__title-container">
                     <material-shaped-icon
                         v-if="props.icon"
-                        class="universal-card__title-icon"
+                        class="universal-card__title-icon sn-msc-on-universal-card"
                         :props="{
                             color: '',
                             shape: 'eight-pointed-shape',
@@ -63,7 +63,7 @@ import onAir from '../on-air/on-air.vue';
 import dataTag from '../data-tag/data-tag.vue';
 import customButton from '../custom-button/custom-button.vue';
 import { IUniversalCardProps } from './universal-card.types';
-import MaterialShapedIcon from '../../helper-components/material-shaped-icon/material-shaped-icon.vue';
+import MaterialShapedIcon from '../../helper-components/material-shape-container/material-shaped-icon/material-shaped-icon.vue';
 import router from '@/router';
 
 defineProps<{ props: IUniversalCardProps }>();

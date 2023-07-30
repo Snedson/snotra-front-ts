@@ -1,0 +1,8 @@
+:root .sn-msc-on-universal-card {
+    & path {
+        fill: var(--snotra--sys--surface-variant);
+        stroke: #85737066;
+        stroke-linejoin: round;
+        paint-order: stroke;
+    }
+}
