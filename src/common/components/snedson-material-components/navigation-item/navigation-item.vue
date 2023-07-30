@@ -1,23 +1,23 @@
 <template>
     <li class="nav-item-wrapper">
-        <a 
-            :class="[
-                'nav-item', 
-                props.selected ? 'nav-item_selected' : ''
-            ]" 
-            href="#" 
+        <a
+            :class="['nav-item', props.selected ? 'nav-item_selected' : '']"
+            href="#"
             :title="props.title"
         >
             <state-layer class="nav-item__state-layer">
                 <div class="nav-item__icon-wrapper">
-                    <google-material-icon 
+                    <google-material-icon
                         :props="{
                             iconName: props.iconName,
-                            color: props.selected ? 'var(--snotra--sys--on-secondary-container)' : 'var(--snotra--sys--on-surface-variant)',
-                            selected: props.selected
+                            color: props.selected
+                                ? 'var(--snotra--sys--on-secondary-container)'
+                                : 'var(--snotra--sys--on-surface-variant)',
+                            selected: props.selected,
                         }"
                         :icon-name="props.iconName"
-                        class="nav-item__icon"/>
+                        class="nav-item__icon"
+                    />
                 </div>
             </state-layer>
         </a>
@@ -33,7 +33,6 @@ import { INavItemProps } from './navigation-item.types';
 defineProps<{
     props: INavItemProps;
 }>();
-
 </script>
 
 <style lang="scss" scoped>
@@ -67,9 +66,6 @@ defineProps<{
             display: flex;
             align-items: center;
             justify-content: center;
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10 and IE 11 */
-            user-select: none; /* Standard syntax */
         }
     }
 
