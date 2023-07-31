@@ -3,7 +3,6 @@
         :props="{
             tabs: tabs.tabs,
             selectedTabItemId: tabs.selected,
-            selectTabItemFunction: setSelectedTab,
         }"
     />
     <p style="margin-top: 25px">Teacher's Debug Page</p>
@@ -18,6 +17,19 @@
     />
     <on-air style="margin-top: 15px" />
 
+    <material-shaped-button
+        :props="{
+            icon: 'arrow_forward',
+        }"
+        class="msb sn-msc-button-on-minor-card"
+    >
+    </material-shaped-button>
+
+    <material-shape-container
+        class="sn-msc-on-universal-card"
+        :props="{ shape: 'four-pointed-shape', strokeWidth: 0 }"
+    />
+
     <div class="ruthenian-blue heeej">
         <custom-button
             :props="{
@@ -25,7 +37,6 @@
                 type: 'outlined',
                 //        colorSchemeName: 'ruthenian-red',
                 iconName: 'edit',
-                colorScheme: 'ruthenian-blue',
             }"
         ></custom-button>
 
@@ -36,7 +47,6 @@
                 //        colorSchemeName: 'ruthenian-red',
                 iconName: 'dashboard',
                 innerText: 'Измененное расписание',
-                colorScheme: 'ruthenian-blue',
             }"
         ></custom-button>
     </div>
@@ -131,7 +141,9 @@ import { reactive } from 'vue';
 import router from '@/router';
 import whatever from '@/assets/icons/emojis/teacher.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import MaterialShapedIcon from '@/common/components/helper-components/material-shaped-icon/material-shaped-icon.vue';
+import MaterialShapedIcon from '@/common/components/helper-components/material-shape-container/material-shaped-icon/material-shaped-icon.vue';
+import MaterialShapedButton from '@/common/components/helper-components/material-shape-container/material-shaped-button/material-shaped-button.vue';
+import MaterialShapeContainer from '@/common/components/helper-components/material-shape-container/material-shape-container.vue';
 import { defineEmits } from 'vue';
 // import { TAnimationFlows } from '@/common/types/TAnimationFlows';
 // import { HandleAnimation } from '@/services/useAnimations';
@@ -169,4 +181,19 @@ const tabs = reactive({
 // };
 </script>
 
-<style lang="sccs"></style>
+<style lang="scss">
+.outer-shape .shape {
+    &__body {
+        fill: red;
+        stroke: #646464;
+        stroke-width: 5px;
+        stroke-linejoin: round;
+        paint-order: stroke;
+    }
+}
+
+.msb {
+    width: 50px;
+    height: 50px;
+}
+</style>
