@@ -71,6 +71,8 @@ function selectTab(tabId: number) {
     margin-right: 15px;
     cursor: pointer;
     color: var(--snotra--sys--on-primary-container);
+    display: list-item;
+    position: relative;
 
     &_selected {
         font-weight: 700;
@@ -78,6 +80,56 @@ function selectTab(tabId: number) {
         border: 4px;
         border-color: var(--snotra--sys--primary);
         border-style: none none solid none;
+    }
+
+    &::after {
+        background-image: url('@/assets/icons/md_shapes_li-bullet_8x8.svg');
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        right: -20px;
+        width: 8px;
+        height: 8px;
+        transform: rotate(calc(var(--rotation) * 36deg));
+        line-height: 0;
+        text-align: center;
+        content: '';
+    }
+
+    :root.dark-theme &::after {
+        background-image: url('@/assets/icons/md_shapes_li-bullet_8x8-dark.svg');
+    }
+
+    &:last-child::after {
+        display: none;
+    }
+
+    &:nth-child(2) {
+        --rotation: 2;
+    }
+
+    &:nth-child(3n) {
+        --rotation: 5;
+    }
+
+    &:nth-child(3n + 1) {
+        --rotation: 7;
+    }
+
+    &:nth-child(3n + 2) {
+        --rotation: 4;
+    }
+
+    &:nth-child(4n) {
+        --rotation: 9;
+    }
+
+    &:nth-child(4n + 1) {
+        --rotation: 6;
+    }
+
+    &:nth-child(4n + 3) {
+        --rotation: 3;
     }
 }
 </style>
