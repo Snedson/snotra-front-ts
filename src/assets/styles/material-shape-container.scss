@@ -1,3 +1,12 @@
+@mixin sn-msc-button-on-minor-card_hover {
+    & path {
+        fill: var(--snotra--sys--secondary);
+    }
+    & span {
+        color: var(--snotra--sys--surface);
+    }
+}
+
 :root .sn-msc-on-universal-card {
     & path {
         fill: var(--snotra--sys--surface-variant);
@@ -18,11 +27,6 @@
     }
 
     &:hover {
-        & path {
-            fill: var(--snotra--sys--secondary);
-        }
-        & span {
-            color: var(--snotra--sys--surface);
-        }
+        @include sn-msc-button-on-minor-card_hover;
     }
 }

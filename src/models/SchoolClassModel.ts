@@ -1,6 +1,7 @@
 export interface BaseSchoolClassModel {
     classId: number;
     className: string;
+    gradeNumber: number;
     classHomeLocationId: number;
     classHomeLocationName: string;
     isMockClass: boolean;
