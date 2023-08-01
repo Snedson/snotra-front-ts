@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-content__labels">
                     <div class="card-content__title">
-                        <h2>{{ props.title }}</h2>
+                        <h3>{{ props.title }}</h3>
                     </div>
                     <div
                         class="card-content__description"
@@ -92,7 +92,7 @@ const clicked = () => {
     }
 
     &__title {
-        font-size: 22px;
+        font-size: 28px;
     }
 
     &__description {
