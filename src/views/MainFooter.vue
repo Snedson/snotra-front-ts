@@ -12,7 +12,7 @@
                         Snotra - школьный агрегатор, собирающий все необходимое
                         для удобной учебы в одном месте: измененное и
                         стандартное расписание уроков и звонков, домашние
-                        задания, уведомления и инфорамцию о посещаемости
+                        задания, уведомления и информацию о посещаемости
                         учащихся.
                     </p>
                 </div>
@@ -50,7 +50,7 @@ import SquiggleDivider from '@/common/components/snedson-material-components/squ
     justify-content: space-between;
 
     &__left {
-        width: 40%;
+        width: 50%;
         display: flex;
         flex-direction: column;
     }
@@ -83,6 +83,7 @@ import SquiggleDivider from '@/common/components/snedson-material-components/squ
 
     &__description {
         font-size: 16px;
+        max-width: 550px;
     }
 }
 
@@ -98,6 +99,22 @@ import SquiggleDivider from '@/common/components/snedson-material-components/squ
         & a {
             text-decoration: none;
             font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-content {
+        padding: 40px 20px;
+        flex-direction: column;
+
+        &__left {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        &__right {
+            width: 100%;
         }
     }
 }
