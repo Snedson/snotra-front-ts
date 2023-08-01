@@ -35,6 +35,7 @@ onMounted(() => {
 @use '@/assets/styles/colors.scss';
 @use '@/assets/styles/snotra-color-schemes.scss';
 @use '@/assets/styles/material-shape-container.scss';
+@use '@/assets/styles/material-cards.scss';
 
 * {
     margin: 0;
