@@ -65,6 +65,7 @@
                     size: 'full',
                     type: 'filled',
                 }"
+                @click="appendHomework"
             />
         </div>
     </div>
@@ -80,7 +81,11 @@ import {
     AppendHomeworkPageStateModel,
     HomeworkTask,
 } from './append-homework-page.types.ts';
-import { getAppendHomeworkPage } from './api-methods.ts';
+import {
+    getAppendHomeworkPage,
+    postAppendHomeworkElement,
+} from './api-methods.ts';
+import router from '@/router';
 
 import messageCalloutIcon from '@/assets/icons/emojis/messageCallout.png';
 import booksIcon from '@/assets/icons/emojis/books.png';
@@ -101,6 +106,34 @@ const onSubjectSelection = (subjectId: number | null) => {
 
 const onGroupSelection = (groupId: number | null) => {
     state.state.task.groupId = groupId;
+};
+
+const appendHomework = () => {
+    if (!state.state.task.subjectId) {
+        alert('Вы не выбрали предемет, для которого доавбляется задание');
+        return;
+    }
+
+    if (!state.state.task.text) {
+        alert('Вы не записали текст задания');
+        return;
+    }
+
+    if (typeof state.state.task.scheduledDate === 'function') {
+        alert('Вы не указали дату, на которое задана домашная работа');
+        return;
+    }
+
+    postAppendHomeworkElement({
+        classId: state.state.data.classId,
+        groupId: state.state.task.groupId,
+        subjectId: state.state.task.subjectId,
+        scheduledDate: state.state.task.scheduledDate,
+        taskText: state.state.task.text,
+        additionalFilesUri: null,
+    });
+
+    router.push({ name: 'sn.student.homeworks' });
 };
 
 onMounted(() => {

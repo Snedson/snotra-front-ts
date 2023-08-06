@@ -8,6 +8,15 @@ export interface AppendHomeworkPageResponseModel {
     };
 }
 
+export interface AppendHomeworkElementRequestModel {
+    classId: number;
+    groupId: number | null;
+    subjectId: number;
+    scheduledDate: Date;
+    taskText: string;
+    additionalFilesUri: null;
+}
+
 export interface AppendHomeworkPageStateModel {
     data: AppendHomeworkPageResponseModel;
     task: HomeworkTask;
