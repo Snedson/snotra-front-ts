@@ -17,6 +17,7 @@ import StudentHomePage from '@/views/pages/StudentPages/HomePage/HomePage.vue';
 import StudentSchedulePage from '@/views/pages/StudentPages/SchedulePage/SchedulePage.vue';
 import AuthComponent from '@/common/components/helper-components/auth-component/auth-component.vue';
 import HomeworkPageVue from '@/views/pages/StudentPages/HomeworkPage/HomeworkPage.vue';
+import AppendHomeworkPage from '@/views/pages/StudentPages/HomeworkPage/AppendHomeworkPage/AppendHomeworkPage.vue';
 import StudentUserPage from '@/views/pages/StudentPages/UserPage/UserPage.vue';
 import StudentSetStatusPage from '@/views/pages/StudentPages/UserPage/SetStatusPage.vue';
 
@@ -196,14 +197,12 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'homeworks',
                 name: 'sn.student.homeworks',
                 meta: { id: 3 },
-                component: HomeworkPageVue, // Change to StudentHomeworksPage when created
-                children: [
-                    {
-                        path: 'add',
-                        name: 'sn.student.homeworks.add',
-                        component: StudentSchedulePage, // Change to StudentAddHomeworksPage when created
-                    },
-                ],
+                component: HomeworkPageVue,
+            },
+            {
+                path: 'homeworks/add',
+                name: 'sn.student.homeworks.add',
+                component: AppendHomeworkPage,
             },
             {
                 path: 'notifications',
