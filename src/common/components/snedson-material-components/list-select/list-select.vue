@@ -4,9 +4,11 @@
             <div class="box__content">
                 <p class="box__selected-item-title">
                     {{
-                        props.menuItems.find(
-                            (i) => i.id == props.selectedItemId
-                        )?.title
+                        props.selectedItemId
+                            ? props.menuItems.find(
+                                  (i) => i.id == props.selectedItemId
+                              )?.title
+                            : props.defaultSelectionTitle
                     }}
                 </p>
                 <google-material-icon
@@ -31,6 +33,16 @@
         </div>
         <div class="list-select__menu-container" v-if="state.isExpanded">
             <ul class="list-select__menu">
+                <list-select-menu-item
+                    v-if="props.isDefaultSelectionAvaliable"
+                    :key="-1"
+                    :props="{
+                        id: -1,
+                        title: props.defaultSelectionTitle,
+                        isSelected: props.selectedItemId == null,
+                    }"
+                    @click="onSelection(null)"
+                />
                 <list-select-menu-item
                     v-for="item in props.menuItems"
                     :key="item.id"
@@ -57,7 +69,7 @@ defineProps<{
 }>();
 
 type IListSelectEmits = {
-    (event: 'selected', itemId: number): void;
+    (event: 'selected', itemId: number | null): void;
 };
 const emit = defineEmits<IListSelectEmits>();
 
@@ -69,7 +81,7 @@ let onBoxClicked = () => {
     state.isExpanded = !state.isExpanded;
 };
 
-let onSelection = (itemId: number) => {
+let onSelection = (itemId: number | null) => {
     emit('selected', itemId);
     onBoxClicked();
 };
