@@ -34,7 +34,7 @@
                         </p>
                     </div>
                     <div class="user-data-item__actions">
-                        <CustomButton
+                        <custom-button
                             :props="{
                                 iconName: 'edit',
                                 innerText: 'Сменить',
@@ -42,7 +42,7 @@
                                 type: 'text',
                             }"
                             :onclick="onChangeStatusButtonClick"
-                        ></CustomButton>
+                        />
                     </div>
                 </div>
             </li>
@@ -84,14 +84,14 @@
                         <h2 class="user-data-item__title">Выход из аккаунта</h2>
                     </div>
                     <div class="user-data-item__actions">
-                        <CustomButton
+                        <custom-button
                             :props="{
                                 type: 'text',
                                 iconName: 'logout',
                                 innerText: 'Выйти',
                                 size: 'full-resizable-to-icon-small',
                             }"
-                        ></CustomButton>
+                        />
                     </div>
                 </div>
             </li>

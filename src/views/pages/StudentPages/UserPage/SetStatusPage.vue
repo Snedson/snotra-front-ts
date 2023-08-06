@@ -37,7 +37,7 @@
                         selectedItemId: state.selectedStatusId,
                         title: 'Статус',
                     }"
-                    :on-selected="onStatusSelect"
+                    @selected="onStatusSelect"
                 ></ListSelect>
             </div>
             <div class="status-setter-element">
@@ -48,21 +48,22 @@
                 />
             </div>
         </div>
-        <CustomButton
+        <custom-button
             :props="{
                 iconName: 'person_pin_circle',
                 innerText: 'Установить статус',
                 size: 'full',
                 type: 'filled',
             }"
-        ></CustomButton>
+            @click="setStatus"
+        />
     </div>
 </template>
 <script lang="ts" setup>
 import { GetStudentMenuPageResponseModel } from '@/http/pageModels/studentModels/menuPage/GetStudentMenuPageResponseModel';
 import { StudentStatus } from '@/http/pageModels/teacherModels/classPage/AbsentStudentsResponseModel';
 import { reactive, computed, onMounted } from 'vue';
-import { getStudentMenuPage } from './apiMethods';
+import { getStudentMenuPage, postSetStatus } from './apiMethods';
 import CustomButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 import ListSelect from '@/common/components/snedson-material-components/list-select/list-select.vue';
 import checkMarkIcon from '@/assets/icons/check-mark.png';
@@ -73,9 +74,11 @@ import TextField from '@/common/components/snedson-material-components/text-fiel
 const state = reactive<{
     data: GetStudentMenuPageResponseModel | null;
     selectedStatusId: number | null;
+    comment: string | null;
 }>({
     data: null,
     selectedStatusId: null,
+    comment: ' ',
 });
 
 const currentStatus = computed((): StudentStatus | null => {
@@ -101,6 +104,20 @@ const statusesForListSelect = computed((): IListSelectMenuItem[] | null => {
           })
         : null;
 });
+
+const setStatus = () => {
+    if (state.data?.currentStatusID == state.selectedStatusId) {
+        alert('У вас уже установлен данный статус');
+        return;
+    }
+
+    if (state.selectedStatusId && state.comment) {
+        postSetStatus({
+            statusId: state.selectedStatusId,
+            comment: state.comment,
+        });
+    }
+};
 
 onMounted(() => {
     getStudentMenuPage().then((res) => {
