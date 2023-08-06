@@ -3,7 +3,7 @@
         class="user-page"
         v-if="state.data !== null && state.selectedStatusId !== null"
     >
-        <div class="user-page-header">
+        <div class="user-page-header material-card_type_outlined">
             <div class="user-page-header__avatar"></div>
             <div class="user-page-header__data">
                 <h1 class="user-page-header__name">
