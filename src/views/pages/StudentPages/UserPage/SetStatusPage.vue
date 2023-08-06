@@ -42,7 +42,10 @@
             </div>
             <div class="status-setter-element">
                 <img :src="speechBalloonIcon" alt="" />
-                <input type="text" />
+                <text-field
+                    type="text"
+                    :placeholder="'Коротко опишите причину...'"
+                />
             </div>
         </div>
         <CustomButton
@@ -65,6 +68,7 @@ import ListSelect from '@/common/components/snedson-material-components/list-sel
 import checkMarkIcon from '@/assets/icons/check-mark.png';
 import speechBalloonIcon from '@/assets/icons/speech-balloon.png';
 import { IListSelectMenuItem } from '@/common/components/snedson-material-components/list-select/list-select.types';
+import TextField from '@/common/components/snedson-material-components/text-field/text-field.vue';
 
 const state = reactive<{
     data: GetStudentMenuPageResponseModel | null;

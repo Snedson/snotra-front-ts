@@ -87,9 +87,8 @@
                 </div>
                 <div class="modified-data__field field">
                     <img :src="handIcon" class="field__icon" />
-                    <input
-                        type="text"
-                        class="field__input tmp-text-field"
+                    <text-field
+                        class="field__input"
                         :placeholder="'Комментарий для учащихся'"
                         v-model="state.data.modifiedState.comments"
                     />
@@ -121,6 +120,7 @@ import router from '@/router';
 import { onMounted, reactive } from 'vue';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import ListSelect from '@/common/components/snedson-material-components/list-select/list-select.vue';
+import TextField from '@/common/components/snedson-material-components/text-field/text-field.vue';
 import { ModifySePageStateModel } from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageStateModel';
 import customButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 import patchModifyingSeService from '@/http/services/TeacherServices/ModifyScheduleElementPage/ModifyingSeService';
@@ -216,29 +216,6 @@ const saveChanges = () => {
         width: 55px;
         height: 55px;
         margin-top: 7px;
-    }
-}
-
-.tmp-text-field {
-    width: 100%;
-    height: 56px;
-    outline: none;
-    box-shadow: none;
-    border-color: var(--snotra--sys--outline);
-    border-radius: 4px;
-    border-style: solid;
-    border-width: 1px;
-    padding: 0 21px;
-    font-size: 16px;
-    background-color: #ffffff00;
-    &:focus {
-        outline: none;
-        box-shadow: none;
-        border: none;
-        border-color: var(--snotra--sys--outline);
-        border-radius: 4px;
-        border-style: solid;
-        border-width: 1px;
     }
 }
 </style>
