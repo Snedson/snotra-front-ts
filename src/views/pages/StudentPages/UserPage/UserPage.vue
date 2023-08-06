@@ -1,6 +1,6 @@
 <template>
     <div class="user-page" v-if="state.data !== null">
-        <div class="user-page-header">
+        <div class="user-page-header material-card_type_outlined">
             <div class="user-page-header__avatar"></div>
             <div class="user-page-header__data">
                 <h1 class="user-page-header__name">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <ul class="user-data">
+        <ul class="user-data material-card_type_outlined">
             <li class="user-data-item">
                 <div class="user-data-item__image-cont">
                     <GoogleMaterialIcon
@@ -154,8 +154,6 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    background: var(--snotra--sys--surface);
-    border: 1px solid var(--snotra--sys--outline);
     border-radius: 10px;
 
     &__avatar {
@@ -187,8 +185,6 @@ onMounted(() => {
 .user-data {
     list-style: none;
     padding: 15px 0 15px 10px;
-    background: var(--snotra--sys--surface);
-    border: 1px solid var(--snotra--sys--outline);
     border-radius: 10px;
 }
 

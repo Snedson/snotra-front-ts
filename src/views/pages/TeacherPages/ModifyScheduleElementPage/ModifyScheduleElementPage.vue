@@ -68,6 +68,7 @@
                 :class="[
                     'modified-data',
                     state.data.originalState.actualMse.colorSchemeName,
+                    'material-card_type_elevated',
                 ]"
             >
                 <div class="modified-data__field field">
@@ -197,7 +198,6 @@ const saveChanges = () => {
 }
 
 .modified-data {
-    background-color: var(--snotra--sys--surface-variant);
     border-radius: 15px;
     padding: 25px 20px;
     display: flex;

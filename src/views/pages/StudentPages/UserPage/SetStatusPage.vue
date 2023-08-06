@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="status-setter">
+        <div class="status-setter material-card_type_elevated">
             <div class="status-setter-element">
                 <img
                     :src="checkMarkIcon"
@@ -111,9 +111,6 @@ onMounted(() => {
     flex-direction: column;
     gap: 20px;
     padding: 25px 20px;
-    background: var(--snotra--sys--secondary-container);
-    box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
-        0px 1px 2px 0px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
 }
 
