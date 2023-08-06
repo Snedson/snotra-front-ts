@@ -11,7 +11,7 @@
                         :class="homework.colorSchemeName"
                         :props="{
                             type: 'filled',
-                            title: homework.taskText,
+                            content: homework.taskText,
                             dataTags: [
                                 {
                                     color: 'var(--snotra--sys--surface)',
@@ -38,9 +38,6 @@
                                     iconLocal: 'student.png',
                                 },
                             ],
-                            icon:
-                                'https://mbousosh1.snotra.site/' +
-                                homework.iconURL,
                         }"
                         v-for="(homework, homeworkIndex) in day[1]"
                         :key="homeworkIndex"
