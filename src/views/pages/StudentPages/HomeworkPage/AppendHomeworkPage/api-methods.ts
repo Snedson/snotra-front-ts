@@ -1,6 +1,5 @@
 import $api from '@/http/api';
 import { EmptyResponse } from '@/models/EmptyResponse';
-import { AxiosError } from 'axios';
 import {
     AppendHomeworkElementRequestModel,
     AppendHomeworkPageResponseModel,
@@ -15,12 +14,8 @@ export const getAppendHomeworkPage = () => {
 export const postAppendHomeworkElement = (
     requestModel: AppendHomeworkElementRequestModel
 ) => {
-    return $api
-        .post<EmptyResponse>('/api/Student/AppendHomeworkElement', requestModel)
-        .then((response) => {
-            console.log(response.data.errorTextForUser);
-        })
-        .catch((reason: AxiosError<EmptyResponse>) => {
-            alert(reason.response?.data.errorTextForUser);
-        });
+    return $api.post<EmptyResponse>(
+        '/api/Student/AppendHomeworkElement',
+        requestModel
+    );
 };

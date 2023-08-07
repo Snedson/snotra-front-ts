@@ -22,7 +22,9 @@
                                 },
                                 {
                                     color: 'var(--snotra--sys--surface)',
-                                    title: homework.groupName,
+                                    title: homework.groupName
+                                        ? homework.groupName
+                                        : 'Весь класс',
                                     iconLocal: 'student.png',
                                 },
                                 {

@@ -1,10 +1,10 @@
 export interface AppendHomeworkPageResponseModel {
     avaliableSubjects: {
-        [key: number]: string[];
+        [key: number]: string;
     };
     classId: number;
     groupsOfClass: {
-        [key: number]: string[];
+        [key: number]: string;
     };
 }
 
