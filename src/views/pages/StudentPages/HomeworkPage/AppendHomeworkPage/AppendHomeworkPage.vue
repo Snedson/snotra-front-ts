@@ -77,12 +77,16 @@ import TextField from '@/common/components/snedson-material-components/text-fiel
 import DateSelector from '@/common/components/snedson-material-components/date-selector/date-selector.vue';
 import customButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 import { onMounted, reactive } from 'vue';
-import { AppendHomeworkPageStateModel } from './append-homework-page.types';
+import {
+    AppendHomeworkPageStateModel,
+    DateFormat,
+} from './append-homework-page.types';
 import {
     getAppendHomeworkPage,
     postAppendHomeworkElement,
 } from './api-methods';
 import router from '@/router';
+import moment from 'moment';
 
 import messageCalloutIcon from '@/assets/icons/emojis/messageCallout.png';
 import booksIcon from '@/assets/icons/emojis/books.png';
@@ -118,7 +122,7 @@ const appendHomework = () => {
         return;
     }
 
-    if (state.task.scheduledDate.getDate <= new Date().getDate) {
+    if (state.task.scheduledDate === moment(new Date()).format(DateFormat)) {
         alert('Вы не указали дату, на которое задана домашная работа');
         return;
     }
@@ -144,7 +148,7 @@ onMounted(() => {
     getAppendHomeworkPage().then((response) => {
         state.task = {
             text: '',
-            scheduledDate: new Date(),
+            scheduledDate: moment(new Date()).format(DateFormat),
             subjectId: null,
             groupId: null,
         };

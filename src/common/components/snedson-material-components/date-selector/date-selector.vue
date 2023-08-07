@@ -12,6 +12,8 @@
 </template>
 
 <script setup lang="ts">
+import { DateFormat } from '@/views/pages/StudentPages/HomeworkPage/AppendHomeworkPage/append-homework-page.types';
+import moment from 'moment';
 import { defineProps, defineEmits, computed } from 'vue';
 
 const prop = defineProps<{
@@ -27,29 +29,15 @@ const emit = defineEmits<{
 }>();
 
 const minDate = computed((): string => {
-    const today = new Date();
-    const dd = today.getDate();
-    const mm = today.getMonth() + 1; //January is 0!
-    const yyyy = today.getFullYear();
-
-    let ddStr = dd < 10 ? '0' + dd.toString() : dd.toString();
-    let mmStr = mm < 10 ? '0' + mm.toString() : mm.toString();
-
-    return yyyy + '-' + mmStr + '-' + ddStr;
+    return moment(new Date()).format(DateFormat);
 });
 
 const maxDate = computed((): string => {
-    const today = new Date();
-    const dd = prop.props.maxDateDaysOffset
-        ? today.getDate() + prop.props.maxDateDaysOffset
-        : today.getDate();
-    const mm = today.getMonth() + 1; //January is 0!
-    const yyyy = today.getFullYear();
-
-    let ddStr = dd < 10 ? '0' + dd.toString() : dd.toString();
-    let mmStr = mm < 10 ? '0' + mm.toString() : mm.toString();
-
-    return yyyy + '-' + mmStr + '-' + ddStr;
+    const today = moment(new Date());
+    if (prop.props.maxDateDaysOffset) {
+        today.add(prop.props.maxDateDaysOffset, 'days');
+    }
+    return today.format(DateFormat);
 });
 </script>
 

@@ -12,7 +12,7 @@ export interface AppendHomeworkElementRequestModel {
     classId: number;
     groupId: number | null;
     subjectId: number;
-    scheduledDate: Date;
+    scheduledDate: string;
     taskText: string;
     additionalFilesUri: null;
 }
@@ -24,7 +24,9 @@ export interface AppendHomeworkPageStateModel {
 
 export interface HomeworkTask {
     text: string;
-    scheduledDate: Date;
+    scheduledDate: string;
     subjectId: number | null;
     groupId: number | null;
 }
+
+export const DateFormat = 'YYYY-MM-DD';
