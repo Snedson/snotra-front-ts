@@ -11,6 +11,7 @@ import TeacherModifyScheduleElementPage from '@/views/pages/TeacherPages/ModifyS
 import TeacherClassesListPage from '@/views/pages/TeacherPages/ClassesPages/ClassesListPage/ClassesListPage.vue';
 import TeacherClassPage from '@/views/pages/TeacherPages/ClassesPages/ClassPage/ClassPage.vue';
 import TeacherNotificationPage from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.vue';
+import TeacherSendNotificationPage from '@/views/pages/TeacherPages/NotificationPage/Subpages/SendNotificationSubpage/SendNotificationSubpage.vue';
 import TeacherDebugPage from '@/views/pages/TeacherPages/DebugPage/DebugPage.vue';
 import TeacherUserPage from '@/views/pages/TeacherPages/UserPage/UserPage.vue';
 import StudentHomePage from '@/views/pages/StudentPages/HomePage/HomePage.vue';
@@ -138,6 +139,11 @@ const routes: Array<RouteRecordRaw> = [
                         name: 'sn.teacher.notifications.forStudents',
                     },
                 ],
+            },
+            {
+                path: 'notifications/send',
+                name: 'sn.teacher.notifications.send',
+                component: TeacherSendNotificationPage,
             },
             {
                 path: 'debug',
