@@ -22,11 +22,10 @@
 <script lang="ts" setup>
 import TabMenu from '@/common/components/snedson-material-components/tab-menu/tab-menu.vue';
 import { ITabMenuProps } from '@/common/components/snedson-material-components/tab-menu/tab-menu.types';
-import axios from 'axios';
-import { onMounted, reactive } from 'vue';
+import { reactive } from 'vue';
 import NotificationsForStudentsSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/NotificationsForStudentsSubpage/NotificationsForStudentsSubpage.vue';
 import { NotificationSubpage } from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.types';
-import AnnouncementsSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/AnnouncementsSubpage/AnnouncementsSubpage.vue';
+import AnnouncementsSubpage from '@/views/pages/CommonPages/AnnouncementsSubpage/AnnouncementsSubpage.vue';
 import router from '@/router';
 
 const state = reactive<ITabMenuProps>({

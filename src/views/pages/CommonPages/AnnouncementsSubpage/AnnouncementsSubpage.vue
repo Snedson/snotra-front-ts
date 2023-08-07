@@ -22,7 +22,7 @@
 import { onMounted, reactive } from 'vue';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import teacherIcon from '@/assets/icons/emojis/teacher.png';
-import getAnnouncementsSubpage from '@/http/services/TeacherServices/NotificationPageServices/AnnouncesSubpageService';
+import getAnnouncementsSubpage from './api-methods';
 import { IAnnouncementsSubPageResponseModel } from '@/http/pageModels/teacherModels/notificationPage/AnnouncementsSubpageResponseModel';
 
 const state = reactive<{ data: IAnnouncementsSubPageResponseModel }>({
