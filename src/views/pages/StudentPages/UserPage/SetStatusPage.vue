@@ -33,7 +33,7 @@
                         menuItems: statusesForListSelect
                             ? statusesForListSelect
                             : [],
-                        isEmptySelectionAvaliable: false,
+                        isDefaultSelectionAvaliable: false,
                         selectedItemId: state.selectedStatusId,
                         title: 'Статус',
                     }"
@@ -93,7 +93,7 @@ const currentStatus = computed((): StudentStatus | null => {
     ];
 });
 
-const onStatusSelect = (statusId: number) => {
+const onStatusSelect = (statusId: number | null) => {
     state.selectedStatusId = statusId;
 };
 

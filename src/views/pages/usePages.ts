@@ -1,4 +1,5 @@
 import { IPages } from '@/common/types/navigation-interfaces/IPage';
+import router from '@/router';
 
 export const Pages: IPages = {
     'sn.teacher.main': {
@@ -232,7 +233,12 @@ export const Pages: IPages = {
         },
     },
     'sn.student.homeworks': {
-        fabData: null,
+        fabData: {
+            iconName: 'add',
+            callback: function () {
+                router.push({ name: 'sn.student.homeworks.add' });
+            },
+        },
         contentHeaderData: {
             backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
             backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
@@ -249,7 +255,7 @@ export const Pages: IPages = {
             backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
             backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
             backgroundImageShift: 0,
-            h1: 'Добавить домашнее задание',
+            h1: 'Добавление домашнего задания',
             h2: 'Будьте предельно внимательны при записи домашнего задания под диктовку учителя',
             h3: '',
             browserTitle: 'Добавление домашнего задания',

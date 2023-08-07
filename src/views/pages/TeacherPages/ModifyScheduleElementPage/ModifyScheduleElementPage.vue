@@ -76,7 +76,7 @@
                     <list-select
                         :props="{
                             title: 'Место проведения урока',
-                            isEmptySelectionAvaliable: false,
+                            isDefaultSelectionAvaliable: false,
                             menuItems: Object.entries(
                                 state.data.originalState.locationsList
                             ).map(([id, title]) => ({ id: Number(id), title })),
@@ -146,8 +146,9 @@ onMounted(() => {
     );
 });
 
-const onLocationSelection = (locationId: number) => {
-    state.data.modifiedState.locationId = locationId;
+const onLocationSelection = (locationId: number | null) => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    state.data.modifiedState.locationId = locationId!;
 };
 
 const saveChanges = () => {
