@@ -7,8 +7,17 @@
                 type: 'outlined',
                 dataTags: [
                     {
-                        title: announcement.notificationAuthorSurenameAndInitials,
+                        title:
+                            'Отправитель: ' +
+                            announcement.notificationAuthorSurenameAndInitials,
                         iconCompleteUrl: teacherIcon,
+                        color: '',
+                    },
+                    {
+                        title:
+                            'Дата отправления: ' +
+                            moment(announcement.date).format('DD.MM.YYYY'),
+                        iconCompleteUrl: calendarIcon,
                         color: '',
                     },
                 ],
@@ -22,8 +31,10 @@
 import { onMounted, reactive } from 'vue';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import teacherIcon from '@/assets/icons/emojis/teacher.png';
+import calendarIcon from '@/assets/icons/emojis/calendar.png';
 import getAnnouncementsSubpage from './api-methods';
 import { IAnnouncementsSubPageResponseModel } from '@/http/pageModels/teacherModels/notificationPage/AnnouncementsSubpageResponseModel';
+import moment from 'moment';
 
 const state = reactive<{ data: IAnnouncementsSubPageResponseModel }>({
     data: {} as IAnnouncementsSubPageResponseModel,
