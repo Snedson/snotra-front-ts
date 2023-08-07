@@ -264,9 +264,9 @@ export const Pages: IPages = {
     'sn.student.notifications.announces': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
-            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
-            backgroundImageShift: 0,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/pink/4-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/pink/4-dark.png'),
+            backgroundImageShift: 35,
             h1: 'Анонсы',
             h2: 'Здесь представлен список общешкольных анонсов. ',
             h3: '',
@@ -276,9 +276,9 @@ export const Pages: IPages = {
     'sn.student.notifications.fromTeachers': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
-            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
-            backgroundImageShift: 0,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/pink/2-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/pink/2-dark.png'),
+            backgroundImageShift: 19,
             h1: 'Уведомления от учителей',
             h2: 'Здесь представлены увдомления, которые были отправлены учителями',
             h3: '',
