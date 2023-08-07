@@ -29,11 +29,11 @@
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import { INotificationsForStudentsResponseModel } from '@/http/pageModels/teacherModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
 import getNotificationPage from './api-methods';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import calendarIcon from '@/assets/icons/emojis/calendar.png';
 import moment from 'moment';
+import { INotificationsForStudentsResponseModel } from './notifications-for-students.types';
 
 const state = reactive<{ data: INotificationsForStudentsResponseModel }>({
     data: {} as INotificationsForStudentsResponseModel,

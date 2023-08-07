@@ -1,5 +1,5 @@
 import $api from '@/http/api';
-import { IAnnouncementsSubPageResponseModel } from '@/http/pageModels/teacherModels/notificationPage/AnnouncementsSubpageResponseModel';
+import { IAnnouncementsSubPageResponseModel } from './announcements-subpage.types';
 
 const getAnnouncementsSubpage = (
     version: string | null,
