@@ -33,8 +33,8 @@ import UniversalCard from '@/common/components/snedson-material-components/unive
 import teacherIcon from '@/assets/icons/emojis/teacher.png';
 import calendarIcon from '@/assets/icons/emojis/calendar.png';
 import getAnnouncementsSubpage from './api-methods';
-import { IAnnouncementsSubPageResponseModel } from '@/http/pageModels/teacherModels/notificationPage/AnnouncementsSubpageResponseModel';
 import moment from 'moment';
+import { IAnnouncementsSubPageResponseModel } from './announcements-subpage.types';
 
 const state = reactive<{ data: IAnnouncementsSubPageResponseModel }>({
     data: {} as IAnnouncementsSubPageResponseModel,
