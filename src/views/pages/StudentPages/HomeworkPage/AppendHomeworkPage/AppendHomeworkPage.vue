@@ -108,13 +108,13 @@ const onGroupSelection = (groupId: number | null) => {
 };
 
 const appendHomework = () => {
-    if (!state.task.subjectId) {
-        alert('Вы не выбрали предемет, для которого доавбляется задание');
+    if (!state.task.text) {
+        alert('Вы не записали текст задания');
         return;
     }
 
-    if (!state.task.text) {
-        alert('Вы не записали текст задания');
+    if (!state.task.subjectId) {
+        alert('Вы не выбрали предемет, для которого доавбляется задание');
         return;
     }
 
