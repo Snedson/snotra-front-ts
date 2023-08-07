@@ -7,13 +7,16 @@
                 type: 'outlined',
                 dataTags: [
                     {
-                        title: notification.notificationAuthorSurenameAndInitials,
-                        iconCompleteUrl: teacherIcon,
+                        title:
+                            'Получатель: ' + notification.notificationReciever,
+                        iconCompleteUrl: studentIcon,
                         color: '',
                     },
                     {
-                        title: notification.notificationReciever,
-                        iconCompleteUrl: teacherIcon,
+                        title:
+                            'Дата отправления: ' +
+                            moment(notification.date).format('DD.MM.YYYY'),
+                        iconCompleteUrl: calendarIcon,
                         color: '',
                     },
                 ],
@@ -25,10 +28,12 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive } from 'vue';
-import teacherIcon from '@/assets/icons/emojis/teacher.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import { INotificationsForStudentsResponseModel } from '@/http/pageModels/teacherModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
 import getNotificationPage from './api-methods';
+import studentIcon from '@/assets/icons/emojis/student.png';
+import calendarIcon from '@/assets/icons/emojis/calendar.png';
+import moment from 'moment';
 
 const state = reactive<{ data: INotificationsForStudentsResponseModel }>({
     data: {} as INotificationsForStudentsResponseModel,
