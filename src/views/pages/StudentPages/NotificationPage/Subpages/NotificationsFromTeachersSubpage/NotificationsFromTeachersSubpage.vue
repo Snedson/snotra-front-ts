@@ -8,6 +8,13 @@
                 dataTags: [
                     {
                         title:
+                            'Отправитель: ' +
+                            notification.notificationAuthorSurenameAndInitials,
+                        iconCompleteUrl: teacherIcon,
+                        color: '',
+                    },
+                    {
+                        title:
                             'Получатель: ' + notification.notificationReciever,
                         iconCompleteUrl: studentIcon,
                         color: '',
@@ -26,29 +33,30 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { onMounted, reactive } from 'vue';
-import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import getNotificationPage from './api-methods';
+import teacherIcon from '@/assets/icons/emojis/teacher.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import calendarIcon from '@/assets/icons/emojis/calendar.png';
+import { INotificationsFromTeachersResponseModel } from './notifications-from-teachers.types';
+import getNotificationPage from './api-methods';
+import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import moment from 'moment';
-import { INotificationsForStudentsResponseModel } from './notifications-for-students.types';
 
-const state = reactive<{ data: INotificationsForStudentsResponseModel }>({
-    data: {} as INotificationsForStudentsResponseModel,
+const state = reactive<{ data: INotificationsFromTeachersResponseModel }>({
+    data: {} as INotificationsFromTeachersResponseModel,
 });
 
 onMounted(() => {
-    const version = localStorage.getItem('notificationsVersion');
-    const notifications = localStorage.getItem('notifications');
+    const version = localStorage.getItem('studentNotificationsVersion');
+    const notifications = localStorage.getItem('studentNotificationsVersion');
     notifications && version
         ? getNotificationPage(version, state)
         : getNotificationPage(null, state);
 });
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .notifications-list {
     display: flex;
     flex-direction: column;

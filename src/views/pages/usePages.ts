@@ -137,7 +137,7 @@ export const Pages: IPages = {
         fabData: {
             iconName: 'add',
             callback: function () {
-                console.log('FAB Callback');
+                router.push({ name: 'sn.teacher.notifications.send' });
             },
         },
         contentHeaderData: {
@@ -148,6 +148,18 @@ export const Pages: IPages = {
             h2: 'Здесь представлен список уведомлений, которые вы отправили учащимся. ',
             h3: 'Используйте Ctrl + F для навигации',
             browserTitle: 'Уведомления',
+        },
+    },
+    'sn.teacher.notifications.send': {
+        fabData: null,
+        contentHeaderData: {
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/pink/2-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/pink/2-dark.png'),
+            backgroundImageShift: 19,
+            h1: 'Новое уведомление',
+            h2: 'Здесь вы можете отправить новое уведомление учащимся',
+            h3: '',
+            browserTitle: 'Новое уведомление',
         },
     },
     'sn.teacher.debug.1': {
@@ -264,9 +276,9 @@ export const Pages: IPages = {
     'sn.student.notifications.announces': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
-            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
-            backgroundImageShift: 0,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/pink/4-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/pink/4-dark.png'),
+            backgroundImageShift: 35,
             h1: 'Анонсы',
             h2: 'Здесь представлен список общешкольных анонсов. ',
             h3: '',
@@ -276,9 +288,9 @@ export const Pages: IPages = {
     'sn.student.notifications.fromTeachers': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
-            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
-            backgroundImageShift: 0,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/pink/2-light.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/pink/2-dark.png'),
+            backgroundImageShift: 19,
             h1: 'Уведомления от учителей',
             h2: 'Здесь представлены увдомления, которые были отправлены учителями',
             h3: '',

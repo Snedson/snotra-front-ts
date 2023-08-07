@@ -11,10 +11,12 @@ import TeacherModifyScheduleElementPage from '@/views/pages/TeacherPages/ModifyS
 import TeacherClassesListPage from '@/views/pages/TeacherPages/ClassesPages/ClassesListPage/ClassesListPage.vue';
 import TeacherClassPage from '@/views/pages/TeacherPages/ClassesPages/ClassPage/ClassPage.vue';
 import TeacherNotificationPage from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.vue';
+import TeacherSendNotificationPage from '@/views/pages/TeacherPages/NotificationPage/Subpages/SendNotificationSubpage/SendNotificationSubpage.vue';
 import TeacherDebugPage from '@/views/pages/TeacherPages/DebugPage/DebugPage.vue';
 import TeacherUserPage from '@/views/pages/TeacherPages/UserPage/UserPage.vue';
 import StudentHomePage from '@/views/pages/StudentPages/HomePage/HomePage.vue';
 import StudentSchedulePage from '@/views/pages/StudentPages/SchedulePage/SchedulePage.vue';
+import StudentNotificationPage from '@/views/pages/StudentPages/NotificationPage/NotificationPage.vue';
 import AuthComponent from '@/common/components/helper-components/auth-component/auth-component.vue';
 import HomeworkPageVue from '@/views/pages/StudentPages/HomeworkPage/HomeworkPage.vue';
 import AppendHomeworkPage from '@/views/pages/StudentPages/HomeworkPage/AppendHomeworkPage/AppendHomeworkPage.vue';
@@ -139,6 +141,11 @@ const routes: Array<RouteRecordRaw> = [
                 ],
             },
             {
+                path: 'notifications/send',
+                name: 'sn.teacher.notifications.send',
+                component: TeacherSendNotificationPage,
+            },
+            {
                 path: 'debug',
                 name: 'sn.teacher.debug',
                 meta: { id: 5 },
@@ -212,12 +219,12 @@ const routes: Array<RouteRecordRaw> = [
                 children: [
                     {
                         path: 'announces',
-                        component: StudentSchedulePage, // Change to StudentNotificationsPage when created
+                        component: StudentNotificationPage,
                         name: 'sn.student.notifications.announces',
                     },
                     {
                         path: 'fromTeachers',
-                        component: StudentSchedulePage, // Change to StudentNotificationsPage when created
+                        component: StudentNotificationPage,
                         name: 'sn.student.notifications.fromTeachers',
                     },
                 ],

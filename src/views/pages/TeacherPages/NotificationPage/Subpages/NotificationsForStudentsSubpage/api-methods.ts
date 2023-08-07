@@ -1,5 +1,5 @@
 import $api from '@/http/api';
-import { INotificationsForStudentsResponseModel } from '@/http/pageModels/teacherModels/notificationPage/NotificationsForStudentsSubpageResponseModel';
+import { INotificationsForStudentsResponseModel } from './notifications-for-students.types';
 
 const getNotificationPage = (
     version: string | null,

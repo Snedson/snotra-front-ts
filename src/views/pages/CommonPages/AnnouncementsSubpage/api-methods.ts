@@ -1,11 +1,12 @@
 import $api from '@/http/api';
-import { IAnnouncementsSubPageResponseModel } from '@/http/pageModels/teacherModels/notificationPage/AnnouncementsSubpageResponseModel';
+import { IAnnouncementsSubPageResponseModel } from './announcements-subpage.types';
 
 const getAnnouncementsSubpage = (
     version: string | null,
     state: { data: IAnnouncementsSubPageResponseModel }
 ) => {
     $api.post<IAnnouncementsSubPageResponseModel>(
+        // In api v2 teacher specific endpoint will be replaced with common one
         `/api/Teacher/AnnouncementsPage?notificationVersion=${version}`
     ).then((response) => {
         if (response.data.announcements) {

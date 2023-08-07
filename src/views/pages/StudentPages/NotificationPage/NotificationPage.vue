@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tab-menu :props="state" @change="selectTab"></tab-menu>
+        <tab-menu :props="state" @change="selectTab" />
         <div class="subpage">
             <announcements-subpage
                 v-if="
@@ -8,32 +8,33 @@
                     NotificationSubpage.Announcements
                 "
             ></announcements-subpage>
-            <notifications-for-students-subpage
+            <notifications-from-teachers-subpage
                 v-else-if="
                     state.selectedTabItemId ===
-                    NotificationSubpage.NotificationsForStudent
+                    NotificationSubpage.NotificationsFromTeachers
                 "
-            ></notifications-for-students-subpage>
+            >
+            </notifications-from-teachers-subpage>
             <div v-else>error</div>
         </div>
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import TabMenu from '@/common/components/snedson-material-components/tab-menu/tab-menu.vue';
 import { ITabMenuProps } from '@/common/components/snedson-material-components/tab-menu/tab-menu.types';
 import { reactive } from 'vue';
-import NotificationsForStudentsSubpage from '@/views/pages/TeacherPages/NotificationPage/Subpages/NotificationsForStudentsSubpage/NotificationsForStudentsSubpage.vue';
-import { NotificationSubpage } from '@/views/pages/TeacherPages/NotificationPage/NotificationPage.types';
+import { NotificationSubpage } from './NotificationPage.types';
 import AnnouncementsSubpage from '@/views/pages/CommonPages/AnnouncementsSubpage/AnnouncementsSubpage.vue';
+import NotificationsFromTeachersSubpage from './Subpages/NotificationsFromTeachersSubpage/NotificationsFromTeachersSubpage.vue';
 import router from '@/router';
 
 const state = reactive<ITabMenuProps>({
     tabs: [
         { id: NotificationSubpage.Announcements, title: 'Школьные анонсы' },
         {
-            id: NotificationSubpage.NotificationsForStudent,
-            title: 'Уведомления для учащихся',
+            id: NotificationSubpage.NotificationsFromTeachers,
+            title: 'Уведомления от учителей',
         },
     ],
     selectedTabItemId: NotificationSubpage.Announcements,
@@ -43,14 +44,14 @@ const selectTab = (tabId: NotificationSubpage) => {
     state.selectedTabItemId = tabId;
 
     if (tabId == NotificationSubpage.Announcements) {
-        router.push({ name: 'sn.teacher.notifications.announces' });
+        router.push({ name: 'sn.student.notifications.announces' });
     } else {
-        router.push({ name: 'sn.teacher.notifications.forStudents' });
+        router.push({ name: 'sn.student.notifications.fromTeachers' });
     }
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .subpage {
     padding-top: 30px;
 }
