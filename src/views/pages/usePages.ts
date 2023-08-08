@@ -300,9 +300,9 @@ export const Pages: IPages = {
     'sn.student.user': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/green/3-light.png'),
-            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/green/3-dark.png'),
-            backgroundImageShift: 0,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/blue/2-light.jpg'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/blue/2-dark.jpg'),
+            backgroundImageShift: 50,
             h1: 'Профиль',
             h2: 'Это ваш профиль',
             h3: '',
