@@ -9,7 +9,7 @@ export type GetStudentMenuPageResponseModel = {
     dutyComment: string;
 };
 
-type StudentStatus = {
+export type StudentStatus = {
     statusID: number;
     statusName: string;
     iconURL: string;

@@ -32,17 +32,17 @@
 </template>
 
 <script lang="ts" setup>
-// import lateIcon from '@/assets/icons/emojis/late.png';
+import lateIcon from '@/assets/icons/emojis/late.png';
 import calendarIcon from '@/assets/icons/emojis/calendar.png';
 import messageCalloutIcon from '@/assets/icons/emojis/messageCallout.png';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
-import { StudentsStatus } from '@/http/pageModels/teacherModels/classPage/AbsentStudentsResponseModel';
+import { StudentStatus } from '@/http/pageModels/teacherModels/classPage/AbsentStudentsResponseModel';
 import { AbsentStudentsService } from '@/http/services/TeacherServices/ClassPageServices/AbsentStudentsService';
 import router from '@/router';
 import { onMounted, reactive } from 'vue';
-// import moment from 'moment';
+import moment from 'moment';
 
-const state = reactive<{ data: StudentsStatus[] }>({
+const state = reactive<{ data: StudentStatus[] }>({
     data: [],
 });
 
