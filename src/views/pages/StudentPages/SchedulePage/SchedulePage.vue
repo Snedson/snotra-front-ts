@@ -3,16 +3,20 @@
         <TabMenu
             :props="{
                 tabs: [
-                    { id: 1, title: 'Изменённое' },
-                    { id: 2, title: 'Стандартное' },
+                    { id: ScheduleSubpage.Modified, title: 'Изменённое' },
+                    { id: ScheduleSubpage.Usual, title: 'Стандартное' },
                 ],
-                selectedTabItemId: 1,
+                selectedTabItemId: ScheduleSubpage.Modified,
             }"
             @change="selectTab"
         ></TabMenu>
         <div class="subpage">
-            <UsualScheduleSubpage v-if="state.selectTabId === 2" />
-            <ModifiedScheduleSubpage v-if="state.selectTabId === 1" />
+            <ModifiedScheduleSubpage
+                v-if="state.selectTabId === ScheduleSubpage.Modified"
+            />
+            <UsualScheduleSubpage
+                v-else-if="state.selectTabId === ScheduleSubpage.Usual"
+            />
         </div>
     </div>
 </template>
@@ -22,11 +26,20 @@ import UsualScheduleSubpage from './Subpages/UsualScheduleSubpage/UsualScheduleS
 import ModifiedScheduleSubpage from './Subpages/ModifiedScheduleSubpage/ModifiedScheduleSubpage.vue';
 import TabMenu from '@/common/components/snedson-material-components/tab-menu/tab-menu.vue';
 import { reactive } from 'vue';
+import { ScheduleSubpage } from './SchedulePage.types';
+import router from '@/router';
 
-const state = reactive<{ selectTabId: number }>({ selectTabId: 1 });
+const state = reactive<{ selectTabId: number }>({
+    selectTabId: ScheduleSubpage.Modified,
+});
 
 const selectTab = (tabId: number) => {
     state.selectTabId = tabId;
+    if (tabId == ScheduleSubpage.Modified) {
+        router.push({ name: 'sn.student.schedule.mse' });
+    } else {
+        router.push({ name: 'sn.student.schedule.use' });
+    }
 };
 </script>
 
