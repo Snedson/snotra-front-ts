@@ -50,9 +50,7 @@
                             innerText: 'Выйти',
                             size: 'full-resizable-to-icon-large',
                         },
-                        buttonCallback: () => {
-                            console.log('Log out');
-                        },
+                        buttonCallback: AuthService.logout,
                     },
                 ],
             }"
@@ -68,6 +66,7 @@ import {
 import { getStudentMenuPage } from './apiMethods';
 import { useRouter } from 'vue-router';
 import MenuList from '@/common/components/snedson-material-components/menu-list/menu-list.vue';
+import AuthService from '@/services/AuthService';
 
 const state = reactive<{ data: GetStudentMenuPageResponseModel | null }>({
     data: null,
