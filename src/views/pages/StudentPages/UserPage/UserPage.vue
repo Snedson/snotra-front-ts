@@ -18,94 +18,56 @@
                 </div>
             </div>
         </div>
-        <ul class="user-data material-card_type_outlined">
-            <li class="user-data-item">
-                <div class="user-data-item__image-cont">
-                    <GoogleMaterialIcon
-                        :props="{ iconName: 'person_pin_circle' }"
-                        class="user-data-item__icon"
-                    ></GoogleMaterialIcon>
-                </div>
-                <div class="user-data-item__payload">
-                    <div class="user-data-item__content">
-                        <h2 class="user-data-item__title">Статус посещения</h2>
-                        <p class="user-data-item__info">
-                            Текущий: {{ currentStatus?.statusName }}
-                        </p>
-                    </div>
-                    <div class="user-data-item__actions">
-                        <custom-button
-                            :props="{
-                                iconName: 'edit',
-                                innerText: 'Сменить',
-                                size: 'full-resizable-to-icon-small',
-                                type: 'text',
-                            }"
-                            :onclick="onChangeStatusButtonClick"
-                        />
-                    </div>
-                </div>
-            </li>
-            <li class="user-data-item">
-                <div class="user-data-item__image-cont">
-                    <GoogleMaterialIcon
-                        :props="{ iconName: 'info' }"
-                        class="user-data-item__icon"
-                    ></GoogleMaterialIcon>
-                </div>
-                <div class="user-data-item__payload">
-                    <div class="user-data-item__content">
-                        <h2 class="user-data-item__title">Данные класса</h2>
-                    </div>
-                </div>
-            </li>
-            <li class="user-data-item">
-                <div class="user-data-item__image-cont">
-                    <GoogleMaterialIcon
-                        :props="{ iconName: 'school' }"
-                        class="user-data-item__icon"
-                    ></GoogleMaterialIcon>
-                </div>
-                <div class="user-data-item__payload">
-                    <div class="user-data-item__content">
-                        <h2 class="user-data-item__title">Данные школы</h2>
-                    </div>
-                </div>
-            </li>
-            <li class="user-data-item">
-                <div class="user-data-item__image-cont">
-                    <GoogleMaterialIcon
-                        :props="{ iconName: 'logout' }"
-                        class="user-data-item__icon"
-                    ></GoogleMaterialIcon>
-                </div>
-                <div class="user-data-item__payload">
-                    <div class="user-data-item__content">
-                        <h2 class="user-data-item__title">Выход из аккаунта</h2>
-                    </div>
-                    <div class="user-data-item__actions">
-                        <custom-button
-                            :props="{
-                                type: 'text',
-                                iconName: 'logout',
-                                innerText: 'Выйти',
-                                size: 'full-resizable-to-icon-small',
-                            }"
-                        />
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <menu-list
+            :props="{
+                items: [
+                    {
+                        icon: 'person_pin_circle',
+                        title: 'Статус посещения',
+                        content: `Текущий: ${currentStatus?.statusName}`,
+                        button: {
+                            iconName: 'edit',
+                            innerText: 'Сменить',
+                            size: 'full-resizable-to-icon-large',
+                            type: 'text',
+                        },
+                        buttonCallback: onChangeStatusButtonClick,
+                    },
+                    {
+                        icon: 'info',
+                        title: 'Данные класса',
+                    },
+                    {
+                        icon: 'school',
+                        title: 'Данные школы',
+                    },
+                    {
+                        icon: 'logout',
+                        title: 'Выход из аккаунта',
+                        button: {
+                            type: 'text',
+                            iconName: 'logout',
+                            innerText: 'Выйти',
+                            size: 'full-resizable-to-icon-large',
+                        },
+                        buttonCallback: () => {
+                            console.log('Log out');
+                        },
+                    },
+                ],
+            }"
+        />
     </div>
 </template>
 <script lang="ts" setup>
 import { computed, onMounted, reactive } from 'vue';
-import { GetStudentMenuPageResponseModel } from '@/http/pageModels/studentModels/menuPage/GetStudentMenuPageResponseModel';
+import {
+    GetStudentMenuPageResponseModel,
+    StudentStatus,
+} from '@/http/pageModels/studentModels/menuPage/GetStudentMenuPageResponseModel';
 import { getStudentMenuPage } from './apiMethods';
-import CustomButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
-import { StudentStatus } from '@/http/pageModels/teacherModels/classPage/AbsentStudentsResponseModel';
 import { useRouter } from 'vue-router';
-import GoogleMaterialIcon from '@/common/components/helper-components/google-material-icon/google-material-icon.vue';
+import MenuList from '@/common/components/snedson-material-components/menu-list/menu-list.vue';
 
 const state = reactive<{ data: GetStudentMenuPageResponseModel | null }>({
     data: null,
@@ -182,54 +144,15 @@ onMounted(() => {
     }
 }
 
-.user-data {
-    list-style: none;
-    padding: 15px 0 15px 10px;
-    border-radius: 10px;
-}
+@media (max-width: 800px) {
+    .user-page-header {
+        flex-direction: column;
 
-.user-data-item {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    &:not(:last-child) {
-        .user-data-item__payload {
-            border-bottom: 1px solid var(--snotra--sys--outline);
+        &__data {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-    }
-
-    &:not(:first-child) {
-        margin-top: 20px;
-    }
-
-    &__title {
-        color: var(--snotra-sys-light-on-surface);
-        font-size: 30px;
-        font-weight: 700;
-    }
-
-    &__payload {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    &__content {
-        padding: 0 0 20px 0;
-    }
-
-    &__actions {
-        margin-right: 20px;
-    }
-
-    &__info {
-        margin-top: 8px;
-        color: var(--snotra--sys--on-surface-second-text);
-    }
-
-    &__icon {
-        font-size: 35px;
     }
 }
 </style>
