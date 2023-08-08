@@ -25,10 +25,10 @@ onMounted(() => {
 
         switch (role) {
             case SchoolRoles.Teacher:
-                router.push('/teacher/main');
+                router.push({ name: 'sn.teacher.main' });
                 break;
             case SchoolRoles.Student:
-                router.push('/student/main');
+                router.push({ name: 'sn.student.main' });
                 break;
             default:
                 AuthService.logout();
