@@ -24,7 +24,10 @@
                 </p>
             </div>
             <div class="menu-list-item__actions" v-if="props.button">
-                <custom-button :props="props.button" />
+                <custom-button
+                    :props="props.button"
+                    @click="props.buttonCallback()"
+                />
             </div>
         </div>
     </li>
@@ -33,11 +36,11 @@
 <script setup lang="ts">
 import GoogleMaterialIcon from '@/common/components/helper-components/google-material-icon/google-material-icon.vue';
 import { defineProps } from 'vue';
-import { IMenuListItem } from './menu-list.types';
+import { TMenuListItem } from './menu-list.types';
 import CustomButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 
 defineProps<{
-    props: IMenuListItem;
+    props: TMenuListItem;
 }>();
 </script>
 

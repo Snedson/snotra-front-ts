@@ -2,12 +2,25 @@ import { TGoogleMaterialIcons } from '../../helper-components/google-material-ic
 import { IButtonProps } from '../custom-button/custom-button.types';
 
 export interface IMenuListProps {
-    items: IMenuListItem[];
+    items: TMenuListItem[];
 }
 
-export interface IMenuListItem {
+export type TMenuListItem =
+    | IMenuListItemWithButton
+    | IMenuListItemWithoutButton;
+
+interface IMenuListItemWithButton {
     icon: TGoogleMaterialIcons;
     title: string;
     content?: string;
-    button?: IButtonProps;
+    button: IButtonProps;
+    buttonCallback: Function;
+}
+
+interface IMenuListItemWithoutButton {
+    icon: TGoogleMaterialIcons;
+    title: string;
+    content?: string;
+    button?: null;
+    buttonCallback?: never;
 }
