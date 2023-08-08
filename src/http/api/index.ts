@@ -3,7 +3,7 @@ import AuthService from '@/services/AuthService';
 
 const $api = axios.create({
     withCredentials: true,
-    baseURL: 'https://bullworth-academy.snotra.site',
+    baseURL: 'https://mbousosh1.snotra.site',
 });
 
 export const authURL = 'https://auth.snotra.site';
