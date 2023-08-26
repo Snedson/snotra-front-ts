@@ -24,7 +24,7 @@ export interface NotificationForm {
 export interface SendNotificationRequestModel {
     isAnnouncement: boolean;
     message: string;
-    audienceClassId: number;
-    audienceGroupId: number | null;
-    audienceStudentId: string | null;
+    recipientClassId: number;
+    recipientGroupId: number | null;
+    recipientStudentId: string | null;
 }

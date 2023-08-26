@@ -111,10 +111,10 @@ const sendNotification = () => {
 
     postSendNotifiation({
         message: state.notification.text,
-        audienceClassId: state.notification.schoolClassId,
+        recipientClassId: state.notification.schoolClassId,
         isAnnouncement: false,
-        audienceGroupId: state.notification.groupId,
-        audienceStudentId: null,
+        recipientGroupId: state.notification.groupId,
+        recipientStudentId: null,
     })
         .then((response) => {
             console.log(response.data.errorTextForUser);
