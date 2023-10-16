@@ -5,8 +5,9 @@ export const Pages: IPages = {
     'sn.teacher.main': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/upi.png'),
-            backgroundImageShift: 57.5,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/ekaterinburg-city.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/ekaterinburg-city-night.png'),
+            backgroundImageShift: 15,
             h1: '',
             h2: '',
             h3: '',
@@ -212,8 +213,9 @@ export const Pages: IPages = {
     'sn.student.main': {
         fabData: null,
         contentHeaderData: {
-            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/upi.png'),
-            backgroundImageShift: 57.5,
+            backgroundImageUrl: require('@/assets/img/content-header-backgrounds/ekaterinburg-city.png'),
+            backgroundImageDarkUrl: require('@/assets/img/content-header-backgrounds/ekaterinburg-city-night.png'),
+            backgroundImageShift: 15,
             h1: '',
             h2: '',
             h3: '',
