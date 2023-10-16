@@ -1,6 +1,6 @@
 import $api from '@/http/api';
 import { GetStudentMenuPageResponseModel } from '@/http/pageModels/studentModels/menuPage/GetStudentMenuPageResponseModel';
-import { EmptyResponse, isEmptyResponse } from '@/models/EmptyResponse';
+import { EmptyResponse } from '@/models/EmptyResponse';
 import { isSetStatusResponse, SetStatusResponse } from './SetStatusPage.types';
 import router from '@/router';
 import { AxiosError } from 'axios';
