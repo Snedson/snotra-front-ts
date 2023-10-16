@@ -45,6 +45,7 @@
                 <text-field
                     type="text"
                     :placeholder="'Коротко опишите причину...'"
+                    v-model="state.comment"
                 />
             </div>
         </div>
@@ -74,11 +75,11 @@ import TextField from '@/common/components/snedson-material-components/text-fiel
 const state = reactive<{
     data: GetStudentMenuPageResponseModel | null;
     selectedStatusId: number | null;
-    comment: string | null;
+    comment: string;
 }>({
     data: null,
     selectedStatusId: null,
-    comment: ' ',
+    comment: '',
 });
 
 const currentStatus = computed((): StudentStatus | null => {
@@ -111,7 +112,7 @@ const setStatus = () => {
         return;
     }
 
-    if (state.selectedStatusId && state.comment) {
+    if (state.selectedStatusId) {
         postSetStatus({
             statusId: state.selectedStatusId,
             comment: state.comment,

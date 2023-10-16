@@ -51,8 +51,8 @@ onMounted(() => {
     const version = localStorage.getItem('studentNotificationsVersion');
     const notifications = localStorage.getItem('studentNotificationsVersion');
     notifications && version
-        ? getNotificationPage(version, state)
-        : getNotificationPage(null, state);
+        ? getNotificationPage('qwerty', state)
+        : getNotificationPage('qwerty', state);
 });
 </script>
 

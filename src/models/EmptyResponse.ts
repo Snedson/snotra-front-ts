@@ -1,4 +1,4 @@
 export interface EmptyResponse {
-    isSuccessful: boolean,
-    errorTextForUser: string
+    isSuccessful: boolean;
+    errorTextForUser: string;
 }
