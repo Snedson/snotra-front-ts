@@ -15,6 +15,7 @@
             <google-material-icon
                 :props="{
                     iconName: props.iconName,
+                    selected: true,
                 }"
             ></google-material-icon>
             <span
