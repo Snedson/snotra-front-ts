@@ -6,7 +6,7 @@ const getNotificationPage = (
     state: { data: INotificationsFromTeachersResponseModel }
 ) => {
     $api.get<INotificationsFromTeachersResponseModel>(
-        `/api/Student/NotificationPage=${version}`
+        `/api/Student/NotificationPage?notificationsVer=${version}`
     ).then((response) => {
         if (response.data.notifications) {
             state.data = response.data;
