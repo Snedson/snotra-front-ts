@@ -18,6 +18,7 @@ import StudentHomePage from '@/views/pages/StudentPages/HomePage/HomePage.vue';
 import StudentSchedulePage from '@/views/pages/StudentPages/SchedulePage/SchedulePage.vue';
 import StudentNotificationPage from '@/views/pages/StudentPages/NotificationPage/NotificationPage.vue';
 import AuthComponent from '@/common/components/helper-components/auth-component/auth-component.vue';
+import NotFoundComponent from '@/common/components/helper-components/not-found-redirect-component/not-found-redirect-component.vue';
 import HomeworkPageVue from '@/views/pages/StudentPages/HomeworkPage/HomeworkPage.vue';
 import AppendHomeworkPage from '@/views/pages/StudentPages/HomeworkPage/AppendHomeworkPage/AppendHomeworkPage.vue';
 import StudentUserPage from '@/views/pages/StudentPages/UserPage/UserPage.vue';
@@ -246,6 +247,12 @@ const routes: Array<RouteRecordRaw> = [
                 ],
             },
         ],
+    },
+    {
+        path: '/:catchAll(.*)',
+        name: 'sn.other.notfound',
+        meta: { role: 'none' },
+        component: NotFoundComponent,
     },
 ];
 
