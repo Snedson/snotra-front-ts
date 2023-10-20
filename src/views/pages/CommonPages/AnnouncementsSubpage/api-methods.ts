@@ -5,9 +5,8 @@ const getAnnouncementsSubpage = (
     version: string | null,
     state: { data: IAnnouncementsSubPageResponseModel }
 ) => {
-    $api.post<IAnnouncementsSubPageResponseModel>(
-        // In api v2 teacher specific endpoint will be replaced with common one
-        `/api/Teacher/AnnouncementsPage?notificationVersion=${version}`
+    $api.get<IAnnouncementsSubPageResponseModel>(
+        `/api/v2/notification/announcements?notificationVersion=${version}`
     ).then((response) => {
         if (response.data.announcements) {
             state.data = response.data;
