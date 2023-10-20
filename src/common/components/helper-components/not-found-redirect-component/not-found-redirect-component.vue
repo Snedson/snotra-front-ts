@@ -9,7 +9,7 @@ import SchoolRoles from '@/common/types/school-roles';
 import AuthService from '@/services/AuthService';
 
 onMounted(() => {
-    const userRole = localStorage.getItem('Role');
+    const userRole = localStorage.getItem('role');
 
     switch (userRole) {
         case SchoolRoles.Teacher:
