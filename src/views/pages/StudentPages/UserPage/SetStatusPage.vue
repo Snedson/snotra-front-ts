@@ -11,7 +11,7 @@
                 </h1>
                 <div class="user-page-header__status">
                     <img
-                        :src="`https://mbousosh1.snotra.site/${currentStatus?.iconURL}`"
+                        :src="`${getBaseUrl}${currentStatus?.iconURL}`"
                         alt=""
                         class="user-page-header__status-icon"
                     />
@@ -71,6 +71,7 @@ import checkMarkIcon from '@/assets/icons/check-mark.png';
 import speechBalloonIcon from '@/assets/icons/speech-balloon.png';
 import { IListSelectMenuItem } from '@/common/components/snedson-material-components/list-select/list-select.types';
 import TextField from '@/common/components/snedson-material-components/text-field/text-field.vue';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{
     data: GetStudentMenuPageResponseModel | null;

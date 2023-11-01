@@ -8,7 +8,7 @@
             <div v-if="props.subheader" class="user-header__subheader">
                 <img
                     v-if="props.subheaderIcon"
-                    :src="`https://mbousosh1.snotra.site/${props.subheaderIcon}`"
+                    :src="`${getBaseUrl()}${props.subheaderIcon}`"
                     alt=""
                     class="user-header__subheader-icon"
                 />
@@ -23,6 +23,7 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue';
 import { IUserHeaderProps } from './user-header.types';
+import { getBaseUrl } from '@/http/api/';
 
 defineProps<{
     props: IUserHeaderProps;

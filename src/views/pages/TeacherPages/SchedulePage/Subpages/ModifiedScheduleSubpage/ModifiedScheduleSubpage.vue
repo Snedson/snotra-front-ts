@@ -14,7 +14,7 @@
                 title: `${mse.num}. ${mse.schoolClass.className}`,
                 dataTags: [
                     {
-                        iconCompleteUrl: 'https://mbousosh1.snotra.site/' + mse.iconURL, 
+                        iconCompleteUrl: getBaseUrl() + mse.iconURL, 
                         color: 'var(--snotra--sys--surface)', 
                         title: mse.subjectFullName,
                     },
@@ -72,6 +72,7 @@ import UniversalCard from '@/common/components/snedson-material-components/unive
 import getModifiedSchedule from '@/http/services/TeacherServices/SchedulePageServices/ModifiedScheduleService';
 import { onMounted, reactive } from 'vue';
 import { ModifiedScheduleStateModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleStateModel';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{ data: ModifiedScheduleStateModel }>({
     data: {} as ModifiedScheduleStateModel,

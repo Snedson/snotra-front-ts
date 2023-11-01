@@ -17,8 +17,7 @@
                                     color: 'var(--snotra--sys--surface)',
                                     title: homework.subjectName,
                                     iconCompleteUrl:
-                                        'https://mbousosh1.snotra.site/' +
-                                        homework.iconURL,
+                                        getBaseUrl() + homework.iconURL,
                                 },
                                 {
                                     color: 'var(--snotra--sys--surface)',
@@ -55,6 +54,7 @@ import { GetHomeworkPageResponseModel } from './HomeworkPage.types';
 import { getHomeworkPage } from './apiMethods';
 import ExpansionPanel from '@/common/components/snedson-material-components/expansion-panel/expansion-panel.vue';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{ data: GetHomeworkPageResponseModel | null }>({
     data: null,

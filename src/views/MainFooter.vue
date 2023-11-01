@@ -19,7 +19,7 @@
                 <div class="left-content__links">
                     <p>
                         <a
-                            href="https://mbousosh1.snotra.site/legal/EulaAndPrivacyPolicy.pdf"
+                            :href="`${getBaseUrl()}legal/EulaAndPrivacyPolicy.pdf`"
                             target="_blank"
                             >Пользовательское соглашение и политика
                             конфиденциальности</a
@@ -40,6 +40,7 @@
 <script setup lang="ts">
 import snotraIcon from '@/assets/img/snotraIconSmall.png';
 import SquiggleDivider from '@/common/components/snedson-material-components/squiggle-divider/squiggle-divider.vue';
+import { getBaseUrl } from '@/http/api/';
 </script>
 
 <style lang="scss" scoped>

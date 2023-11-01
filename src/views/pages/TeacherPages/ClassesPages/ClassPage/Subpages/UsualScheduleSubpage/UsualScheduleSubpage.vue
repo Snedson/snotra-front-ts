@@ -13,7 +13,7 @@
                     :props="{
                         type: 'filled',
                         title: `${use.num}. ${use.subjectFullName}`,
-                        icon: 'https://mbousosh1.snotra.site/' + use.iconURL,
+                        icon: getBaseUrl() + use.iconURL,
                         dataTags: [
                             {
                                 iconLocal: 'time.png',
@@ -66,6 +66,7 @@ import { getWeekdayTitle } from '@/helpers/getWeekdayTitle';
 import { getUsualTeacherScheduleSubpageByClassId } from './apiMethods';
 import { UsualTeacherClassSubpageResponseModel } from './UsualTeacherClassSubpageResponseModel';
 import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{ data: UsualTeacherClassSubpageResponseModel | null }>({
     data: null,

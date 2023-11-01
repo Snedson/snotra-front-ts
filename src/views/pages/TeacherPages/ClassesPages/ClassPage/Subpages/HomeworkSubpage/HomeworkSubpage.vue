@@ -19,7 +19,7 @@
                             {
                                 title: homeworkElement.subjectName,
                                 color: 'var(--snotra--sys--surface)',
-                                iconCompleteUrl: `${'https://mbousosh1.snotra.site'}/${
+                                iconCompleteUrl: `${getBaseUrl()}${
                                     homeworkElement.iconURL
                                 }`,
                             },
@@ -58,6 +58,7 @@ import { GetHomeworkListResponseModel } from './HomeworkSubpage.types';
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import router from '@/router';
 import { getTeacherClassPageHomeworkSubpage } from './apiMethods';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{ data: GetHomeworkListResponseModel }>({
     data: { homeworks: {} },

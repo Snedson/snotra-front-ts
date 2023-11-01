@@ -14,9 +14,7 @@
                         title: `${use.num}. ${use.schoolClass.className}`,
                         dataTags: [
                             {
-                                iconCompleteUrl:
-                                    'https://mbousosh1.snotra.site/' +
-                                    use.iconURL,
+                                iconCompleteUrl: getBaseUrl() + use.iconURL,
                                 color: 'var(--snotra--sys--surface-variant)',
                                 title: use.subjectFullName,
                             },
@@ -83,6 +81,7 @@ import schoolIcon from '@/assets/icons/emojis/school.png';
 import studentIcon from '@/assets/icons/emojis/student.png';
 import bellIcon from '@/assets/icons/emojis/bell.png';
 import { WeekDays } from '@/models/ScheduleLists/WeekDaysEnum';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{ data: UsualTeacherScheduleResponseModel | null }>({
     data: null,

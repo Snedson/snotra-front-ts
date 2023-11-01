@@ -6,7 +6,7 @@
                 content:  mse.comments as string | undefined,
                 type: 'elevated-secondary',
                 title: `${mse.num}. ${mse.subjectFullName}`,
-                icon: 'https://mbousosh1.snotra.site/' + mse.iconURL,
+                icon: getBaseUrl() + mse.iconURL,
                 dataTags: [
                     {
                         iconCompleteUrl: timerIcon,
@@ -51,6 +51,7 @@ import { onMounted, reactive } from 'vue';
 import { getStudentModifiedScheduleSubpage } from './apiMethods';
 import { GetStudentModifiedScheduleSubpageResponseModel } from './ModifiedSchedulePage.types';
 import universalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{
     data: GetStudentModifiedScheduleSubpageResponseModel | null;

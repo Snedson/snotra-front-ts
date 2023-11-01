@@ -4,7 +4,7 @@
             :class="day.colorSchemeName"
             :props="{
                 type: 'elevated-secondary',
-                icon: `${'https://mbousosh1.snotra.site'}/${day.iconURL}`,
+                icon: `${getBaseUrl()}${day.iconURL}`,
                 title: `${day.num}. ${day.subjectFullName}`,
                 content:  day.comments as string | undefined,
                 buttons: [
@@ -76,6 +76,7 @@ import { GetModifiedScheduleSubpageResponseModel } from './ModifiedScheduleSubpa
 import UniversalCard from '@/common/components/snedson-material-components/universal-card/universal-card.vue';
 import { getModifiedTeacherClassScheduleSubpageByClassId } from './apiMethods';
 import { findScheduleParam } from '@/helpers/findScheduleParam';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{ data: GetModifiedScheduleSubpageResponseModel }>({
     data: {

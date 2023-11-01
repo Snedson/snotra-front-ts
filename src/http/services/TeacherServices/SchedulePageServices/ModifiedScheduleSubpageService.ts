@@ -1,13 +1,14 @@
 import $api from '@/http/api';
 import { ModifiedScheduleRequestModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleRequestModel';
 import { ModifiedScheduleResponseModel } from '@/http/pageModels/teacherModels/schedulePage/ModifiedScheduleResponseModel';
+import { getBaseUrl } from '@/http/api/';
 
 const getModifiedScheduleSubpage = (
     requestModel: ModifiedScheduleRequestModel,
     state: { data: ModifiedScheduleResponseModel }
 ) => {
     $api.post<ModifiedScheduleResponseModel>(
-        `https://sixtyfour.snotra.site/api/Teacher/SchedulePageModified`,
+        `${getBaseUrl()}api/Teacher/SchedulePageModified`,
         requestModel
     ).then((response) => {
         console.log(response);

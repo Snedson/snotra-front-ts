@@ -11,7 +11,7 @@
             dataTags: [
                 {
                     iconCompleteUrl:
-                        'https://mbousosh1.snotra.site/' +
+                    getBaseUrl() +
                         state.data.originalState.actualMse.iconURL,
                     color: 'var(--snotra--sys--surface-variant)',
                     title: state.data.originalState.actualMse.subjectFullName,
@@ -124,6 +124,7 @@ import TextField from '@/common/components/snedson-material-components/text-fiel
 import { ModifySePageStateModel } from '@/http/pageModels/teacherModels/modifyScheduleElementPage/ModifySePageStateModel';
 import customButton from '@/common/components/snedson-material-components/custom-button/custom-button.vue';
 import patchModifyingSeService from '@/http/services/TeacherServices/ModifyScheduleElementPage/ModifyingSeService';
+import { getBaseUrl } from '@/http/api/';
 
 const state = reactive<{
     data: ModifySePageStateModel;
