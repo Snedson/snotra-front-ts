@@ -7,6 +7,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
 import SchoolRoles from '@/common/types/school-roles';
 import AuthService from '@/services/AuthService';
+import { updateBaseUrl } from '@/http/api';
 
 const router = useRouter();
 const route = useRoute();
@@ -22,6 +23,7 @@ onMounted(() => {
     ) {
         localStorage.setItem('schoolSnotraDomain', domain);
         localStorage.setItem('role', role);
+        updateBaseUrl();
 
         switch (role) {
             case SchoolRoles.Teacher:
