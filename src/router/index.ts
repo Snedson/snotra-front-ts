@@ -28,7 +28,7 @@ const routes: Array<RouteRecordRaw> = [
     // {
     //     path: '/',
     //     redirect: () => {
-    //         window.location.href = 'https://auth.snotra.site/';
+    //         window.location.href = 'https://auth.snedson.com/';
     //         return '';
     //     },
     // },

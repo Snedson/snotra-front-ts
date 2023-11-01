@@ -19,7 +19,7 @@ const $api = axios.create({
     baseURL: getBaseUrl(),
 });
 
-export const authURL = 'https://auth.snotra.site';
+export const authURL = 'https://auth.snedson.com';
 
 $api.interceptors.request.use(
     (config) => {
