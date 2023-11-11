@@ -1,13 +1,13 @@
-import { INavigationMenu } from "@/interfaces/navigation-interfaces/INavigationMenu"
+import { INavigationMenu } from '@/common/types/navigation-interfaces/INavigationMenu';
 
-export const NavigationItems : INavigationMenu = {
+export const NavigationItems: INavigationMenu = {
     teacher: {
         mainNavigationElements: [
             {
                 id: 1,
                 iconName: 'home',
                 title: 'Главная страница',
-                routeName: 'sn.teacher.home',
+                routeName: 'sn.teacher.main',
             },
             {
                 id: 2,
@@ -27,24 +27,30 @@ export const NavigationItems : INavigationMenu = {
                 title: 'Уведомления',
                 routeName: 'sn.teacher.notifications',
             },
+            {
+                id: 5,
+                iconName: 'design_services',
+                title: 'Отладка компонентов',
+                routeName: 'sn.teacher.debug',
+            },
         ],
         additionalNavigationElements: [
             {
-                id: 5,
+                id: 6,
                 iconName: 'account_circle',
                 title: 'Профиль',
                 routeName: 'sn.teacher.user',
             },
-        ]
-    }, 
+        ],
+    },
     student: {
-        mainNavigationElements: [ 
+        mainNavigationElements: [
             {
                 id: 1,
                 iconName: 'home',
                 title: 'Главная страница',
-                routeName: 'sn.student.home',
-            }, 
+                routeName: 'sn.student.main',
+            },
             {
                 id: 2,
                 iconName: 'dashboard',
@@ -63,7 +69,7 @@ export const NavigationItems : INavigationMenu = {
                 title: 'Уведомления',
                 routeName: 'sn.student.notifications',
             },
-        ], 
+        ],
         additionalNavigationElements: [
             {
                 id: 5,
@@ -71,6 +77,10 @@ export const NavigationItems : INavigationMenu = {
                 title: 'Профиль',
                 routeName: 'sn.student.user',
             },
-        ]
-    }
-}
+        ],
+    },
+    none: {
+        mainNavigationElements: [],
+        additionalNavigationElements: [],
+    },
+};

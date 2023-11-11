@@ -1,0 +1,43 @@
+.left-to-right {
+    .content-header-transition-enter-from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    .content-header-transition-leave-to {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+}
+
+.right-to-left {
+    .content-header-transition-enter-from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    .content-header-transition-leave-to {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+}
+
+.top-to-down {
+    .content-header-transition-enter-from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    .content-header-transition-leave-to {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+.down-to-top {
+    .content-header-transition-enter-from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    .content-header-transition-leave-to {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}

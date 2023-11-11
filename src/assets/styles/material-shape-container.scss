@@ -1,0 +1,32 @@
+@mixin sn-msc-button-on-minor-card_hover {
+    & path {
+        fill: var(--snotra--sys--secondary);
+    }
+    & span {
+        color: var(--snotra--sys--surface);
+    }
+}
+
+:root .sn-msc-on-universal-card {
+    & path {
+        fill: var(--snotra--sys--surface-variant);
+        stroke: #85737066;
+        stroke-linejoin: round;
+        paint-order: stroke;
+    }
+}
+
+:root .sn-msc-button-on-minor-card {
+    & path {
+        transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+        fill: var(--snotra--sys--surface);
+    }
+    & span {
+        transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.25s;
+        color: var(--snotra--sys--on-secondary-container);
+    }
+
+    &:hover {
+        @include sn-msc-button-on-minor-card_hover;
+    }
+}
